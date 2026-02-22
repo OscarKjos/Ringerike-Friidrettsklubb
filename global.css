@@ -358,6 +358,10 @@ body{
         display:none;
     }
 
+    .ONLYPC{
+        display:none;
+    }
+
     #BackToTopp{                            /*? Return Knapp til toppen av siden*/
         /**Posisjon og layout*/
         display:none;                       /*! Ingen Utforming - Bytt til flex*/
@@ -384,6 +388,10 @@ body{
         text-decoration: none;
     }
 
+    #NOIPAD{
+        display:none;
+    }
+
 
 /* ================= Eksterne sider innad i programmet ================= */
     
@@ -407,6 +415,12 @@ body{
             }
 
             #ONLYPC{
+                display:flex;
+                text-decoration: none;
+                color:var(--White);
+            }
+
+            .ONLYPC{
                 display:flex;
                 text-decoration: none;
                 color:var(--White);
@@ -488,3 +502,11 @@ body{
                 margin-left:10px;
             }
         }   
+
+
+/* ===================== Responsiv Desktop (1000px +) ===================== */
+        @media (min-width:1000px){
+            #NOIPAD{
+                display:flex;
+            }
+        }

@@ -1015,7 +1015,11 @@
     
 
     #Liten{
-        gap:20px;
+        gap:0px;
+    }
+
+    #Liten p{
+        font-size: 14px;
     }
 
     #GridHead{
@@ -1193,6 +1197,8 @@
         grid-row:5;
         grid-column: 2;
         margin:20px;
+        margin-left:10px;
+        margin-top:10px;
     }
 
     #MedGrid{
@@ -1221,6 +1227,7 @@
     #BildeVisning{
         grid-row: 5;
         margin:30px;
+        margin-right:20px;
     }
 
     #BildeRamme{
@@ -1230,15 +1237,15 @@
     #BildeKolage{
         grid-row:6;
         grid-column: 1/-1;
-        gap:55px;
+        gap:35px;
 
         display:flex;
         flex-wrap: wrap;
     }
 
     #BildeFlex{
-        width:45%;
-        height: 80%;
+        width:44%;
+        height: 200px;
         font-size: 25px;
     }
 
@@ -1364,8 +1371,8 @@
 
  .KartKnaps{
     font-size: 18px;
-    height: 45px;
-    width:48%;
+    height: 40px;
+    width:45%;
  }
 
  #OSSP{
@@ -1418,5 +1425,9 @@
     .Spørsmål{
         width:96%;
     }
+
+}
+
+@media (min-width:850px){
 
 }
