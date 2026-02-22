@@ -1,0 +1,1423 @@
+        body{
+            margin:0;
+            background-color: var(--bg-color);
+            background-image: url(Bilder/Backround.webp);
+
+            display:grid;
+            grid-template-rows: 70px auto auto auto auto;
+            height: 100vh;
+        }
+
+        #GridHead{
+            grid-row: 2;
+        }
+
+        #ParentGrid{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #Forsidebilde{
+            width:100%;
+            border-bottom-left-radius: 100px 40px;
+            border-bottom-right-radius: 100px 40px;
+        }
+
+        #Velkomst{
+            color:white;
+            font-size: clamp(25px,6.8vw,30px);
+            position:absolute;
+            top:0%;
+            width:60%;
+            margin-left:15px;
+            text-shadow: 0px 0px 10px gray;
+        }
+
+        #VelkomstTekst{
+            position: absolute;
+            top: 35%;
+            color:white;
+            opacity: 80%;
+            width:60%;
+            margin-left:15px;
+            text-shadow: 0px 0px 10px gray;
+            font-size: clamp(16px,4.5vw,20px);
+        }
+
+        #ButFlex{
+            display:flex;
+            gap:15px;
+
+            position:absolute;
+            bottom:28%;
+            margin-left:20px;
+        }
+
+#ButFlex a{
+    text-decoration: none;
+}
+
+#Bilde{
+    width:100%;
+}
+
+.Button{
+    font-size: clamp(13px, 3.5vw, 15px);
+    border-radius: 50px;
+    padding:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-style: none;
+    box-shadow: var(--Skygge);
+    color:white;
+    width:110px;
+    height: 35px;
+}
+
+#But1{
+    background-color: #1959bd;
+    gap:5px;
+    width:130px;
+}
+
+#But2{
+    background-color: #54bb5a;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+
+#CardGrid{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    grid-row: 4;
+    margin:2px;
+    margin-top:10px;
+    margin-bottom: 20px;
+
+    position: relative;
+}
+
+.Card{
+    width:45%;
+    height: 180px;
+    border-radius: 10px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.CardIMG{
+    width:100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.Boks{
+    width:100%;
+    background-color:white;
+    height: 40%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: var(--Skygge);
+
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    gap:15px;
+
+}
+
+.Boks p{
+    margin:5px;
+    font-weight: 600;
+    font-size: clamp(15px,4.5vw,20px);
+}
+
+#SkriftoFlex{
+    grid-row:3;
+}
+
+#Skrifto{
+    margin:clamp(10px,3.7vw,20px);
+    color:rgb(46, 45, 45);
+    font-size: clamp(23px,6vw,28px);
+    text-align: center;
+}
+
+.Sponsors{
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    height: 30px;
+    padding: 20px 0;
+    margin-top:10px;
+    margin-top:clamp(10px,3.5vw,20px);
+
+    grid-row: 5;
+}
+
+.SponsorSlider{
+    display: flex;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+}
+
+.SponsorTrack{
+    display: flex;
+    gap: 60px;
+    padding-right: 60px;
+}
+
+.SponsorTrack img{
+    height: 35px;
+    opacity: 0.8;
+}
+
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+.Knapp{
+    border-radius: 10px;
+    border: none;
+    height: 28px;
+    margin-bottom:7px;
+    background: var(--Knapp1);
+    color:white;
+    margin-top:10px;
+    width:70px;
+    font-size: 10px;
+}
+
+#Knapp2{
+    background: var(--NyanseGrøn);
+}
+
+#Mellomrom{
+    width:90%;
+    border:solid var(--NyanseBlå) 1.5px;
+    border-radius: 10px;
+    opacity: 50%;
+}
+
+#BildeKolage{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:11px;
+    margin-top:15px;
+}
+
+/*_____________Medlemsskap_____________*/
+
+#MedGrid{
+    grid-row:5;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+#Contein{
+    height: auto;
+    width:75%;
+    font-size: clamp(13px,3.7vw,16px);
+    background-color: white;
+    border-radius: 15px;
+    padding:10px;
+    position: relative;
+}
+
+#Sjekk{
+    color:#54bb5a;
+}
+
+#Innmelding{
+    width:100%;
+    height: 40px;
+    border-radius: 10px;
+    border:none;
+    background-color: var(--NyanseGul);
+    color:rgb(47, 46, 46);
+    font-size: 13px;
+}
+
+#OverCard{
+    display:flex;
+    align-items: center;
+    gap:15px;
+    margin:10px;
+
+    width:100%;
+    height:100%;
+    background-color: rgba(245, 245, 245, 0.7);
+    border-radius: 20px;
+    padding:10px;
+}
+
+#Emoji{
+    position: absolute;
+    top:-3%;
+    right:0;
+
+    border-radius: 50%;
+    width:30px;
+    height:30px;
+    font-size: 20px;
+    background-color:var(--NyanseGrøn);
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Bilde3{
+    width:50%;
+    border-radius:20px;
+}
+
+#BildeFlex{
+    display:flex;
+    width:90%;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    gap:12px;
+
+    background-color: rgba(245, 245, 245, 0.7);
+    padding:10px;
+    border-radius: 20px;
+}
+
+#MotiTekst{
+    width:160%;
+    margin:10px;
+}
+
+.Popup{
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.Pop{
+    opacity: 1;
+}
+
+#OSSP{
+    grid-row:18;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap:0;
+    margin-top: 0;
+
+    background-color: rgba(164, 164, 164, 0.139);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#OSSP h2{
+    color:rgb(48, 46, 46);
+    margin-bottom: 2px;
+}
+
+.Spørsmål{
+    background-color: white;
+    width:90%;
+    margin:3px;
+    border-radius: 10px;
+    overflow-y: hidden;
+    font-size: 13px;
+    
+    background-color: white;
+    height: auto;
+    border:none;
+    padding:0;
+    color:black;
+}
+
+.Hidden{
+    height: auto;
+    display:none;
+    padding:3px;
+    padding-left:12px;
+    padding-right:12px;
+    line-height: 1.6;
+}
+
+.Hidden a{
+    text-decoration: none;
+}
+
+.Visible{
+    display:block;
+}
+
+#BildeSamling{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+    margin-top:5px;
+    align-items: center;
+
+    background-color: white;
+    padding:10px;
+    margin:5px;
+    border-radius: 10px;
+}
+
+#KnappKlikk{
+    width:100%;
+    height: 30px;
+    border:none;
+    border-radius: 40px;
+    color:black;
+    background-color: var(--NyanseGul);
+    font-size: 10px;
+}
+
+#Bildejustering{
+    width:45%;
+    height: 100%;
+    border-radius: 20px;
+    border:solid white;
+}
+
+#Gap{
+    display:flex;
+    justify-content: space-between;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.GapShow{
+    border:solid var(--NyanseBlå);
+    background-color: var(--NyanseBlå);
+    padding:10px;
+    border-radius: 10px;
+    margin:0;
+    color:white;
+}
+
+#NoDisplay{
+    display:none;
+}
+
+.GetMore{
+    border-radius: 10px;
+    background-color:var(--NyanseGul);
+    padding:12px;
+    color:black;
+    pointer-events:fill;
+    border:solid white 1px;
+    margin:0;
+    color:rgb(41, 41, 40)
+}
+
+.FlipKnapp{
+    position:absolute;
+    border-radius: 50%;
+    border:none;
+    font-size: 25px;
+    background-color: rgb(241, 239, 239);
+    color:black;
+    touch-action: manipulation;
+}
+
+#FlipStyle{
+    left:0;
+    top:40%;
+}
+
+#FlipStyle2{
+    right:0;
+    top:40%;
+}
+
+#Liten{
+    gap:0;
+    font-size: 14px;
+}
+
+#KartFrame{
+    grid-row:15;
+    margin:10px;
+    margin-bottom: 15px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:20px;
+
+    background-color: rgba(255, 255, 255, 0.758);
+    padding:10px;
+    border-radius: 10px;
+}
+
+.Kart{
+    width:100%;
+    height: 100%;
+    border-radius: 10px;
+    height: 160px;
+}
+
+#Kart1{
+    display: none;
+}
+
+#Kart2{
+    display:flex;
+}
+
+.KartKnaps{
+    height: 30px;
+    width:45%;
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(222, 230, 233);
+
+    display:flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(13px,3.5vw,16px);
+    color:black;
+}
+
+#BtnKart1.active{
+    background-color: var(--NyanseBlå);
+    color:white;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#BtnKart2.active{
+    background-color: var(--NyanseBlå);
+    color:white;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#GrenWeb{
+    display:none;
+}
+
+#CardOpda{
+    background-color: white;
+    margin:5px;
+    border-radius: 10px;
+    padding:10px;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top:0;
+
+    position:relative;
+}
+
+#IconTop{
+    position: absolute;
+    top:-10%;
+    right:-1%;
+    background-color: var(--NyanseGul);
+    padding:10px;
+    border-radius: 50%;
+    border:solid whitesmoke;
+    color:white;
+    font-size: 20px;
+}
+
+#CardOpda h2{
+    margin:5px;
+}
+
+#FlexAnt{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap:15px;
+    justify-content: space-evenly;
+    margin-top:10px;
+
+    background-color: rgb(233, 233, 250);
+    padding:10px;
+    border-radius: 5px;
+}
+
+#FlexSpan{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    gap:10px;
+}
+
+#FlexSpan i{
+    background-color: var(--NyanseBlå);
+    color:white;
+    padding:6px;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#FlexSpan p{
+    margin:0;
+    font-size: 14px;
+}
+
+#Opdadiv{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Nyhetsbilde{
+    border-top-left-radius: 100px 40px;
+    border-top-right-radius: 100px 40px;
+    border:solid white;
+    box-sizing: border-box;
+    border-top:none;
+}
+
+#Parento{
+    background-color: white;
+    position:relative;
+}
+
+#Childo{
+    position: absolute;
+    top:5%;
+    left:5%;
+    z-index:100;
+    width:90%;
+    color:white;
+}
+
+#Childo h2{
+    font-size:clamp(15px, 6vw, 30px);
+    border-radius: 50px;
+    text-align: center;
+}
+
+#Childo p{
+    width:90%;
+    background-color: #6d83a856;
+    border-radius: 50px;
+    padding:5px;
+    text-align: center;
+}
+
+#ReadMore{
+    padding:10px;
+    border-radius: 10px;
+    width:100px;
+    font-size: 15px;
+    background-color: var(--NyanseGul);
+    color:rgba(23, 23, 23, 0.933);
+    border:none;
+    position:absolute;
+    left:34%;
+}
+
+#RollerCard{
+    background-color: white;
+    margin-top:20px;
+    width:100%;
+    height: 50px;
+    padding:10px 0;
+    overflow: hidden;
+}
+
+#Scrollbar{
+    display:flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+    gap:10px;
+}
+
+#SjekkVerdi{
+    display:flex;
+    gap:20px;
+}
+
+.BildeShift{
+    width:100%;
+    object-fit: cover;
+    object-position: center;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.NyhetsCard{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:0;
+    
+    background-color: white;
+    padding:10px;
+    margin:5px;
+    border-radius: 10px;
+    position:relative;
+}
+
+.Dato{
+    background-color: rgba(220, 220, 229, 0.73);
+    width:fit-content;
+    padding-left:10px;
+    padding-right:10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin:0;
+}
+
+.Dato::before{
+    content:"Publisert: ";
+    margin-right:5px;
+}
+
+.NyhetsCard h3{
+    color:var(--OverskriftBlå);
+    text-align: center;
+}
+
+.NyhetsFont{
+    position:absolute;
+    top:-4%;
+    left:2%;
+    background-color: white;
+    border-bottom-right-radius: 20px;
+    padding:10px;
+
+    line-height: 1.8;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-color: var(--NyanseGul);
+}
+
+.NyhetsFont::before{
+    content:"Nyheter";
+}
+
+.MainTekst{
+    padding-left:5px;
+    padding-right:5px;
+    line-height: 1.5;
+    text-align: center;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* antall linjer */ 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+        .MainTekst.TextShow{
+            display: -webkit-box;
+            -webkit-line-clamp: unset; /* antall linjer */ 
+            -webkit-box-orient: vertical;
+            overflow: visible;
+        }
+
+        #ProduktGrid{
+            grid-row: 13;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            margin-top:5px;
+            margin-bottom:5px;
+            position: relative;
+        }
+
+        .Produkt1{
+            width:44%;
+            border-radius: 10px;
+            background-color: white;
+            padding:5px;
+            border:none;
+            height: auto;
+            color:black;
+
+            position: relative;
+        }
+
+        .Produkt2{
+            width:44%;
+            border-radius: 10px;
+            background-color: white;
+            padding:5px;
+            border:none;
+            height: auto;
+            color:black;
+
+            position: relative;
+        }
+
+        .Produkt1 p{
+            margin:0;
+            padding:0;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .Produkt2 p{
+            margin:0;
+            padding:0;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        #ProduktBilde{
+            width:100%;
+        }
+
+        #SmalTekst{
+            font-size: 11px;
+            margin:5px;
+            margin-bottom: 12px;
+        }
+
+        .ProduktKnapp{
+            position:absolute;
+            border-radius: 50%;
+            border:none;
+            font-size: 25px;
+            background-color: rgb(241, 239, 239);
+            color:black;
+            z-index: 200;
+
+            touch-action: manipulation;
+        }
+
+        .UtvalgKnapp{
+            width:100%;
+            background-color: var(--NyanseGul);
+            color:black;
+            border-radius: 5px;
+            padding:7px;
+            border:none;
+        }
+
+        .UtvalgKnapp i{
+            color:rgba(0, 0, 0, 0.654);
+            font-size: 14px;
+        }
+
+        #Icon{
+            width:35%;
+            position:absolute;
+            top:-5%;
+            left:0;
+        }
+
+        .ONLYPC{
+            display:none;
+        }
+
+        #Erstatningsbilde{
+            display:none;
+        }
+
+        #BildeVisning{
+            grid-row: 16;               
+            grid-column: 1;
+            margin:10px;               
+            height: 90%;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #BildeRamme{
+            background-color: #f4f6fb;
+            width:100%;
+            height: 100%;                
+            border-radius: 20px;
+            padding:10px;
+            background-image: url(Bilder/DeskFrontBilde.png);
+            background-position: center;
+            background-size: cover;
+            box-shadow: 0px 0px 2px rgba(128, 128, 128, 0.562);       
+        }
+
+        #KortRamme h2{           
+            font-size: 17px;
+            margin:0;
+        }
+
+        #TEXTPC{
+            display:none;
+        }
+
+        #RateSkrift{          
+            font-size: 14px;
+        }
+
+        #Anmeldelse{
+            background-color: white;
+            border-radius: 15px;
+            padding:8px;
+            position:relative;
+            box-shadow: 0px 0px 2px rgba(128, 128, 128, 0.499);
+        }
+
+        #Rating{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            gap:2px;
+            margin:8px;            
+            margin-left:0;           
+            font-size: 12px;        
+        }
+
+        #NewRate{
+            width:100%;
+            margin-top:5px;
+            border:none;
+            padding:8px;
+            border-radius: 10px;
+            background-color: var(--NyanseGul);
+            color:black;
+        }
+
+        #TittelSkrift{
+            margin-top:0;
+            margin-left:25px;
+            font-size: 14px;  
+        }
+
+        #Rating p{
+            margin:5px;
+            color:rgb(93, 93, 93);
+            font-size: 11px;
+        }
+
+        #KortRamme{
+            background-color: rgba(255, 255, 255, 0.609);
+            width:49%;              
+            padding:10px;
+            border-radius: 10px;
+        }
+
+        #BildeRamme i{
+            color:var(--NyanseGul)
+        }
+
+        .RateIcon{
+            width:30px;
+            position:absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        #Rate1{
+            top:-2%;
+            left:-2%;
+        }
+
+        #Rate2{
+            bottom:-2%;
+            right:-2%;
+            transform: rotate(180deg);
+        }
+
+        #SupaBaseImport{
+            margin:5px;
+        }
+
+
+
+
+
+/*_______________Responsiv Desktop________________*/
+
+@media (min-width:450px){
+    body{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #CardGrid{
+        grid-column: 1/-1;
+        row-gap: 30px;
+        margin-top:40px;
+
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom:40px;
+    }
+
+    .Card{
+        width:22%;
+        height: 50%;
+    }
+
+    .Boks{
+        font-size: 20px;
+    }
+
+    #CardOpda{
+        margin-top:20px;
+        margin-left:20px;
+    }
+
+    #RollerCard{
+        grid-column: 1/-1;
+        grid-row:12;
+    }
+
+    #ProduktGrid{
+        display:none;
+    }
+
+    #GrenWeb{
+        display:flex;
+    }
+
+    .Sponsors{
+        grid-row:3;
+        grid-column: 1/-1;
+        margin-top:0;
+        height: 70px;
+        display:flex;
+        align-items: center;
+    }
+    
+
+    #Liten{
+        gap:20px;
+    }
+
+    #GridHead{
+        grid-column: 1/-1;
+        height: 550px;
+    }
+
+    #Forsidebilde{
+        display:none;
+    }
+
+    #Erstatningsbilde{
+        display:flex;
+        object-fit:cover;
+        object-position: 50% 90%;
+        height: fit-content;
+        width:100%;
+        height: 100%;
+        touch-action: manipulation;
+    }
+
+    #ParentGrid{
+        display:flex;
+        justify-content: right;
+    }
+
+    #Velkomst{
+        font-size: 55px;
+        width:70%;
+        position: unset;
+        width:100%;
+        color: #262f52;
+        text-shadow: none;
+        font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        font-weight: 650;
+        letter-spacing: 0.05em;
+        margin-bottom: 0;
+        margin-top:0;
+        line-height: 1.3;
+    }
+
+    #SuperBig{
+        font-size: 75px;
+    }
+
+    #VelkomstTekst{
+        font-size: 23px;
+        position: unset;
+        width:70%;
+        font-weight: bold;
+        color: #262f52;
+        text-shadow: none;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    #BackColor{
+        position:absolute;
+        top:11%;
+        left:3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width:550px;
+        height: 245px;
+        padding:20px;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    #Tilbud{
+        position:absolute;
+        top:93%;
+        right:-65%;
+        font-size: 25px;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+        font-weight: bold;
+        color: #222526d8;
+    }
+
+    #ButFlex{
+        top:120%;
+        margin-left:5px;
+    }
+
+    .Button{
+        height: 60px;
+        font-size: 16px;
+        cursor:pointer;
+    }
+
+    #But1{
+        background-color:#4461be;
+        width:180px;
+    }
+    
+
+    #But2{
+        background-color:#7aca7e;
+        width:180px;
+    }
+
+    .ONLYPC{
+        display:flex;
+    }
+
+    #Bilde{
+        width:100%;
+    }
+
+
+    #TrapesBilder{
+        position:absolute;
+        right:0;
+        top:0;
+        width:46%;
+        height: 100%;
+        background-image: none;
+        background-position: center;
+        background-size: cover;
+        clip-path: polygon(0% 100%, 10% 0%, 50% 0%, 100% 0%, 100% 100%);
+        touch-action: manipulation;
+    }
+
+    #MotiCard{
+        background-color: #f4f6fb;
+        padding:20px;
+        width:44%;
+        height: 43%;
+        border-radius: 20px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #MotiCard p{
+        font-size: 50px;
+        position: unset;
+        width:100%;
+        color: #262f52;
+        text-shadow: none;
+        font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        font-weight: 650;
+        letter-spacing: 0.05em;
+        margin-bottom: 0;
+        margin-top:0;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    #MiniKnapper{
+        display:flex;
+        position:absolute;
+        bottom: 14%;
+        left:35%;
+        gap:10px;
+    }
+
+    #MiniKnapper button{
+        border-radius: 50%;
+        border:none;
+        height: 20px;
+        width:20px;
+    }
+
+    #MiniKnapper button:hover{
+        background-color: var(--NyanseBlå);
+    }
+
+    #TEXTPC{
+        display:inline;
+    }
+
+    #GridMed{
+        grid-row:5;
+        grid-column: 2;
+        margin:20px;
+    }
+
+    #MedGrid{
+        width:100%;
+    }
+
+    #OverCard{
+        display:flex;
+        gap:40px;
+        padding:30px;
+    }
+
+    #OverCard h2{
+        font-size: 35px;
+    }
+
+    #OverCard p{
+        font-size: 17px;
+    }
+
+    #Contein{
+        width:40%;
+        font-size: 17px;
+    }
+
+    #BildeVisning{
+        grid-row: 5;
+        margin:30px;
+    }
+
+    #BildeRamme{
+        height: 85%;
+    }
+
+    #BildeKolage{
+        grid-row:6;
+        grid-column: 1/-1;
+        gap:55px;
+
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    #BildeFlex{
+        width:45%;
+        height: 80%;
+        font-size: 25px;
+    }
+
+    #Bilde3{
+        height: 90%;
+    }
+
+    #RollerCard{
+        grid-row:7;
+        grid-column: 1/-1;
+    }
+
+    #Scrollbar{
+        gap:45px;
+    }
+
+    #SjekkVerdi{
+        font-size: 20px;
+        gap:45px;
+    }
+
+    #Parento{
+        grid-row:8;
+        grid-column: 1/-1;
+    }
+
+    .Nyhetsbilde{
+        display:none;
+    }
+
+    #Childo{
+        display:flex;
+        flex-direction: column;
+        justify-content:left;
+        align-items: baseline;
+        width:60%;
+        left:5%;
+        top:0;
+    }
+
+    #Childo h2{
+        font-size: 60px;
+        text-align: left;
+        color: #262f52;
+        font-weight: bold
+    }
+
+    #Childo p{
+        margin-top:0;
+        width:45%;
+        font-size: 25px;
+        color: #262f52b1;
+        background-color: transparent;
+        text-align: left;
+        
+    }
+
+    #ReadMore{
+        position:unset;
+        font-size: 20px;
+        padding:20px;
+        width:200px;
+    }
+
+    #SupaBaseImport{
+        grid-row:10;
+        grid-column: 1/-1;
+    }
+
+    .NyhetsFont{
+        display:none;
+    }
+
+
+    #SkriftoFlex{       /* Bare på Mobil */
+        display:none;
+    }
+
+    .FlipKnapp{         /* Bare på Mobil */
+        display:none;
+    }
+
+    #BildeSamling{
+        grid-row:9;
+        grid-column: 2;
+        height: 200px;
+        margin-top:20px;
+        margin-right:20px;
+    }
+
+    #BildeSamling h3{
+        font-size: 23px;
+    }
+
+    #BildeSamling p{
+        font-size: 20px;
+        width:85%;
+    }
+
+    #KnappKlikk{
+        font-size: 15px;
+        width:50%;
+    }
+
+    #FlexSpan p{
+        font-size: 16px;
+    }
+
+ #ProduktGrid{
+    grid-row:12;
+    display:flex;
+ }
+
+ #KartFrame{
+    margin-bottom:10px;
+    grid-row:12;
+    grid-column: 2;
+ }
+
+ .Kart{
+    height: 250px;
+ }
+
+ .KartKnaps{
+    font-size: 18px;
+    height: 45px;
+    width:48%;
+ }
+
+ #OSSP{
+    grid-row:13;
+    grid-column: 1/-1;
+ }
+
+ #Rating{
+    margin:10px;
+    font-size: 15px;
+ }
+
+ #TittelSkrift{
+    font-size: 18px;
+ }
+
+ #KortRamme{
+    width:50%;
+ }
+
+ #RateSkrift{
+    font-size: 18px;
+ }
+
+ #KortRamme h2{           
+        font-size:23px;
+        margin-bottom:15px;
+    }
+
+    #SupaBaseImport{
+        margin:15px;
+    }
+
+    .NyhetsCard{
+        width:25%;
+    }
+
+    #Rating p{
+        font-size: 15px;
+    }
+
+    #ErstatoBilde{
+        height: 525px;
+        object-fit: cover;
+        object-position: top;
+        width:100%;
+        height: 550px;
+    }
+
+    .Spørsmål{
+        width:96%;
+    }
+
+}

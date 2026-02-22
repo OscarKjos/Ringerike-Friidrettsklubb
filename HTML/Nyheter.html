@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Nyheter</title>
+
+    <style>
+        body{
+            display:grid;
+            grid-template-rows: 70px auto auto auto auto;
+        }
+
+        #NewBtn{
+            position:absolute;
+            top:13%;
+            right:5%;
+            border-radius: 50%;
+            border:none;
+            font-size: 25px;
+            padding:10px;
+            background-color: var(--NyanseBlå);
+            color:White;
+            height: 45px;
+            width:45px;
+        }
+
+        #Login{
+            position:fixed;
+            z-index: 100000;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 10px;
+            padding:10px;
+            display:flex;
+            flex-direction: column;
+            gap:10px;
+        }
+
+        #OverPassword{
+            position:fixed;
+            background-color: gray;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.45);
+            transition: 0.5s ease;
+            backdrop-filter: blur(2px);
+            border:none;
+
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #PassFlex{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+        }
+
+        #PassFlex p{
+            font-size: 20px;
+        }
+
+        #Login input{
+            font-size: 15px;
+            padding:2px;
+        }
+
+        #PassFlex button{
+            height:30px;
+            width:30px;
+        }
+
+        #LoginBtn{
+            height: 30px;
+        }
+
+         #OverPassword.Show{
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #CardGridon{
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            grid-row: 3;
+            display:flex;
+            flex-direction: row;
+            gap:8px;
+            margin:5px;
+        }
+
+        .NewCard{
+            background-color: white;
+            margin:10px;
+            padding:15px;
+            border-radius: 10px;
+            text-align: center;
+            width:100%;
+        }
+
+        .Tekst{
+            text-align: center;
+            line-height: 1.5;
+            padding-left:10px;
+            padding-right:10px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* antall linjer */ 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .Tekst.TextShow{
+            display: -webkit-box;
+            -webkit-line-clamp: unset; /* antall linjer */ 
+            -webkit-box-orient: vertical;
+            overflow: visible;
+        }
+
+        .PupliseringsDato{
+            display:flex;
+            flex-direction: row;
+            gap:10px;
+            justify-content: center;
+            align-items:center;
+
+            color:rgba(0, 0, 0, 0.636);
+        }
+
+        .PupliseringsDato::before{
+            content: "Publisert:";
+            font-weight: 600;
+        }
+
+        .Bilde{
+            width:100%;
+            border-radius: 20px;
+            height: 180px;
+            object-fit:cover;
+            object-position:center;
+        }
+
+        .Overskrifto{
+            font-size: 20px;
+            color:var(--NyanseBlå);
+            text-shadow: 0px 0px 10px rgba(104, 102, 102, 0.31);
+            margin-bottom: 0px;
+        }
+
+        @media(min-width:450px){
+            .NewCard{
+                width:25%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <span id="Top">
+        <h1 id="MainSkrift">Nyheter</h1>
+        <p><b>Sist oppdatert:</b> 22.januar 2026</p>
+    </span>
+
+    <a href="../Admin/login.html"><button id="NewBtn"><i class="fas fa-plus"></i></button></a>
+
+
+    <main id="CardGridon"> <!-- Nyheter legges her -->
+    <!-- (Dette er sånn strukturen ser ut. Elementene lages med js)
+        
+        <div class="NewCard">
+            <img class="Bilde">
+            <h3 class="Overskrifto"></h3>
+            <p class="PupliseringsDato"></p>
+            <p class="Tekst"></p>
+        </div>
+    
+        -->
+    </main>
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2>
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.no <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+
+    <script src="../JavaScript/global.js"></script>
+
+    <script type="module">
+        /*__________Importerer Nyheter fra databasen_________*/
+
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        async function hentNyheter() {              /* Async gjør at vi kan bruke koden "await" */
+            const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
+                .from('Nyheter')
+                .select('tittel, dato, innhold, bilde')
+                .order('id', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
+
+            if (error) {
+                console.error('Feil ved henting:', error)
+                return
+            }
+
+            const container = document.getElementById('CardGridon')
+            container.innerHTML = ''
+
+            data.forEach(nyhet => {
+                const div = document.createElement('div')
+                div.className = 'NewCard'
+
+                const DatoIdag = new Date(nyhet.dato);
+                const datoNorsk = DatoIdag.toLocaleDateString('no-NO');
+
+                div.innerHTML = `
+                    <h2 class="Overskrifto">${nyhet.tittel}</h2>
+                    <p class="PupliseringsDato">${datoNorsk}</p>
+                    <p class="Tekst">${nyhet.innhold}</p>
+                `
+                // Bilde
+                if (nyhet.bilde) {
+                    const bildeDiv = document.createElement("img");
+                    bildeDiv.src = nyhet.bilde;
+                    bildeDiv.className = "Bilde";
+                    div.prepend(bildeDiv);
+                }
+
+            // Click event for å vise/skjule innhold
+            const Info = div.querySelector(".Tekst");
+
+            div.addEventListener("click", () => {
+                Info.classList.toggle("TextShow");
+            });
+
+
+            // Legger alt inn i div
+                container.appendChild(div);
+        });
+
+        const NewCard = document.querySelectorAll(".NewCard").length;
+        localStorage.setItem("NyhetsAntall", NewCard)
+        }
+        hentNyheter() /* Kjører funksjonen */
+    </script>
+</body>
+</html>

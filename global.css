@@ -1,0 +1,490 @@
+:root{
+    --bg-color: whitesmoke;
+    --font:'Gill Sans MT', "Gill Sans", 'Open Sans', "Segoe UI", Arial, sans-serif;
+    --NyanseBlå:rgb(68, 97, 190);
+    --Knapp1:linear-gradient(#1F6FD6,#0B4FB3);
+    --Skygge:0px 0px 5px rgb(192, 209, 207);
+    --NyanseGul: #ffcc00;
+    --NyanseMørkBlå: rgb(55, 83, 174);
+    --NyanseGrøn:#54bb5a;
+    --White:white;
+    --Overlay:rgba(0, 0, 0, 0.45);
+    --OverskriftBlå:rgb(55, 83, 174);
+}
+
+body{
+    display:grid;
+    
+    height: 100vh;
+    margin:0;
+
+    font-family: var(--font);
+    background-color: var(--bg-color);
+    background-image: url(../Bilder/Backround.webp);
+}
+
+/*___________Gjenomgang av Kommentarstiler______________*/
+    /*ToDo: Brukes for å markere hva jeg trenger å gjøre (ToDoList)*/ 
+        /**Brukes for å markere viktig informasjon (Hightlightet)*/
+    /*?Brukes til å beskrive id og class elementer (Queries)*/
+        /*!Brukes som varsel eller for å markere feil (Alerts)*/
+    /*Vær oppmerksom på at alle metodene ovenfor en entydige kommentarer*/
+
+/*__________________Gruppeindeling i CSS_________________*/
+        /* 1. Posisjon og layout*/                      /*?Eksempel: Flex, Grid, z-index ...*/
+        /* 2. Størrelser*/                              /*?Eksempel: width, height, padding, margin, opacity ...*/
+        /* 3. Typografi, farger og bakgrunn*/           /*?Eksempel: Color, font-size, background ...*/
+        /* 4. Border-radius / border-effekter */        /*?Eksempel: Border, radius ...*/
+        /* 5. Animasjon, tranitions og pseudo-classes*/ /*?Eksempel: Transitions, animation ...*/
+
+
+/* ===================== Navigasjonsmeny ===================== */
+    
+    #Logo{                                        
+        width:80px;
+    }
+
+    #Navbar{                                      
+        /**Posisjon og layout*/
+        display:flex;
+        position:fixed;
+        justify-content:left;
+        align-items: center;
+        z-index: 10000;
+
+        /**Størrelser*/
+        padding:8px;
+        height: 50px;
+        width:96%;
+
+        /**Typografi, farger og bakgrunn*/
+        background-color:var(--NyanseBlå);
+        color:var(--White);
+        font-size: 20px;
+    
+        /**Border-radius / border-effekter*/
+        border-bottom-left-radius:30px;
+        border-bottom-right-radius:30px;
+        border-bottom: solid  3px;
+        border-color:#ffcc00;
+    }
+
+    #NavTekst{                      
+        /**Posisjon og layout*/
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        
+        /**Størrelser*/
+        width:100%;
+        margin-right:20px;
+    }
+
+    #NavTekst p{
+        font-size:clamp(20px,5.6vw,25px);
+    }
+
+    .Overlay{
+        /**Posisjon og layout*/
+        display:flex;
+        flex-direction: column;
+        position: fixed;
+        z-index: -1000;
+        top:0;
+        right:-300px;
+        
+        /**Størrelser*/
+        opacity: 0;
+        gap:10px;
+        width:150px;
+        height: 100%;
+
+        /**Typografi, farger og bakgrunn*/
+        padding:10px;
+        padding-left:15px;
+        background-color: var(--NyanseBlå);
+        
+        /**Animasjon og tranitions*/
+        transition: 1s ease;
+        pointer-events: none;
+    }
+
+    .Shadowlay{
+        /**Posisjon og layout*/
+        position:fixed;
+        z-index: 100;
+
+        /**Størrelser*/
+        inset:1;
+        opacity: 0;
+        
+        /**Typografi, farger og bakgrunn*/
+        background: var(--Overlay);
+        backdrop-filter: blur(2px);
+        border:none;
+
+        /**Animasjon og tranitions*/
+        transition: 1s ease;
+        pointer-events: none;
+    }
+
+    .show{
+        opacity: 1;
+        inset:0;
+        pointer-events: fill;
+    }
+
+    .open{
+        z-index: 1000;
+        right:0px;
+
+        opacity: 1;
+        pointer-events: fill;
+    }
+
+    #NavClick{
+        /**Størrelser*/
+        padding:5px;
+        width:40px;
+
+        /**Typografi, farger og bakgrunn*/
+        font-size: 20px;
+        background-color: transparent;
+        color:var(--White);
+        
+        border:none;
+        cursor: pointer;
+    }
+
+    #NavClick:hover{
+        transform: scale(1.1);
+    }
+
+    #FlexNav{
+        display:flex;
+        gap:10px;
+    }
+
+    #NavRemove{
+        background-color: transparent;
+        border:none;
+        color:var(--White);
+        font-size: 20px;
+        cursor:pointer;
+    }
+
+    #TopColor{
+        grid-row: 1;
+        grid-column: 1/-1;
+
+        width:100%;
+        height:100%;
+
+        background-color: var(--NyanseBlå);
+    }
+
+    .NavList{
+        text-decoration: none;
+    }
+
+    .TekstConf{
+        /**Posisjon og layout*/
+        display:flex;
+        justify-content: center;
+        position:fixed;
+        top: 100%;
+        right:0;
+
+        /**Størrelser*/
+        width:135px;
+        padding:20px;
+        opacity: 70%;
+        margin:0;
+        
+        /**Typografi, farger og bakgrunn*/
+        font-size: 15px;
+        background-color:rgb(211, 211, 225);
+        border-radius: 10px;
+        font-family:var(--font);
+        color:black;
+        
+        transition: 1s ease 0.5s;
+    }
+
+    .CopyShow{
+        top: 93%;
+    }
+
+    #UnderNav{
+        /**Posisjon og layout*/
+        display:flex;
+        gap:10px;
+
+        /**Størrelser*/
+        padding:10px;
+        opacity: 70%;
+
+        /**Typografi, farger og bakgrunn*/
+        text-decoration: none;
+        color:var(--White);
+        font-size: 15px;
+    }
+
+    .Overlay a{
+        /**Posisjon og layout*/
+        display:flex;
+        gap:20px;
+
+        /**Typografi, farger og bakgrunn*/
+        text-decoration: none;
+        color:var(--White);
+    }
+
+/* ===================== Footer - Nedre Navigasjonsmeny ===================== */
+
+    #FotBar{
+        /**Posisjon og layout*/
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        grid-row:19;
+        grid-column: 1/-1;
+
+        /**Størrelser*/
+        margin-top:20px;
+        padding:15px;
+
+        background-color: var(--NyanseBlå);
+        color:var(--White);
+    }
+
+    #Nyhetsbrev{
+        /**Posisjon og layout*/
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+    }
+
+    #Submit{
+        padding:10px;
+        width:96%;
+
+        background-color: var(--NyanseGul);
+        color:rgba(0, 0, 0, 0.819);
+
+        border-radius: 5px;
+        border:none;
+    }
+
+    #Nyhetsbrev input,textarea{
+        padding:10px;
+        width:90%;
+        
+        font-size: 12px;
+        border-radius: 5px;
+        border:none;
+    }
+
+    #Marked{
+        padding:2px;
+        border-radius: 5px;
+        background-color: var(--NyanseGul);
+    }
+
+    #Kontakt{
+        line-height: 1.8;
+    }
+
+    #OverFot{
+        line-height: 1.8;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+    }
+
+    #SosialeMedier{
+        display:flex;
+        gap:20px;
+        justify-content: center;
+
+        margin:15px;
+        margin-bottom: 0px;
+        font-size: 30px;
+    }
+
+    #SosialeMedier a{
+        text-decoration: none;
+        color:var(--White);
+    }
+
+    #SosialeMedier a:hover {                                
+        color: #e1306c;                      /*ToDo: Pseudo-classes */ 
+    }
+
+    #CopyFot{
+        grid-row: 20;
+        grid-column: 1/-1;
+
+        background-color: var(--NyanseBlå);
+    }
+
+    #Copyright{
+        /**Posisjon og layout*/
+        display:flex;
+        justify-content: center;
+        text-align: center;
+
+        /**Størrelser*/
+        opacity: 70%;
+        margin:0;
+        padding:10px;
+        width: 100%;                        /* full bredde */
+        box-sizing: border-box;             /*? inkluderer padding i bredden */
+
+        /**Typografi, farger og bakgrunn*/
+        font-size: 15px;
+        background-color:rgb(211, 211, 225);
+        color:black;
+        
+        /**Border*/
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+
+    #ONLYPC{                          /*! Disse elementene vises kunn på desktop*/
+        display:none;
+    }
+
+    #BackToTopp{                            /*? Return Knapp til toppen av siden*/
+        /**Posisjon og layout*/
+        display:none;                       /*! Ingen Utforming - Bytt til flex*/
+        justify-content:center;
+        align-items:left;
+        position: fixed;
+        bottom:0%;
+        right:0%;
+
+        /**Størrelser*/
+        padding:15px;
+        height: 40px;
+        width: 40px;
+
+        /**Typografi, farger og bakgrunn*/
+        color:black;
+        background-color: rgba(211, 211, 225, 0.613);
+        font-size: 15px;
+        border-top-left-radius: 50%;
+        border: solid white 1px;
+    }
+
+    #NoUnderline{
+        text-decoration: none;
+    }
+
+
+/* ================= Eksterne sider innad i programmet ================= */
+    
+    #Top{
+        grid-row: 2;
+        text-align: center;
+        background:linear-gradient(white,rgba(255, 255, 255, 0.023));
+    }
+
+    #MainSkrift{
+        text-align: center;
+        color:var(--OverskriftBlå);
+    }
+
+
+/* ===================== Responsiv Desktop (850px +) ===================== */
+
+        @media (min-width:850px){
+            #Navbar{
+                width:100%;
+            }
+
+            #ONLYPC{
+                display:flex;
+                text-decoration: none;
+                color:var(--White);
+            }
+
+            #FlexPC a:hover{
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                border-bottom: 5px solid var(--NyanseGul);
+                transform: scale(1.15);
+            }
+
+            #FlexPC{
+                gap:50px;
+                margin-right:30px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                border-bottom: 3px var(--NyanseBlå);
+            }
+
+            #FlexPC p{
+                display:flex;
+                flex-direction: row;
+                gap:10px;
+                font-size: 18px;
+            }
+
+            #FotBar{
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap:30px;
+
+                border-top:solid var(--NyanseGul) 3px;
+                border-top-left-radius:30px;
+                border-top-right-radius:30px;
+            }
+
+            #FotBar form{
+                width:350px;
+            }
+
+            #SosialeMedier{
+                display:none;
+            }   
+
+            #OnlyPhone{               /*! Disse elementene vises kunn på mobil*/
+                display: none;
+            }
+
+            .OnlyPhone{
+                display: none;
+            }
+
+            #NyttigLenke{
+                display:flex;
+                gap:20px;
+            }
+
+            #NyttigLenke a{
+                color:var(--White);
+                font-size: 30px;
+            }
+
+            .FlexO{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #CopyFot{
+                padding-top:20px;
+            }
+
+            #Logo{
+                margin-left:10px;
+            }
+        }   

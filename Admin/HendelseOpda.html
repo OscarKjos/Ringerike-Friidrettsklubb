@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Admin Legg til Hendelse</title>
+    <style>
+        body{
+            background-color: #efeff4;
+            font-family: 'Gill Sans MT', "Gill Sans", 'Open Sans', "Segoe UI", Arial, sans-serif;
+        }
+
+
+        #Flexor{
+            display:flex;
+            flex-direction: column;
+            margin:10px;
+            background-color: white;
+            border-radius: 10px;
+            padding:10px;
+            height: auto;
+        }
+
+        #Submit{
+            margin-top:0px;
+            width:100%;
+            height: 50px;
+            border:none;
+            font-size: 15px;
+            color:white;
+            background-color:  rgb(55, 83, 174);
+            border-radius: 10px;
+        }
+
+        #FlexBro{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #FlexBro button{
+            width:50px;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        #nyhetsSkjema{
+            display:flex;
+            flex-direction: column;
+            gap:25px;
+        }
+
+        #nyhetsSkjema div{
+            display:flex;
+            flex-direction: column;
+        }
+
+        #nyhetsSkjema input, select{
+            height: 35px;
+            font-size: 16px;
+        }
+
+        #nyhetsSkjema select,input{
+            background-color: transparent;
+            border-radius: 5px;
+            border:solid rgba(128, 128, 128, 0.485) 0.2px;
+        }
+
+        #nyhetsSkjema div, lable{
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        #Gruppe{
+            height: 35px;
+        }
+
+        #Beskrivelse{
+            height: 120px;
+            font-size: 16px;
+        }
+
+         /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                #FlexGrid{
+                    width:100%;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #Flexor{
+                    width:50%;
+                    padding:20px;
+                }
+
+                #Submit{
+                    margin:0;
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <div id="FlexGrid">
+    <div id="Flexor">
+        <span id="FlexBro">
+            <h1>Legg til Hendelse</h1>
+            <a href="Admin.html"><button><i class="fa-solid fa-x"></i></button></a>
+        </span>
+        <p>Fyll ut for å varsle om kommende arrangementer</p>
+        
+        <form id="nyhetsSkjema">
+            <div>
+                <lable>Type arrangement</lable>
+                <input id="Type" type="text" maxlength="20" placeholder="Dugnad og Pizzakveld" required>
+            </div>  
+
+            <div>
+                <lable>Dato</lable>
+                <input id="Dato" type="date" required>
+            </div>
+            
+            <div>
+                <lable>Klokkeslett</lable>
+                <input id="Klokkeslett" type="time" required>
+            </div>
+
+            <div>
+                <lable>Sted</lable>
+                <input id="Sted" type="text" placeholder="Klubbhuset" required>
+            </div>
+
+            <div>
+                <lable>Gruppe</lable>
+                <select id="Gruppe" required>
+                    <option></option>
+                    <option>Alle</option>
+                    <option>Ungdomsgruppa</option>
+                    <option>Breddegruppa</option>
+                    <option>Kastgruppa</option>
+                    <option>Rekruttene</option>
+                    <option>Styre</option>
+                    <option>Trenere</option>
+                </select>
+            </div>
+
+            <div>
+                <lable>Beskrivelse</lable>
+                <textarea id="Beskrivelse" placeholder="Skriv her" required></textarea>
+            </div>
+
+            <button id="Submit" type="submit">Legg til Hendelse!</button>
+        </form>
+    </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        document.getElementById('nyhetsSkjema').addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        const Type = document.getElementById("Type").value;
+        const Dato = document.getElementById("Dato").value;
+        const Klokkeslett = document.getElementById("Klokkeslett").value;
+        const Sted = document.getElementById("Sted").value;
+        const Gruppe = document.getElementById("Gruppe").value;
+        const Beskrivelse = document.getElementById("Beskrivelse").value;
+
+        const { error } = await supabase
+                .from('Arrangementer')
+                .insert([{ type:Type, dato:Dato, klokkeslett:Klokkeslett, sted:Sted, gruppe:Gruppe, beskrivelse:Beskrivelse}])
+
+            if (error) {
+                alert('Feil: ' + error.message)
+            } else {
+                alert('Hendelsen ble lagt til!')
+                window.location.href = 'Admin.html'
+            }
+         });
+    </script>
+</body>
+</html>

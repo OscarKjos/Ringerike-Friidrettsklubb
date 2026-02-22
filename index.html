@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <!--Grunnleggende-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Ikoner -->
+    <link rel="icon" type="image/png" sizes="32x32" href="Bilder/Logo_Sponsor/Logo.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="Bilder/Logo_Sponsor/Logo.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="Bilder/Logo_Sponsor/Logo.webp">
+
+    <!-- PWA / mobil --> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="rgb(68, 97, 190)">
+
+    <!-- Google Search Console -->
+    
+    
+    <!-- Tittel og beskrivelse (SEO) -->
+    <title>Ringerike Friidrettsklubb</title>
+    <meta name="description" content="Ringerike Friidrettsklubb tilbyr friidrett for barn, ungdom og voksne. Vi driver med løp, hopp og kast, deltar i stevner og skaper idrettsglede og fellesskap i Ringerike.">
+
+</head>
+<body>
+    <div id="TopColor"></div>
+    <nav id="Navbar">
+            <a href="index.html"><img id="Logo" src="Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="HTML/OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="HTML/Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="HTML/Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="HTML/Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="HTML/Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="HTML/Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="HTML/Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="HTML/Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="HTML/Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <header id="GridHead">
+    <div id="ParentGrid">
+                <img id="Erstatningsbilde" src="Bilder/DeskFrontBilde.png">
+                <img id="Forsidebilde" src="Bilder/Forsidebilde2.jpg">
+            <div id="TrapesBilder" class="ONLYPC">
+                <div id="MiniKnapper">
+                    <button class="ONLYPC"></button>
+                    <button class="ONLYPC"></button>
+                    <button class="ONLYPC"></button>
+                    <button class="ONLYPC"></button>
+                </div>
+            </div>
+        <div id="BackColor">
+                <h1 id="Velkomst">Velkommen til <b id="SuperBig" style="font-weight: bold;">Ringerike</b> Friidrettsklubb</h1>
+                <p id="VelkomstTekst">- Opplev gleden ved friidrett! Bli med idag.</p>
+        <div id="ButFlex">
+            <a href="https://www.minidrett.no/"><button class="Button" id="But1"><i class="fa-solid fa-person-running"></i> Min Idrett</button></a>
+            <a href="HTML/Nyheter.html"><button class="Button" id="But2"><i class="fa-solid fa-bell"></i> Nyheter <i class="fa-solid fa-chevron-right"></i></button></a>
+        </div>
+        </div>
+    </div>
+    </header>
+
+    <div id="SkriftoFlex">
+        <h2 id="Skrifto">Tilbud hos oss</h2>
+    </div>
+
+    <main id="CardGrid">
+            <button class="FlipKnapp" id="FlipStyle"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="FlipKnapp" id="FlipStyle2"><i class="fa-solid fa-chevron-right"></i></button>
+            <div style="display:flex;" class="Card gruppe1">
+                <img class="CardIMG" src="Bilder/Utøvere_Card.webp">
+                <div class="Boks">
+                    <p>Løping</p>   <!--Dette inkluderer: sprint, mellomdistanse, langdistanse, stafett-->
+                    <a href="Pages/løping.html"><button class="Knapp" id="Knapp1">Les mer <i class="fa-solid fa-chevron-right"></i></button></a>
+                </div>
+            </div>
+
+            <div style="display:flex;" class="Card gruppe1">
+                <img class="CardIMG" src="Bilder/Kast_Card.webp">
+                <div class="Boks">
+                    <p>Kast</p> <!--Dette inkluderer lengdehopp, høydehopp, stavsprang, tresteg-->
+                    <a href="Pages/Kast.html"><button class="Knapp" id="Knapp2">Les mer <i class="fa-solid fa-chevron-right"></i></button></a>
+                </div>
+            </div>
+
+            <div id="MotiCard" class="ONLYPC">
+                <p>"Steg for steg - fart i bevegelse"</p>
+            </div>
+
+            <div id="MotiCard" class="ONLYPC">
+                <p>“Sammen bygger vi morgendagens utøvere”</p>
+            </div>
+
+            <div id="GrenWeb" class="Card gruppe2">
+                <img class="CardIMG" src="Bilder/Hopp_Card.png">
+                <div class="Boks">
+                    <p>Hopp</p> <!--Dette inkluderer kule, diskos, spyd, slegge-->
+                    <a href="Pages/Hopp.html"><button class="Knapp" id="Knapp3">Les mer <i class="fa-solid fa-chevron-right"></i></button></a>
+                </div>
+            </div>
+
+            <div id="GrenWeb" class="Card gruppe2">
+                <img class="CardIMG" src="Bilder/Mangekamp_Card.png">
+                <div class="Boks" id="Liten">
+                    <p>Mangekamp</p> <!--Dette inkluderer tikamp (menn) og sjukamp (kvinner)-->
+                    <a href="Pages/Mangekamp.html"><button class="Knapp" id="Knapp2">Les mer <i class="fa-solid fa-chevron-right"></i></button></a>
+                </div>
+            </div>
+    </main>
+
+    <section class="Sponsors">
+    <div class="SponsorSlider">
+        <div class="SponsorTrack">
+            <img src="Bilder/Logo_Sponsor/Sparebank1.png">
+            <img src="Bilder/Logo_Sponsor/Norsk_friidrett.png">
+            <img src="Bilder/Logo_Sponsor/RingerikeKommune.png">
+            <img src="Bilder/Logo_Sponsor/Hytteplan.jpg">
+            <img src="Bilder/Logo_Sponsor/ByggAS.webp">
+        </div>
+
+        <div class="SponsorTrack">
+            <img src="Bilder/Logo_Sponsor/Sparebank1.png">
+            <img src="Bilder/Logo_Sponsor/Norsk_friidrett.png">
+            <img src="Bilder/Logo_Sponsor/RingerikeKommune.png">
+            <img src="Bilder/Logo_Sponsor/Hytteplan.jpg">
+            <img src="Bilder/Logo_Sponsor/ByggAS.webp">
+        </div>
+    </div>
+    </section>
+
+
+    <div id="BildeVisning">
+        <div id="BildeRamme">
+            <div id="KortRamme">
+            <h2><b>Lars <i>Sjønnhaug</i> <b id="TEXTPC">Holm</b></b></h2>
+
+            <div id="Rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <p><b style="color:black;">5.0</b> av 5.0</p>
+            </div>
+
+            <div id="Anmeldelse">
+                <p id="TittelSkrift"><b>Fantastisk klubb!</b></p>
+                <p id="RateSkrift">Lavterskel tilbud i klubb med høy kvalitet på innholdet. <p id="TEXTPC">Øktene er varierte, motiverende og tilpasset alle nivåer.</p></p>
+                <img class="RateIcon" id="Rate1" src="Bilder/Ikoner/Ikon_Rate.webp">
+                <img class="RateIcon" id="Rate2" src="Bilder/Ikoner/Ikon_Rate.webp">
+            </div>
+            <button id="NewRate">Skriv Anmeldelse</button>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="GridMed" class="Popup">
+        <div id="MedGrid">
+            <div id="OverCard">
+                <span>
+                <h2>Bli Medlem</h2>
+                <p>Fyll ut kjemaet, så tar vi kontakten!</p>
+                <p>Møt gjerne opp på trening i mellomtiden</p>
+                <a href="https://club.spond.com/landing/signup/ringerikefri/form/09BD05527D88455A8E8A2AB7CB7AFC7F"><button id="Innmelding">Meld deg inn</button></a>
+                </span>
+
+                <div id="Contein">
+                    <i id="Emoji" class="fa-solid fa-circle-check"></i>
+                
+                    <h4>Hvorfor velge oss?</h4>
+                    <p><i id="Sjekk" class="fa-solid fa-check"></i> Godt sosialt miljø</p>
+                    <p><i id="Sjekk" class="fa-solid fa-check"></i> Både lek og satsing</p>
+                    <p><i id="Sjekk" class="fa-solid fa-check"></i> Gode trenere</p>
+                    <p><i id="Sjekk" class="fa-solid fa-check"></i> Variert treningsopplegg</p>
+                    <p><i id="Sjekk" class="fa-solid fa-check"></i> Fokus på mestring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="BildeKolage">
+        <div id="BildeFlex" class="Popup">
+            <img id="Bilde3" src="Bilder/Utøvere5.jpg">
+            <p id="MotiTekst">Et sted for utvikling, selvtillit og idrettsglede.<br>Foto: Mats Orø Olsen</p>
+        </div>
+    
+        <div id="BildeFlex" class="Popup">
+            <p id="MotiTekst">I vår klubb tilbyr vi målrettet trening i et trygt og inklusivt miljø.<br></p>
+            <img id="Bilde3" src="Bilder/Utøvere4.png">
+        </div>
+    </div>
+
+    <section id="RollerCard">
+    <div id="Scrollbar">
+        <div id="SjekkVerdi">
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Felleskap</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Utvikling</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Vennskap</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Mestring</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Trygghet</p>
+        </div>
+
+        <div id="SjekkVerdi">
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Inkludering</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Pågangsmot</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Respekt</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Gode Verdier</p>
+            <p><i id="Sjekk" class="fa-solid fa-check"></i> Samhold</p>
+        </div>
+    </div>
+    </section>
+
+    <div id="Parento" class="Popup">
+        <img id="Bilde" class="Nyhetsbilde" src="Bilder/ForsideBildeNyhet.png">
+        <img id="ErstatoBilde" class="ONLYPC" src="Bilder/UtøverBilde.png">
+
+        <div id="Childo">
+            <h2>Ny nettside for <br> Ringerike <br id="ONLYPC"> Friidrettsklubb!</h2>
+            <p>Vi har lansert en splitter ny nettside - Utviklet av Oscar Kjos</p>
+            <a href="Pages/Webløsning.html"><button id="ReadMore">Les Mer</button></a>
+        </div>
+    </div>
+
+    <div id="CardOpda" class="Popup">
+        <h2>Klubb Statistikk:</h2>
+        <hr id="Mellomrom">
+        <div id="IconTop"><i class="fa-solid fa-trophy"></i></div>
+    <div id="FlexAnt">
+    <div id="Opdadiv">
+        <div id="FlexSpan">
+            <i class="fa-solid fa-newspaper"></i>
+            <span>
+                <p><b>Nyheter:</b></p>
+                <p id="NyhetsResultat">0</p>
+            </span>
+        </div>
+
+        <div id="FlexSpan">
+            <i class="fa-solid fa-running"></i>
+            <span>
+                <p><b>Hendelser:</b></p>
+                <p id="HendelseAntall">0</p>
+            </span>
+        </div>
+    </div>
+
+    <div id="Opdadiv">
+        <div id="FlexSpan">
+            <i class="fa-solid fa-user-group"></i>
+            <span>
+                <p><b>Utøvere:</b></p>
+                <p id="UtøverImport">0</p>
+            </span>
+        </div>
+
+        <div id="FlexSpan">
+            <i class="fa-solid fa-running"></i>
+            <span>
+                <p><b>Resultater:</b></p>
+                <p id="StevneResultat">0</p>
+            </span>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <section>
+        <div>
+            <div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div id="BildeSamling" class="Popup">
+        <img id="Bildejustering" src="Bilder/Utøvere3.jpg">
+        <span>
+            <h3>Friidrettskolen</h3>
+            <p>Hver sommer arrangerer vi friidrettsskole for barn mellom 6 – 12 år.</p>
+            <a href="Pages/friidrettskolen.html"><button id="KnappKlikk">Les mer</button></a>
+        </span>
+    </div>
+
+    <section id="SupaBaseImport" class="Popup">
+        <!-- (Dette er sånn strukturen ser ut. Elementene lages med js) 
+
+        <div class="NyhetsCard">
+            <h2 class="NyhetsFont">Nyheter</h2>
+            <img class="BildeShift" src="Bilder/Utøvere.png">
+            <p class="Dato">22. januar. 2026</p>
+            <h3 id="Overtab">Ny nettside for Ringerike Friidrettsklubb!</h3>
+            <p class="MainTekst">Ringerike friidrettsklubb har fått en splitter ny nettside - utviklet av Oscar Kjos</p>
+        </div>
+
+        -->
+    </section>
+
+    <div id="ProduktGrid" class="Popup">
+        <button class="ProduktKnapp" id="FlipStyle"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="ProduktKnapp" id="FlipStyle2"><i class="fa-solid fa-chevron-right"></i></button>
+        
+        <div style="display:block;" class="Produkt1">
+            <img id="ProduktBilde" src="Bilder/Treningsklær/T-Skjorte_Kvad2.webp">
+            <p><b>T-Skjorte - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>200 kr</b></p>
+            <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
+
+            <img id="Icon" src="Bilder/Ikoner/NyhetsIkon.webp">
+        </div>
+
+        <div style="display:block;" class="Produkt1">
+            <img id="ProduktBilde" src="Bilder/Treningsklær/Jakke_Kvad.webp">
+            <p><b>Jakke - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b style="color:green;">250 kr</b></p>
+            <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
+        </div>
+
+        <div style="display:none;" class="Produkt2">
+            <img id="ProduktBilde" src="Bilder/Treningsklær/Singlet_Kvad.webp">
+            <p><b>Singlet - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b style="color:green;">120 kr</b></p>
+            <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
+        </div>
+
+        <div style="display:none;" class="Produkt2">
+            <img id="ProduktBilde" src="Bilder/Treningsklær/Genser_Kvad.webp">
+            <p><b>Genser - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>320 kr</b></p>
+            <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
+            <img id="Icon" src="Bilder/Ikoner/NyhetsIkon2.webp">
+        </div>
+    </div>
+
+    <div id="KartFrame" class="Popup">
+        <button class="KartKnaps" id="BtnKart1"><i class="fa-solid fa-map-pin"></i>Ringerikshallen</button>
+        <button class="KartKnaps" id="BtnKart2"><i class="fa-solid fa-map-location-dot"></i>Friidrettsstadion</button>
+        <iframe class="Kart" id="Kart1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.412881737848!2d10.252956837635516!3d60.18559111808681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641a9e2a81f20a7%3A0x74deb7adf2a56f39!2sRingerikshallen!5e0!3m2!1sno!2sno!4v1769107710037!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="Kart" id="Kart2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7214849826496!2d10.26182047698549!3d60.15820667502627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641071598a9e74d%3A0x898f93e3b9dc6f84!2sFriidrettsstadion%20i%20H%C3%B8nefoss%2C%20Ringerike%20Friidrettsklubb!5e0!3m2!1sno!2sno!4v1769108009784!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div id="OSSP">
+        <h2>Ofte stilte spørsmål?</h2>
+        <button class="Spørsmål">
+            <p id="Gap">Hvor trener vi? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">Om sommeren, sen vår og tidlig høst trener vi på friidrettsbanen i <b>Sjongslund</b>. Sen høst, vinter og tidlig vår trener vi i <b>Ringerikshallen</b>, hvor vi har mulighet til både innendørs- og utendørstrening. <a href="HTML/Treningsanlegg.html">Se våre treningsfasiliteter</a></p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap">Når trener vi? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">Treningstider varierer avhengig av hvilken treningsgruppe du tilhører. Fellestreninger holdes på mandager og onsdager. <a href="HTML/Treningstider.html">Se tider her</a></p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap">Sesong / Oppstart <i class="fas fa-plus"></i></p>
+            <p class="Hidden">I begynnelsen av våren starter sesong med stevner, løp og konkurranser</p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap" class="GetMore">Få svar på flere spørsmål<i class="fas fa-plus"></i></p>
+        </button>
+
+    <div id="NoDisplay">
+        <button class="Spørsmål">
+            <p id="Gap">Hva trenger man av utstyr? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">1. Løpesko eller joggesko som passer underlag.<br> 2. Komfortable treningsklær som tillater bevegelse. <br> 4. Klær etter vær (Uteklær) og vannflaske
+            </p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap">Kan man prøve gratis? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">Ja! Du kan møte opp <b>inntil tre ganger</b> gratis før du bestemmer deg for om du vil bli medlem i klubben.</p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap">Hva koster et medlemsskap? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">Medlemskontingent i 2024 er 200 kr for alle, i tillegg kommer treningsavgift/aktivitetsavgift for de som trener fast eller deltar på stevner der klubben dekker startgebyrer. <a href="HTML/Medlemskap.html">Se egen oversikt over priser og medlemskap</a></p>
+        </button>
+
+        <button class="Spørsmål">
+            <p id="Gap">Hvordan melder jeg meg på stevner? <i class="fas fa-plus"></i></p>
+            <p class="Hidden">Du kan melde deg på løp og konkurranser via <a href="https://isonen.no/?offset=0&sfName=Norges+Friidrettsforbund">Isonen</a></a></p>
+        </button>
+    </div>
+    </div>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.no <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+            
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+    <a><button id="BackToTopp"><i class="fa-solid fa-arrow-up"></i></button></a>
+
+    <script src="JavaScript/global.js"></script>
+    <script src="JavaScript/script.js"></script>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        let limitNumb;
+        if (window.innerWidth <= 450){
+            limitNumb = 1;
+        }
+        else{
+            limitNumb = 4;
+        }
+
+        async function FørsteNyhet() {
+            const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
+                .from('Nyheter')
+                .select('tittel, dato, innhold, bilde')
+                .order('id', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
+                .limit(limitNumb)
+
+            const Import = document.getElementById('SupaBaseImport')
+            Import.innerHTML = ''
+
+            data.forEach(nyhet => {
+                const div = document.createElement('div')
+                div.className = 'NyhetsCard'
+
+                const DatoIdag = new Date(nyhet.dato);
+                const datoNorsk = DatoIdag.toLocaleDateString('no-NO');
+
+                div.innerHTML = `
+                    <h3>${nyhet.tittel}</h3>
+                    <p class="Dato">${datoNorsk}</p>
+                    <p class="MainTekst">${nyhet.innhold}</p>
+                `
+                // Bilde
+                if (nyhet.bilde) {
+                    const bildeDiv = document.createElement("img");
+                    bildeDiv.src = nyhet.bilde;
+                    bildeDiv.className = "BildeShift";
+                    div.prepend(bildeDiv);
+                }
+
+            // Click event for å vise/skjule innhold
+            const Info = div.querySelector(".MainTekst");
+
+            div.addEventListener("click", () => {
+                Info.classList.toggle("TextShow");
+            });
+
+            // Legger alt inn i div
+                Import.appendChild(div);
+        });
+        }
+        FørsteNyhet() /* Kjører funksjonen */
+    </script>
+</body>
+</html>

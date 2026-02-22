@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Våre Utøvere</title>
+
+    <style>
+        body{
+            grid-template-rows: 70px auto auto auto auto;
+        }
+
+        .CardGrid{
+            display:flex;
+            flex-wrap:wrap;
+            row-gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Grid1{
+            grid-row:3;
+        }
+
+        #Grid2{
+            grid-row:5;
+        }
+
+        #Grid3{
+            grid-row: 8;
+        }
+
+        #GridX{
+            grid-row:4;
+            width:100%;
+            position: relative;
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+
+        #GridY{
+            grid-row:6;
+            width:100%;
+            position: relative;
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+
+        #FotBar{
+            grid-row:10;
+            margin-top:30px;
+        }
+
+        .Card{
+            background-color: rgba(255, 255, 255, 0.609);
+            width: 46%;
+            height: 170px;
+            text-align: left;
+            border-radius: 10px;
+            margin:5px;
+            padding:10px;
+            box-sizing: border-box;
+
+            display:flex;
+            gap:8px;
+            border:solid white;
+            align-items: center;
+        }
+
+        #Teksto{
+            margin:0;
+            padding:0;
+            line-height: 0;
+        }
+
+        #Teksto i{
+            border-radius: 50%;
+            color:White;
+            background-color: rgb(163, 163, 235);
+            padding:5px;
+            text-align: center;
+            font-size: 14px;
+            width:16px;
+            margin-right:5px;
+        }
+
+        #Teksto h4{
+            font-size: 15px;
+        }
+
+        #Teksto p{
+            font-size: 13px;
+        }
+
+        #FlexID{
+            display:flex;
+        }
+
+        #Bilde{
+            width:100%;
+            border-top:solid white 2px;
+            border-bottom:solid white 4px;
+            height: 300px;
+            object-position: center;
+            object-fit: cover;
+            position:relative;
+        }
+
+        .TextOnCard{
+            position:absolute;
+            top:8%;
+            left:0%;
+            margin:8px;
+            padding:10px;
+            background-color: rgba(255, 255, 255, 0.535);
+            border-radius: 10px;
+            width:40%;
+        }
+
+        .TextOnCard button{
+            background-color: var(--NyanseGul);
+            border:none;
+            padding:10px;
+            border-radius: 10px;
+            width:100%;
+            color:black;
+        }
+
+        #Texto{
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        #UnderTexto{
+            width:100%;
+            color:rgb(83, 83, 83);
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        #Reverse{
+            left:50%;
+        }
+
+
+    /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                .Card{
+                    width:15%;
+                    box-shadow: 0px 0px 2px rgba(128, 128, 128, 0.485);
+                }
+
+                .Card:hover{
+                    transform:scale(1.05);
+                }
+
+                #Teksto h4{
+                    font-size: 16px;
+                }
+
+                #Teksto p{
+                    font-size: 13px;
+                }
+            }
+    </style>
+
+</head>
+<body>
+    <span id="Top">
+        <h1 id="MainSkrift">Våre Utøvere</h1>
+        <p><b>Sist oppdatert:</b> 17.januar 2026</p>
+    </span>
+
+    <div class="CardGrid" id="Grid1">
+        <!--Her legges de 6 første utøverne-->
+
+        <!-- (Slik ser strukturen ut. Dataen blir hentet fra en database)
+        <div class="Card">
+            <span id="Teksto">
+                    <h4>Mathias Erdstad</h4>
+                    <p><i class="fa-solid fa-user-group"></i>Ungdomsgruppen</p>
+                    <p><i class="fa-solid fa-person-running"></i>800m og 1500m</p>
+                <div id="FlexID">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <p></p>
+                </div>
+            </span>
+        </div>
+        -->
+    </div>
+
+        <div id="GridX" class="OnlyPhone">
+        <img id="Bilde" src="../Bilder/UtøverBilde.png">
+            <div class="TextOnCard">
+                <p id="Texto">Vi deltar på stevner!</p>
+                <p id="UnderTexto">Stevner handler om mer enn konkurranse. Det handler om opplevelsen.</p>
+                <a href="Resultater.html"><button>Se Våre Resultater <i class="fa-solid fa-chevron-right"></i></button></a>
+            </div>
+        </div>
+
+
+    <div class="CardGrid" id="Grid2">
+            <!--Her legges 4 nye utøvere-->
+    </div>
+
+
+        <div id="GridY" class="OnlyPhone">
+        <img id="Bilde" src="../Bilder/UtøvereBilde2.webp">
+            <div id="Reverse" class="TextOnCard">
+                <p id="Texto">Vi er med på å arrangere friidrettskolen!</p>
+                <p id="UnderTexto">Våre utøvere stiller som trenere og gode rollemodeller</p>
+                <a href="../Pages/friidrettskolen.html"><button>Les mer <i class="fa-solid fa-chevron-right"></i></button></a>
+            </div>
+        </div>
+
+
+    <div class="CardGrid" id="Grid3">
+        <!--Her legges resten av utøverne-->
+    </div>
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.no <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+
+    <script src="../JavaScript/global.js"></script>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        async function hentUtøvere(gridId, fra, til) {              
+            const { data, error } = await supabase 
+                .from('Utøvere')
+                .select('Navn, Gruppe, Kategori, Alder')
+                .order('id', { ascending: true })
+                .range(fra, til)
+
+            const container = document.getElementById(gridId)
+            container.innerHTML = ''
+
+            data.forEach(utøver => {
+                const Fødselsdato = utøver.Alder  /*Henter fødselsdato fra select*/
+                const Today = new Date();         /*Definerer dagens dato (Automatisk oppdatering)*/
+                const Birthdate = new Date(Fødselsdato) /*Gjør teksten om til reel dato*/
+                let Alder = Math.floor((Today-Birthdate)/(1000 * 60 * 60 * 24 * 365.25)); /*Beregner alder*/
+                
+                const Aldertekst = (Alder+" år gammel");    /*Legger til alder + tekst*/
+
+                const Card = document.createElement('div')
+                Card.className = 'Card'
+
+                const Teksto = document.createElement("div")
+                Teksto.id = "Teksto"
+
+                Teksto.innerHTML = `
+                        <h4>${utøver.Navn}</h4>
+                        <p><i class="fa-solid fa-user-group Gruppeicon"></i>${utøver.Gruppe}</p>
+                        <p><i class="fa-solid fa-person-running"></i>${utøver.Kategori}</p>
+                    <div id=FlexID>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <p>${Aldertekst}</p>
+                    </div>
+                `
+            /* Bestemmer farge på ikonet basert på tekst */
+                const icon = Teksto.querySelector(".Gruppeicon")
+                if(utøver.Gruppe === "Breddegruppen"){
+                    icon.style.backgroundColor = "var(--NyanseGrøn)"
+                }
+                if(utøver.Gruppe === "Ungdomsgruppen"){
+                    icon.style.backgroundColor = "var(--NyanseGul)"
+                }
+                if(utøver.Gruppe === "Kastgruppen"){
+                    icon.style.backgroundColor = "rgba(206, 50, 131, 0.838)"
+                }
+
+                Card.appendChild(Teksto)
+                container.appendChild(Card);
+            })
+
+            const UtøverAntallo = document.querySelectorAll(".Card").length;
+            localStorage.setItem("Utøvere", UtøverAntallo)
+        }
+        hentUtøvere("Grid1", 0, 5)
+        hentUtøvere("Grid2", 6, 11)
+        hentUtøvere("Grid3", 12, 1000)
+    </script>
+</body>
+</html>

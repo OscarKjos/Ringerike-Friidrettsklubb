@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Admin Legg til Resultat</title>
+    <style>
+        body{
+            background-color: #efeff4;
+            font-family: 'Gill Sans MT', "Gill Sans", 'Open Sans', "Segoe UI", Arial, sans-serif;
+        }
+
+
+        #Flexor{
+            display:flex;
+            flex-direction: column;
+            margin:10px;
+            background-color: white;
+            border-radius: 10px;
+            padding:10px;
+            height: auto;
+        }
+
+        #Submit{
+            margin-top:20px;
+            width:100%;
+            height: 50px;
+            border:none;
+            font-size: 15px;
+            color:white;
+            background-color:  rgb(55, 83, 174);
+            border-radius: 10px;
+        }
+
+        #FlexBro{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #FlexBro button{
+            width:50px;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        #nyhetsSkjema{
+            display:flex;
+            flex-direction: column;
+            gap:25px;
+        }
+
+        #nyhetsSkjema div{
+            display:flex;
+            flex-direction: column;
+        }
+
+        #nyhetsSkjema select,input{
+            background-color: transparent;
+            border-radius: 5px;
+            border:solid rgba(128, 128, 128, 0.485) 0.2px;
+        }
+
+
+        #nyhetsSkjema input, select{
+            height: 35px;
+            font-size: 16px;
+        }
+
+        #nyhetsSkjema div, lable{
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        #Øvelse{
+            height: 35px;
+        }
+
+        /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                #FlexGrid{
+                    width:100%;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #Flexor{
+                    width:50%;
+                    padding:20px;
+                }
+
+                #Submit{
+                    margin:0;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div id="FlexGrid">
+    <div id="Flexor">
+        <span id="FlexBro">
+            <h1>Legg til Resultat</h1>
+            <a href="Admin.html"><button><i class="fa-solid fa-x"></i></button></a>
+        </span>
+        <p>Skjemaet må fylles ut per resultat per utøver</p>
+        
+        <form id="nyhetsSkjema">
+            <div>
+                <lable>Navn på Stevne</lable>
+                <input id="Stevne" type="text" maxlength="20" placeholder="Tyrvinglekene" required>
+            </div>  
+
+            <div>
+                <lable>Dato</lable>
+                <input id="Dato" type="date" required>
+            </div>
+            
+            <div>
+                <lable>Navn på Utøver</lable>
+                <input id="Utøver" type="text" maxlength="30" placeholder="Trym Sortdal" required>
+            </div>
+
+            <div>
+                <lable>Type øvelse</lable>
+                <select id="Øvelse" required>
+                    <option></option>
+
+                    <optgroup label="Sprint">
+                        <option>60 m</option>
+                        <option>100 m</option>
+                        <option>200 m</option>
+                        <option>300 m</option>
+                        <option>400 m</option>
+                    </optgroup>
+
+                    <optgroup label="Mellomdistanse">
+                        <option>600 m</option>
+                        <option>800 m</option>
+                        <option>1 500 m</option>
+                        <option>3 000 m</option>
+                    </optgroup>
+
+                    <optgroup label="Langdistanse">
+                    <option>5 000 m</option>
+                    <option>10 000 m</option>
+                    <option>Halvmaraton</option>
+                    <option>Maraton</option>
+                    <option>Ultraløp</option>
+                    </optgroup>
+
+                    <optgroup label="Kast & Hopp">
+                    <option>Kule</option>
+                    <option>Spyd</option>
+                    <option>Høyde</option>
+                    <option>Lengde</option>
+                    <option>Tresteg</option>
+                    <option>Diskos</option>
+                    <option>Hekk</option>
+                    </optgroup>
+
+                    <optgroup label="Mangfoldige Kategorier">
+                    <option>Sprint</option>
+                    <option>Mellomdistanse</option>
+                    <option>Langdistanse</option>
+                    <option>Terrengløp</option>
+                    <option>Annet</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div>
+                <lable>Resultat</lable>
+                <input id="Resultat" type="number" step="0.01" min="0" placeholder="2.07" required>
+            </div>
+            <button id="Submit" type="submit">Legg til Resultat!</button>
+        </form>
+    </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+         document.getElementById('nyhetsSkjema').addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+                const Stevne = document.getElementById("Stevne").value;
+                const Dato = document.getElementById("Dato").value;
+                const Utøver = document.getElementById("Utøver").value;
+                const Øvelse = document.getElementById("Øvelse").value;
+                const Resultat = document.getElementById("Resultat").value;
+
+            const { error } = await supabase
+                .from('Resultater')
+                .insert([{ stevne:Stevne, dato:Dato, utøver:Utøver, øvelse:Øvelse, resultat:Resultat }])
+
+            if (error) {
+                alert('Feil: ' + error.message)
+            } else {
+                alert('Resultatet ble lagt til!')
+                window.location.href = 'Admin.html'
+            }
+         });
+    </script>
+</body>
+</html>

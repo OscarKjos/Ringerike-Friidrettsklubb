@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../global.css">
+    <title>Login</title>
+
+    <style>
+        
+    body{
+        background-color: whitesmoke;
+        background-image: url(../Bilder/LoginBilde.png);
+        background-position: top;
+        background-size: cover;
+    }
+
+    #Card{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding:20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgb(117, 116, 116);
+
+        background-color:whitesmoke;
+        width:80%;
+        height: 60%;
+        gap:20px;
+        opacity: 85%;
+        filter: blur(10%);
+        margin-top:20px;
+    }
+
+    #CardGrid{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 95vh;
+    }
+
+    #overskrift{
+        font-size: 40px;
+        font-family: var(--font);
+        margin-bottom: 0;
+    }
+
+    .InputField{
+        height: 40px;
+        width:85%;
+        border-radius: 40px;
+        padding:5px;
+        padding-left:25px;
+        border-style: solid;
+        border-color: rgb(34, 57, 62);
+        background-color: transparent;
+        font-size: 15px;
+    }
+
+    #Parent{
+        position: relative;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+    }
+
+    #Icon{
+        position: absolute;
+        z-index: 10;
+        left:85%;
+        top:35%;
+        color: rgb(34, 57, 62);
+    }
+
+    #Knapp{
+        height: 50px;
+        width:98%;
+        border-radius: 30px;
+        border-style: none;
+        background-color: rgb(177, 223, 247);
+        font-family: var(--font);
+        font-size: 20px;
+    }
+
+    #Knapp:hover{
+        background-color:  rgb(34, 57, 62);
+        color:white;
+    }
+
+    #Registrering{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:25px;
+        font-size: 14px;
+        font-family: var(--font);
+    }
+
+    @media(min-width:450px){
+            body{
+                background-position: center;
+            }
+
+            #Card{
+                width:30%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="TopColor"></div>
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="../HTML/OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="../HTML/Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="../HTML/Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="../HTML/Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="../HTML/Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="../HTML/Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="../HTML/Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="../HTML/Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="../HTML/Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <div id="CardGrid">
+    <div id="Card">
+        <h1 id="overskrift">Login</h1>
+        <span id="Parent">
+            <input class="InputField" id="Email" type="email" placeholder="Email" required>
+            <i id="Icon" class="fas fa-user"></i>
+        </span>
+        <span id="Parent">
+            <input class="InputField" id="Passord" type="password" placeholder="Password" required>
+            <i id="Icon" class="fas fa-lock"></i>
+        </span>
+        <button id="Knapp" type="submit">Logg inn</button>
+        <span id="Registrering">
+            <p>Denne siden er forbeholdt administrasjonen</p>
+        </span>
+    </div>
+    </div>
+
+    <script src="../JavaScript/global.js"></script>
+    
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        const supabaseUrl = "https://xyfexcvmnhjepfpqgwlm.supabase.co";
+        const supabaseKey = "sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3";
+
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        const Knapp = document.getElementById("Knapp");
+        const Email = document.getElementById("Email");
+        const Passord = document.getElementById("Passord");
+
+        Knapp.addEventListener("click", async () => {
+            const { data, error } = await supabase.auth.signInWithPassword({
+            email: Email.value,
+            password: Passord.value
+        });
+
+        if (error) {
+            alert("Feil e-post eller passord");
+        } else {
+            window.location.href = "Admin.html";
+        }
+  });
+</script>
+</body>
+</html>

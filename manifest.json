@@ -1,0 +1,19 @@
+{
+  "name": "RFIK",
+  "short_name": "RFIK",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "rgb(68, 97, 190)",
+  "icons": [
+    {
+      "src": "Bilder/Logo_Sponsor/Logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "Bilder/Logo_Sponsor/Logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

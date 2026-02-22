@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Treningsklær</title>
+
+    <style>
+        body{
+            display:grid;
+            margin:0;
+            grid-template-rows: 70px auto auto auto auto auto;
+        }
+
+        #Navbar{
+            top:0;
+            left:0;
+        }
+
+        #CardGrid{
+            grid-row: 3;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            margin:6px;
+        }
+
+        #Card{
+            width:45%;
+            border-radius: 10px;
+            height: auto;
+            background-color: white;
+            padding:5px;
+            border:none;
+        }
+
+        #Card p,li{
+            line-height: 1.6;
+            margin:0;
+            padding:0;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        #ProduktBilde{
+            object-fit: cover;
+            width:100%;
+        }
+
+        #SmalTekst{
+            font-size: 11px;
+            margin:5px;
+            margin-bottom: 12px;
+        }
+
+        .ProduktKnapp{
+            position:absolute;
+            border-radius: 50%;
+            border:none;
+            font-size: 25px;
+            background-color: rgb(241, 239, 239);
+            color:black;
+            z-index: 200;
+
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .Produktinfo{
+            width:100%;
+            background-color: var(--NyanseGul);
+            color:black;
+            border-radius: 5px;
+            padding:7px;
+            border:none;
+            margin-top:7px;
+        }
+
+        .Produktinfo i{
+            color:rgba(0, 0, 0, 0.654);
+            font-size: 14px;
+        }
+
+        #Icon{
+            width:35%;
+            position:absolute;
+            top:-5%;
+            left:0;
+        }
+
+        #BackOverlay{
+            position:fixed;
+            inset: 0;
+            background: var(--Overlay);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #ProduktVisning{
+            background-color: white;
+            height: 85vh;
+            width:80%;
+            border-radius: 10px;
+            padding:15px;
+            overflow-y: scroll;
+            padding-top:2px;
+            touch-action: manipulation;
+        }
+
+        #TopLay{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #TopLay u{
+            text-underline-offset: 8px;
+            text-decoration-color: var(--NyanseGul);
+            text-decoration-thickness: 2px;
+        }
+
+        #BackOverlay.ProDisplay{
+            opacity: 1;
+            pointer-events: fill;
+            transition: 0.5s ease;
+        }
+
+        #Bilde1{
+            width:100%;
+        }
+
+        #Bilde2{
+            width:100%;
+        }
+
+        #Beskrivelse{
+            line-height: 1.5;
+            padding:5px;
+            margin-top:2px;
+            color:rgba(0, 0, 0, 0.578);
+        }
+
+        #ProduktFjerner{
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            border-style: none;
+            pointer-events:fill;
+            padding:10px;
+            width:50px;
+            height: 40px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:black;
+        }
+
+        #Pris::before{
+            content:"Pris: ";
+            font-weight: bold;
+        }
+
+        #Størrelse{
+            width:30px;
+            height: 25px;
+            background-color: none;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:5px;
+            color:black;
+            border:none;
+        }
+
+        #Størrelse:hover{
+            background-color: var(--NyanseBlå);
+            color:white;
+        }
+
+        #VelgSize{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #PrisMerke{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-right:10px;
+        }
+
+        #Pris{
+            padding:5px;
+            border-radius: 10px;
+            margin:0;
+            height:fit-content;
+        }
+
+        #Merke{
+            padding:5px;
+            margin:0;
+            height:fit-content;
+        }
+
+        #Merke::before{
+            content:"Merke: ";
+            font-weight: bold;
+        }
+
+        #BildeKolage{
+            display:flex;
+            justify-content: center;
+            border-radius: 70px;
+            position:relative;
+        }
+
+        #ProduktGrid{
+            grid-row: 5;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            margin:6px;
+        }
+
+        #ChangeLeft{
+            left:0;
+            top:40%;
+        }
+
+        #ChangeRight{
+            right:0;
+            top:40%;
+        }
+
+        #OverGrid{
+            grid-row: 4;
+            text-align: center;
+            color:var(--OverskriftBlå);
+            line-height: 1.8;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-color: var(--NyanseGul);
+        }
+
+        #Knappo{
+            width:100%;
+            height: 30px;
+            color:black;
+            background-color: var(--NyanseGul);
+            border-radius: 10px;
+            font-size: 13px;
+            border:none;    
+        }
+
+        #ProduktBar{
+            width:100%;
+            display:flex;
+            justify-content: space-between;
+            padding:5px;
+            height: 35px;
+            border-radius: 10px;
+            color:black;
+            border:solid white 1px;
+            align-items: center;
+        }
+
+        #BeskFelt{
+            background-color: rgb(233, 232, 232);
+            border-radius: 10px;
+        }
+
+        #DetaljFelt{
+            width:100%;
+            height: fit-content;
+            background-color: rgba(144, 165, 165, 0.498);
+            border-radius: 10px;
+        }
+
+        #DetaljFelt button{
+            width:100%;
+            display:flex;
+            align-items: center;
+            font-size: 12px;
+            justify-content: space-between;
+            padding:5px;
+            color:black;
+            border: none;
+            border-radius: 10px;
+            height: 30px;
+            background-color: rgba(144, 165, 165, 0.498);
+        }
+
+        #Beskrivelse.ShowBar{
+            display:none;
+        }
+
+        #Liste.ShowBar{
+            display:none;
+        }
+
+
+        @media (min-width:450px){
+                #Card{
+                    width:25%;
+                }
+
+                .Produktinfo:hover{
+                    cursor: pointer;
+                }
+
+                #ProduktVisning{
+                    width:30%;
+                }
+
+                #FotBar{
+                    width:100%;
+                }
+            }
+    </style>
+
+</head>
+<body>
+    <span id="Top">
+        <h1 id="MainSkrift">Vårt Utvalg</h1>
+        <p><b>Sist oppdatert:</b> 25. januar 2026</p>
+    </span>
+
+    <div id="CardGrid">
+        <div id="Card" data-produkt="T-Skjorte">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/T-Skjorte_Kvad2.webp">
+            <p><b>T-Skjorte - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>200 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card" data-produkt="Jakke">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Jakke_Kvad.webp">
+            <p><b>Jakke - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>250 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card" data-produkt="Singlet">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Singlet_Kvad.webp">
+            <p><b>Singlet - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>300 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card" data-produkt="Genser">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Genser_Kvad.webp">
+            <p><b>Genser - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>340 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card" data-produkt="Lue">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Lue_Ny.webp">
+            <p><b>Lue - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>340 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card" data-produkt="Bukse">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Bukse_Ny.webp">
+            <p><b>Bukse - Ny Utgave</b></p>
+            <p id="SmalTekst">Tilgjengelig - <b>340 kr</b></p>
+            <button class="Produktinfo">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+    </div>
+
+    <div id="OverGrid">
+        <h2>Gammel Kolleksjon</h2>
+    </div>
+
+    <div id="ProduktGrid">
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/T-Skjorte_Kvad_Gammel.webp">
+            <p><b>T-Skjorte - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Jakke_Kvad_Gammel.webp">
+            <p><b>Jakke - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Singlet_Gammel_Front.webp">
+            <p><b>Singlet - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Bukse_Gammel2.webp">
+            <p><b>Bukse - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Tights_Gammel.webp">
+            <p><b>Tights - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+
+        <div id="Card">
+            <img id="ProduktBilde" src="../Bilder/Treningsklær/Shorts_Gammel.webp">
+            <p><b>Shorts - Trimtex</b></p>
+            <p id="SmalTekst" style="color:rgb(169, 36, 36)">Utilgjengelig</p>
+            <button class="Produktinfo" disabled style="filter: grayscale(100%);">Produktinfo <i class="fa-solid fa-circle-info"></i></button>
+        </div>
+    </div>
+
+
+    <div id="BackOverlay">
+        <div id="ProduktVisning">
+            <span id="TopLay">
+                <u><h1 id="Produktnavn">T-skjorte</h1></u>
+                <button id="ProduktFjerner"><i class="fa-solid fa-x"></i></button>
+            </span>
+            <div id="BildeKolage">
+            <button class="ProduktKnapp" id="ChangeLeft"><i class="fa-solid fa-chevron-left"></i></button>
+                    <img id="Bilde1" style="display:flex;" src="../Bilder/Treningsklær/T-Skjorte_Kvad2.webp" alt="Bilde">
+                    <img id="Bilde2" style="display:none;" src="../Bilder/Treningsklær/T-Skjorte_Kvad_Bakfra.webp" alt="Bilde">
+            <button class="ProduktKnapp" id="ChangeRight"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x46410723a6c7f383:0xb079c4720e3742b5?sa=X&ved=1t:8290&ictx=111"><button id="Knappo"><i class="fa-solid fa-location-dot"></i> Finn butikk</button></a>
+            <div id="VelgSize">
+                <p><b>Size: </b></p>
+                <button id="Størrelse">XS</button>
+                <button id="Størrelse">S</button>
+                <button id="Størrelse">M</button>
+                <button id="Størrelse">L</button>
+                <button id="Størrelse">XL</button>
+            </div>
+            <div id="PrisMerke">
+            <p id="Pris">300 kr</p>
+            <p id="Merke">Craft</p>
+            </div>
+
+            <div id="BeskFelt">
+                <button id="ProduktBar">Produktbeskrivelse <i class="fa-solid fa-chevron-down"></i></button>
+                <p id="Beskrivelse"> Komfortabel og pustende T-skjorte i teknisk materiale.</p>
+                
+                <div id="DetaljFelt">
+                <button id="DetaljKnapp">
+                    <span><i class="fa-solid fa-circle-info"></i> Detaljer</span>
+                    <i class="fa-solid fa-chevron-down"></i></button>
+                <ul id="Liste">
+                    <li><b>Merke:</b> Craft</li>
+                    <li><b>Passform:</b> Normal</li>
+                    <li><b>Bruksområde:</b> Trening / Konkurranse</li>
+                    <li>Tilgjengelig i butikk: Sport 1 Sandberg Sport Hønefoss.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="../HTML/OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="../HTML/Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="../HTML/Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="../HTML/Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="../HTML/Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="../HTML/Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="../HTML/Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="../HTML/Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="../HTML/Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.no <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+
+    <script src="../JavaScript/global.js"></script>
+    <script>
+        
+        const Produktinfo = document.querySelectorAll(".Produktinfo");
+        const overlay = document.getElementById("BackOverlay");
+        const Navbar = document.getElementById("Navbar");
+        const Lukk = document.getElementById("ProduktFjerner");
+
+        Produktinfo.forEach((knapp) => {
+            knapp.addEventListener("click", () =>{
+                overlay.classList.add ("ProDisplay");
+                Navbar.style.display="none";
+            });
+        });
+
+        Lukk.addEventListener("click", () => {
+            overlay.classList.remove ("ProDisplay");
+            Navbar.style.display="flex";
+        });
+
+        /*__________________________________________*/
+        
+        const data = {
+            TSkjorte: {
+                navn: "T-Skjorte",
+                pris: "300kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/T-Skjorte_Kvad2.webp",
+                Bilde2: "../Bilder/Treningsklær/T-Skjorte_Kvad_Bakfra.webp"
+            },
+
+            Genser: {
+                navn: "Genser",
+                pris: "200kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/Genser_Kvad.webp",
+                Bilde2: "../Bilder/Treningsklær/Genser_Ny.webp"
+            },
+
+            Singlet: {
+                navn: "Singlet",
+                pris: "400kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/Singlet_Kvad.webp",
+                Bilde2: "../Bilder/Treningsklær/Singlet_Ny_Bak.webp"
+            },
+
+            Bukse: {
+                navn: "Bukse",
+                pris: "350kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/Bukse_Ny.webp",
+                Bilde2: "../Bilder/Treningsklær/Bukse_Ny.webp"
+            },
+
+            Lue: {
+                navn: "Lue",
+                pris: "100kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/Lue_Ny.webp",
+                Bilde2: "../Bilder/Treningsklær/Lue_Ny.webp"
+            },
+
+            Jakke: {
+                navn: "Jakke",
+                pris: "530kr",
+                beskrivelse: "Hei Dette er en test",
+                Bilde1: "../Bilder/Treningsklær/Jakke_Kvad.webp",
+                Bilde2: "../Bilder/Treningsklær/Jakke_Ny_Bak.webp"
+            }
+        }
+
+        const Produktnavn = document.getElementById("Produktnavn");
+        const Besk = document.getElementById("Beskrivelse");
+        const Forfra = document.getElementById("Bilde1");
+        const Bakfra = document.getElementById("Bilde2");
+        
+        Produktinfo.forEach((Info) => {
+            Info.addEventListener("click", () =>{
+                const card = Info.closest("#Card");     //Finner nærmeste element som matcher #Card
+                const type = card.dataset.produkt;      //Henter hvilken type produkt dette kortet representerer
+                console.log(type);
+
+                if (type === "Genser"){
+                    Produktnavn.textContent = data.Genser.navn;
+                    Pris.textContent = data.Genser.pris;
+                    Besk.textContent = data.Genser.beskrivelse;
+                    Forfra.src = data.Genser.Bilde1;
+                    Bakfra.src = data.Genser.Bilde2;
+                }
+
+                if (type === "T-Skjorte"){
+                    Produktnavn.textContent = data.TSkjorte.navn;
+                    Pris.textContent = data.TSkjorte.pris;
+                    Besk.textContent = data.TSkjorte.beskrivelse;
+                    Forfra.src = data.TSkjorte.Bilde1;
+                    Bakfra.src = data.TSkjorte.Bilde2;
+                }
+
+                if (type === "Singlet"){
+                    Produktnavn.textContent = data.Singlet.navn;
+                    Pris.textContent = data.Singlet.pris;
+                    Besk.textContent = data.Singlet.beskrivelse;
+                    Forfra.src = data.Singlet.Bilde1;
+                    Bakfra.src = data.Singlet.Bilde2;
+                }
+
+                if (type === "Bukse"){
+                    Produktnavn.textContent = data.Bukse.navn;
+                    Pris.textContent = data.Bukse.pris;
+                    Besk.textContent = data.Bukse.beskrivelse;
+                    Forfra.src = data.Bukse.Bilde1;
+                    Bakfra.src = data.Bukse.Bilde2;
+                }
+
+                if (type === "Lue"){
+                    Produktnavn.textContent = data.Lue.navn;
+                    Pris.textContent = data.Lue.pris;
+                    Besk.textContent = data.Lue.beskrivelse;
+                    Forfra.src = data.Lue.Bilde1;
+                    Bakfra.src = data.Lue.Bilde2;
+                }
+
+                if (type === "Jakke"){
+                    Produktnavn.textContent = data.Jakke.navn;
+                    Pris.textContent = data.Jakke.pris;
+                    Besk.textContent = data.Jakke.beskrivelse;
+                    Forfra.src = data.Jakke.Bilde1;
+                    Bakfra.src = data.Jakke.Bilde2;
+                }
+
+            });
+        });
+
+        /*__________________________________________*/
+
+        const ProduktKnapp = document.querySelectorAll(".ProduktKnapp");
+        const Framside = document.getElementById("Bilde1");
+        const Bakside = document.getElementById("Bilde2");
+
+        ProduktKnapp.forEach((bytt) => {
+            bytt.addEventListener("click", () => {
+                if (Framside.style.display === "flex"){
+                Framside.style.display = "none";
+                Bakside.style.display = "flex";
+                }
+                else{
+                Framside.style.display = "flex";
+                Bakside.style.display = "none";
+                }
+            });
+        });
+
+        /*__________________________________________*/
+
+        const ProduktBar = document.getElementById("ProduktBar");
+        const Beskrivelse = document.getElementById("Beskrivelse");
+        const DetaljKnapp = document.getElementById("DetaljKnapp");
+        const Liste = document.getElementById("Liste");
+
+        ProduktBar.addEventListener("click", () => {
+            Beskrivelse.classList.toggle ("ShowBar");
+        });
+
+        DetaljKnapp.addEventListener("click", () => {
+            Liste.classList.toggle ("ShowBar");
+        });
+
+    </script>
+</body>
+</html>

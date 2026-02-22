@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Admin Legg til Utøver</title>
+    <style>
+        body{
+            background-color: #efeff4;
+            font-family: 'Gill Sans MT', "Gill Sans", 'Open Sans', "Segoe UI", Arial, sans-serif;
+        }
+
+
+        #Flexor{
+            display:flex;
+            flex-direction: column;
+            margin:10px;
+            background-color: white;
+            border-radius: 10px;
+            padding:10px;
+            height: auto;
+        }
+
+        #Flexor p{
+            margin-bottom: 30px;
+        }
+
+        #Submit{
+            margin-top:15px;
+            margin-bottom: 10px;
+            width:100%;
+            height: 50px;
+            border:none;
+            font-size: 15px;
+            color:white;
+            background-color:  rgb(55, 83, 174);
+            border-radius: 10px;
+        }
+
+        #FlexBro{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #FlexBro button{
+            width:50px;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        #nyhetsSkjema{
+            display:flex;
+            flex-direction: column;
+            gap:30px;
+        }
+
+        #nyhetsSkjema div{
+            display:flex;
+            flex-direction: column;
+        }
+
+        #nyhetsSkjema input,select{
+            height: 35px;
+            font-size: 16px;
+        }
+
+        #nyhetsSkjema select,input{
+            background-color: transparent;
+            border-radius: 5px;
+            border:solid rgba(128, 128, 128, 0.485) 0.2px;
+        }
+
+        #nyhetsSkjema div, lable{
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        #Gruppe{
+            height: 34px;
+        }
+
+        #Øvelse{
+            height: 35px;
+        }
+
+        /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                #FlexGrid{
+                    width:100%;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #Flexor{
+                    width:50%;
+                    padding:20px;
+                }
+
+                #Submit{
+                    margin:0;
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <div id="FlexGrid">
+    <div id="Flexor">
+        <span id="FlexBro">
+            <h1>Legg til Utøver</h1>
+            <a href="Admin.html"><button><i class="fa-solid fa-x"></i></button></a>
+        </span>
+        <p>Registrer en ny utøver ved å fylle ut skjemaet.</p>
+        
+        <form id="nyhetsSkjema">
+            <div>
+                <lable>Navn på Utøver</lable>
+                <input id="Navn" type="text" maxlength="18" placeholder="Mathias Erstad" required>
+            </div>  
+
+            <div>
+                <lable>Gruppe</lable>
+                <select id="Gruppe" required>
+                    <option></option>
+                    <option>Ungdomsgruppen</option>
+                    <option>Breddegruppen</option>
+                    <option>Kastgruppen</option>
+                    <option>Rekrutter</option>
+                </select>
+            </div>
+            
+            <div>
+                <lable>Hoveddistanse / Øvelse</lable>
+                <select id="Øvelse" required>
+                    <option></option>
+
+                    <optgroup label="Sprint">
+                        <option>60 m</option>
+                        <option>100 m</option>
+                        <option>200 m</option>
+                        <option>300 m</option>
+                        <option>400 m</option>
+                    </optgroup>
+
+                    <optgroup label="Mellomdistanse">
+                        <option>600 m</option>
+                        <option>800 m</option>
+                        <option>1 500 m</option>
+                        <option>3 000 m</option>
+                    </optgroup>
+
+                    <optgroup label="Langdistanse">
+                    <option>5 000 m</option>
+                    <option>10 000 m</option>
+                    <option>Halvmaraton</option>
+                    <option>Maraton</option>
+                    <option>Ultraløp</option>
+                    </optgroup>
+
+                    <optgroup label="Kast & Hopp">
+                    <option>Kule</option>
+                    <option>Spyd</option>
+                    <option>Høyde</option>
+                    <option>Lengde</option>
+                    <option>Tresteg</option>
+                    <option>Diskos</option>
+                    <option>Hekk</option>
+                    </optgroup>
+
+                    <optgroup label="Mangfoldige Kategorier">
+                    <option>Sprint</option>
+                    <option>Mellomdistanse</option>
+                    <option>Langdistanse</option>
+                    <option>Terrengløp</option>
+                    <option>Annet</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div>
+                <lable>Fødselsdato</lable>
+                <input id="Fødselsdato" type="date" required>
+            </div>
+
+            <button id="Submit" type="submit">Legg til Utøver!</button>
+        </form>
+    </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+         document.getElementById('nyhetsSkjema').addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+                const Navn = document.getElementById("Navn").value;
+                const Gruppe = document.getElementById("Gruppe").value;
+                const Øvelse = document.getElementById("Øvelse").value;
+                const Fødselsdato = document.getElementById("Fødselsdato").value;
+
+            const { error } = await supabase
+                .from('Utøvere')
+                .insert([{ Navn:Navn, Gruppe:Gruppe, Kategori:Øvelse, Alder:Fødselsdato}])
+
+            if (error) {
+                alert('Feil: ' + error.message)
+            } else {
+                alert('Utøver ble lagt til!')
+                window.location.href = 'Admin.html'
+            }
+         });
+    </script>
+</body>
+</html>

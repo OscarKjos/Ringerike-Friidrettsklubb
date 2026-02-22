@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Digital Webløsning</title>
+
+    <style>
+        body{
+            background-image: none;
+            display:grid;
+            grid-template-rows: 70px auto auto auto auto;
+            scroll-behavior: smooth;
+        }
+
+        #CardGrid{
+            grid-row: 3;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Card{
+            width:87%;
+            border-radius: 10px;
+            height: auto;
+            padding:10px;
+            padding-top:0;
+            padding-bottom: 0;
+            background-color: rgba(255, 255, 255, 0.89);
+            box-shadow: 0px 0px 2px rgba(128, 128, 128, 0.522);
+        }
+
+        #Card p,li{
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        #Card b{
+            color:rgb(84, 84, 84);
+        }
+
+        #Bilde{
+            width:98%;
+            margin-left:2%;
+        }
+
+        #TopLay{
+            font-size: 35px;
+        }
+
+        #MainSkrift{
+            text-align: center;
+        }
+
+        #Slagord{
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        #Choose{
+            display:flex;
+            justify-content: center;
+            gap:30px;
+
+            padding:20px;
+            border: solid rgba(128, 128, 128, 0.443) 0.1px;
+            background-color: white;
+            width:100%;
+            margin-top:10px;
+        }
+
+        #Why{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap:5px;
+        }
+
+        #Why i{
+            background-color: #edf4fc;
+            padding:10px;
+            color:#4a90e2;
+            border-radius: 5px;
+            font-size:25px;
+        }
+
+        #Why p{
+            text-align: center;
+            margin-top:0;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        #GridNow{
+            grid-row: 4;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #KodeStyle{
+            background-color: #edf4fc;
+            width:100%;
+            text-align: center;
+            margin-top:0;
+            padding:10px;
+        }
+
+        #DubbleCard{
+            grid-row: 5;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #OverCard{
+            background-color: white;
+            width:100%;
+            display:flex;
+            justify-content: space-evenly;
+        }
+
+        #OverCard h3{
+            color:var(--NyanseBlå);
+        }
+
+        #OverCard p{
+            display:flex;
+            gap:5px;
+        }
+
+        #Card1 p{
+            color:gray;
+        }
+
+        #Card1{
+            border-right:solid rgba(128, 128, 128, 0.42) 0.1px;
+            padding-right:15px;
+        }
+
+        #Card2{
+            color:var(--NyanseGrøn)
+        }
+
+        #Horisontal{
+            width:100%;
+            height: 0.5px;
+            background-color: rgba(128, 128, 128, 0.348);
+            border:none;
+        }
+
+        .Kryss{
+            color:rgb(199, 12, 12);
+        }
+
+        #MedlemGrid{
+            grid-row: 7;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top:30px;
+            margin-bottom:30px;
+        }
+
+        #MedlemBilde{
+            width:100%;
+        }
+
+        #MedlemBilde2{
+             width:100%;
+             margin-top:0;
+             border-radius: 20px;
+             padding-top:10px;
+             padding-bottom:10px;
+             background-color: white;
+        }
+
+        #MedlemGrid h2{
+            text-align: center;
+            color:var(--NyanseBlå);
+            background-color: #ecf1fe;
+            width:100%;
+            margin-bottom: 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top:15px;
+        }
+
+        #AppGrid{
+            grid-row: 6;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #AppGrid h2{
+            text-align: center;
+            color:var(--NyanseBlå);
+            background-color: #ecf1fe;
+            width:100%;
+            margin-bottom: 0;
+            margin-top:0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top:15px;
+        }
+
+        #Video{
+            width:100%;
+            border-radius: 20px;
+            z-index: 1000;
+        }   
+
+        #WidGrid{
+            width:40%;
+            position: relative;
+            margin-top:20px;
+        }
+
+        #Phone{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width:125%;
+            height: 105%;
+            z-index: -100;
+        }
+
+        #BruksGrid{
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding-bottom: 10px;
+        }
+
+        #BruksCard{
+            background-color: white;
+            padding:10px;
+            border-radius: 20px;
+            width:40%;
+            margin-top:20px;
+            box-shadow: 0px 0px 2px rgba(128, 128, 128, 0.522);
+            position: relative;
+        }
+
+        #BruksCard h4{
+            text-align: center;
+            color:var(--NyanseBlå);
+            width:100%;
+            margin-bottom: 0;
+            margin-top:0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top:15px;
+        }
+
+        .steps{
+            font-size: 13px;
+            padding-left:5px;
+            list-style: none;
+        }
+
+        .steps li{
+            display:flex;
+            align-items: center;
+            gap:10px;
+            text-align: left;
+        }
+
+        .steps span{
+            background-color: #2e59b9;
+            color:white;
+            border-radius: 50%;
+            width:20px;
+            height: 20px;
+            font-size: 13px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .menyikon{
+            background-color: rgb(219, 219, 219);
+            padding:5px;
+            border-radius: 5px;
+        }
+
+        #AdminGrid{
+            grid-row: 8;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .FixedNumb{
+            position:absolute;
+            width: 30px;
+            height: 30px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color:white;
+            font-size: 18px;
+            background-color: white;
+            border-radius: 50%;
+            padding:5px;
+
+            top:-5%;
+            right:-5%;
+        }
+
+        #AdminGrid h2{
+            text-align: center;
+            color:var(--NyanseBlå);
+            background-color: #ecf1fe;
+            width:100%;
+            margin-bottom: 0;
+            margin-top:0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top:15px;
+        }
+
+        #AdminGrid h4{
+            text-align: center;
+            color:var(--NyanseBlå);
+        }
+
+        #UnderGray{
+            font-size: 12px;
+            color:rgba(42, 87, 130, 0.697);
+        }
+
+        #Validation{
+            width:70%;
+            border-radius: 5px;
+            margin-bottom: 0;
+        }
+
+        #FotBar{
+            position: relative;
+        }
+
+        #BackToTopp{
+            position: absolute;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            top:8%;
+            right:5%;
+            height: 40px;
+            width:40px;
+            padding:5px;
+            background-color: transparent;
+            border:none;
+        }
+
+        #BackImg{
+            width:100%;
+            height: 100%;
+        }
+
+        #BliMedlem{
+            margin:20px;
+            display:flex;
+            gap:20px;
+        }
+
+        #GridNormal{
+            grid-row:10;
+            margin-top:40px;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            background-color: white;
+            padding:15px;
+            border-radius: 20px;
+        }
+
+        #Bilde1{
+            width:100%;
+        }
+
+        #GridNormal button{
+            width:50%;
+            height: 30px;
+            background-color: #ecf1fe;
+            border:none;
+            border:0.2px solid rgba(128, 128, 128, 0.38);
+            border-top:none;
+        }
+
+        #Buto1{
+            border-bottom-left-radius: 20px;
+        }
+
+        #Buto2{
+            border-bottom-right-radius: 20px;
+        }
+
+        #GridNormal h2{
+            text-align: center;
+            color:var(--NyanseBlå);
+            background-color: #ecf1fe;
+            width:100%;
+            margin-bottom: 0;
+            margin-top:0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top:15px;
+        }
+
+        #container{
+            grid-row:2;
+        }
+
+        #ValiWidth{
+                    width:100%;
+        }
+
+
+        /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                body{
+                    background-image: url(../Bilder/Backround.webp);
+                    width:100%;
+                    height: fit-content;
+                    display:flex;
+                    flex-direction: column;
+                    display:flex;
+                    align-items: center;
+                }
+                
+                #container{
+                    margin-top: 80px;
+                    border-radius: 20px;
+                    grid-row:2;
+                    width:45%;
+                    background-color: white;
+                }
+
+                #CopyFot{
+                    width:100%;
+                }
+
+                #Validation{
+                    width:100%;
+                }
+
+                #FotBar{
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                }
+
+                #ValiWidth{
+                    width:20%;
+                }
+
+                #BruksCard h4{
+                    font-size: 23px;
+                }
+
+                .steps li{
+                    margin-top:20px;
+                    font-size: 18px;
+                }
+
+                .FixedNumb{
+                    width:45px;
+                    height:45px;
+                }
+
+                #BliMedlem{
+                    font-size: 20px;
+                }
+
+                #Choose{
+                    gap:80px;
+                }
+
+                #Card{
+                    background-color: whitesmoke;
+                }
+
+                #Card1{
+                    padding-right:80px;
+                }
+            }
+
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <span id="Top">
+        <h1 id="MainSkrift">Vår nye Digitale <b id="TopLay">Webløsning</b></h1>
+        <p id="Slagord">- Fra statisk til dynamisk.</p>
+        <img id="Bilde" src="../Bilder/Webløsning/NettsideLøsning.webp">
+    </span>
+
+    <div id="CardGrid">
+        <div id="Card">
+            <p>Hold deg <b>oppdatert</b>. Hold deg i <b>bevegelse</b>. Hold deg i <b>klubben</b>.</p>
+        </div>
+
+        <div id="Choose">
+            <div id="Why">
+                <i class="fa-solid fa-user-shield"></i>
+                <p>Sikker <br> Innlogging</p>
+            </div>
+
+            <div id="Why">
+                <i class="fa-solid fa-display"></i>
+                <p>Responsivt <br> Design</p>
+            </div>
+
+            <div id="Why">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <p>Alltid <br>oppdatert</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="GridNow">
+        <p id="KodeStyle"><./Kodet/Utviklet/AV.Oscar.Kjos.png"></p>
+    </div>
+
+    <div id="DubbleCard">
+        <div id="OverCard">
+            <div id="Card1">
+                <h3>Tidligere</h3>
+                <p><i class="fa-solid fa-check"></i>Fungerende <br> Navigasjonsmeny</p>
+                <p><i class="fa-solid fa-check"></i>Kontaktinfo og <br> sosiale medier</p>
+                <p><i class="fa-solid fa-check"></i>Trenere</p>
+                <p><i class="fa-solid fa-check"></i>Arrangementer <br> og Nyheter</p>
+                <hr id="Horisontal">
+                <p><i class="fa-solid fa-xmark Kryss"></i>Ufullstendig <br> Innlogging</p>
+                <p><i class="fa-solid fa-xmark Kryss"></i>Nyhetsskjema <br> ute av drift</p>
+                <p><i class="fa-solid fa-xmark Kryss"></i>Feilaktig <br> informasjon</p>
+            </div>
+
+            <div id="Card2">
+                <h3>Ny Nettside</h3>
+                <p><i class="fa-solid fa-check"></i>Opptimalisert <br> Navigasjonsmeny</p>
+                <p><i class="fa-solid fa-check"></i>Kontaktinfo og <br> sosiale medier</p>
+                <p><i class="fa-solid fa-check"></i>Trenere og utøvere</p>
+                <p><i class="fa-solid fa-check"></i>Arrangementer <br> og Nyheter i sanntid</p>
+                <hr id="Horisontal">
+                <p><i class="fa-solid fa-check"></i>Administasjonsside</p>
+                <p><i class="fa-solid fa-check"></i>Integrert Database</p>
+                <p><i class="fa-solid fa-check"></i>Kommende stevner</p>
+                <p><i class="fa-solid fa-check"></i>Resultater med <br> søk og filtrering</p>
+                <p><i class="fa-solid fa-check"></i>Klubb Statistikk</p>
+                <p><i class="fa-solid fa-check"></i>Treningsinformasjon</p>
+                <p><i class="fa-solid fa-check"></i>Klubbklær</p>
+                <p><i class="fa-solid fa-check"></i>App-integrasjon</p>
+                <p><i class="fa-solid fa-check"></i>Nyhetsskjema</p>
+                <p><i class="fa-solid fa-check"></i>Innmelding for <br> nye utøvere</p>
+                <p><i class="fa-solid fa-check"></i>Andmeldelser / FAQ</p>
+                <p><i class="fa-solid fa-check"></i>Sponsorprofilering</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="AppGrid">
+        <h2 id="BackTekst">1. App Integrasjon</h2>
+        <img id="MedlemBilde" src="../Bilder/Webløsning/AppIntegrasjon.webp">
+        
+        <div id="BruksGrid">
+            <div id="WidGrid">
+                <video id="Video" src="../Bilder/Webløsning/ScreenRecording.MP4" controls autoplay loop muted playsinline></video>
+                <img id="Phone" src="../Bilder/Webløsning/Phone.webp">
+            </div>
+            
+            <div id="BruksCard">
+                <div class="FixedNumb"><img id="Bilde" src="../Bilder/Ikoner/NyApp.webp"></div>
+
+                <h4>Slik legger du til appen som PWA:</h4>
+                <ol class="steps">
+                    <li><span>1.</span>Besøk nettsiden</li>
+                    <li><span>2.</span>Trykk på menyikonet <i class="fa-solid fa-ellipsis menyikon"></i></li>
+                    <li><span>3.</span>Trykk på "Del"</li>
+                    <li><span>4.</span>Velg "Legg til på Hjem-Skjerm"</li>
+                    <li><span>5.</span>Trykk på "Legg til" for å legge appen på hjem-skjermen</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div id="MedlemGrid">
+        <h2 id="BackTekst">2. Aldri vært lettere <br> - å bli medlem!</h2>
+        <img id="MedlemBilde" src="../Bilder/Webløsning/Innmelding.png">
+
+        <div id="Choose">
+            <div id="Why">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Skybasert <br> tilgang</p>
+            </div>
+
+            <div id="Why">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>Search Engine <br> Optimization</p>
+            </div>
+
+            <div id="Why">
+                <i class="fa-solid fa-bolt"></i>
+                <p>Rask <br>Lasting</p>
+            </div>
+        </div>
+
+        <div id="BliMedlem">
+            <hr>
+            <p>«Så enkelt har det aldri vært å bli medlem. Det tok bare noen få minutter å melde inn barnet vårt.» <br> <br> - Maria, forelder</p>
+        </div>
+    </div>
+
+    <div id="AdminGrid">
+        <h2>3. Administasjonsside <br> <p id="UnderGray">- For trenere og styremedlemmer</p></h2>
+        <img id="MedlemBilde" src="../Bilder/Webløsning/Innfyllingsskjema.webp">
+        <h4>Logg inn og fyll ut skjemaer <br> <p id="UnderGray">- Laget for å gjøre det enkelt</p></h4>
+        <img id="MedlemBilde2" src="../Bilder/Webløsning/Design uten navn.jpg">
+    </div>
+
+    <div id="GridNormal">
+        <h2 id="NummerTekst">4. Våre Trenere</h2>
+        <img id="Bilde1" src="../Bilder/Webløsning/Trenere2.webp">
+        <button id="Buto1"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="Buto2"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+</div>
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="../HTML/OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="../HTML/Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="../HTML/Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="../HTML/Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="../HTML/Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="../HTML/Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="../HTML/Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="../HTML/Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="../HTML/Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div id="BackToTopp">
+            <img id="BackImg" src="../Bilder/Ikoner/NyApp.webp">
+        </div>
+
+        <div>
+        <p id="OverFot"><u>Kontaktinformasjon:</u></p>
+        <p>Webutvikler: Oscar Kjos</p>
+        <p>Epost: oscarkjos@icloud.com</p>
+        </div>
+
+        <br>
+
+        <div id="ValiWidth">
+            <img id="Validation" src="../Bilder/Ikoner/Validation4.png">
+        </div>
+
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+    <script src="../JavaScript/global.js"></script>
+    <script>
+        /*_____ Scroll til toppen Knapp_____*/
+        const btn = document.getElementById("BackToTopp");
+
+        btn.addEventListener("click", () => {
+            window.scrollTo({
+            top: 1380,
+            behavior: "smooth",
+            });
+        });
+
+        /*_____ Bytte bilde _____*/
+        const Knapp1 = document.getElementById("Buto1");
+        const Knapp2 = document.getElementById("Buto2");
+        const Bilde = document.getElementById("Bilde1");
+        const NummerTekst = document.getElementById("NummerTekst");
+
+        /*__________*/
+
+        Knapp2.addEventListener("click", () => {
+        if (Bilde.src.includes("Trenere2.webp")){
+            Bilde.src = "../Bilder/Webløsning/Resultatvisning2.webp"
+            NummerTekst.textContent = "5. Resultater"
+        }
+
+        else if (Bilde.src.includes("Resultatvisning2.webp")){
+            Bilde.src = "../Bilder/Webløsning/ForsideBilde.webp"
+            NummerTekst.textContent = "6. Resposivt Design"
+        }
+
+        else if (Bilde.src.includes("ForsideBilde.webp")){
+            Bilde.src = "../Bilder/Webløsning/ProduktGrid.webp"
+            NummerTekst.textContent = "7. Klubb Klær"
+        }
+
+        else if (Bilde.src.includes("ProduktGrid.webp")){
+            Bilde.src = "../Bilder/Webløsning/SponsorProfilering2.webp"
+            NummerTekst.textContent = "8. Sponsorprofilering"
+        }
+
+        else if (Bilde.src.includes("SponsorProfilering2.webp")){
+            Bilde.src = "../Bilder/Webløsning/Arrangementer.webp"
+            NummerTekst.textContent = "9. Arrangementer"
+        }
+        });
+
+        /*__________*/
+
+        Knapp1.addEventListener("click", () => {
+        if (Bilde.src.includes("Trenere2.webp")){
+            Bilde.src = "../Bilder/Webløsning/Trenere2.webp"
+        }
+
+        else if (Bilde.src.includes("Resultatvisning2.webp")){
+            Bilde.src = "../Bilder/Webløsning/Trenere2.webp"
+            NummerTekst.textContent = "4. Våre Trenere"
+        }
+
+        else if (Bilde.src.includes("ForsideBilde.webp")){
+            Bilde.src = "../Bilder/Webløsning/Resultatvisning2.webp"
+            NummerTekst.textContent = "5. Resultater"
+        }
+
+        else if (Bilde.src.includes("ProduktGrid.webp")){
+            Bilde.src = "../Bilder/Webløsning/ForsideBilde.webp"
+            NummerTekst.textContent = "6. Responsivt Design"
+        }
+
+        else if (Bilde.src.includes("SponsorProfilering2.webp")){
+            Bilde.src = "../Bilder/Webløsning/ProduktGrid.webp"
+            NummerTekst.textContent = "7. Klubb Klær"
+        }
+
+        else if (Bilde.src.includes("Arrangementer.webp")){
+            Bilde.src = "../Bilder/Webløsning/SponsorProfilering2.webp"
+            NummerTekst.textContent = "8. SponsorProfilering"
+        }
+        });
+
+        /*Rekkefølge på bilder
+
+        ../Bilder/Webløsning/Trenere.webp
+        ../Bilder/Webløsning/Resultatvisning.webp
+         ../Bilder/Webløsning/Nettsidebilde.webp
+        
+        */
+    </script>
+</body>
+</html>
