@@ -20,7 +20,7 @@ body{
 
     font-family: var(--font);
     background-color: var(--bg-color);
-    background-image: url(../Bilder/Backround.webp);
+    background-image: url(Bilder/Backround.webp);
 }
 
 /*___________Gjenomgang av Kommentarstiler______________*/

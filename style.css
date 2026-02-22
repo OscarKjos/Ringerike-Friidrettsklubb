@@ -1,7 +1,6 @@
         body{
             margin:0;
             background-color: var(--bg-color);
-            background-image: url(Bilder/Backround.webp);
 
             display:grid;
             grid-template-rows: 70px auto auto auto auto;
