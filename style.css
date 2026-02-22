@@ -1047,7 +1047,7 @@
     }
 
     #Velkomst{
-        font-size: 55px;
+        font-size: 45px;
         width:70%;
         position: unset;
         width:100%;
@@ -1156,7 +1156,7 @@
     }
 
     #MotiCard p{
-        font-size: 50px;
+        font-size: 40px;
         position: unset;
         width:100%;
         color: #262f52;
@@ -1283,7 +1283,8 @@
     }
 
     #Childo h2{
-        font-size: 60px;
+        font-size: 50px;
+        width:75%;
         text-align: left;
         color: #262f52;
         font-weight: bold
@@ -1337,7 +1338,7 @@
     }
 
     #BildeSamling p{
-        font-size: 20px;
+        font-size: 17px;
         width:85%;
     }
 
@@ -1431,5 +1432,21 @@
 
     #TEXTPC{
         display:inline;
+    }
+
+    #Velkomst{
+        font-size: 55px;
+    }
+
+    #Moticard p{
+        font-size: 50px;
+    }
+
+    #Childo h2{
+        font-size: 60px;
+    }
+
+    #BildeSamling p{
+        font-size: 20px;
     }
 }
