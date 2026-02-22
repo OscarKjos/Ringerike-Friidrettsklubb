@@ -450,6 +450,14 @@ body{
             .ONLYIPPC{
                 display:flex;
             }
+
+            #Nyhetsbrev input,textarea{
+                width:60%;
+            }
+
+            #Submit{
+                width:63%;
+            }
         }
 
 /* ===================== Responsiv Desktop (Andre størrelser +) ===================== */
@@ -528,6 +536,14 @@ body{
 
             #Logo{
                 margin-left:10px;
+            }
+
+            #Nyhetsbrev input,textarea{
+                width:90%;
+            }
+
+            #Submit{
+                width:95%;
             }
         }   
 
