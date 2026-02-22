@@ -812,6 +812,8 @@
             background-color: rgb(241, 239, 239);
             color:black;
             z-index: 200;
+            width:35px;
+            height:35px;
 
             touch-action: manipulation;
         }
@@ -1283,7 +1285,7 @@
     }
 
     #Childo h2{
-        font-size: 50px;
+        font-size: 45px;
         width:85%;
         text-align: left;
         color: #262f52;
@@ -1363,7 +1365,7 @@
  }
 
  .Kart{
-    height: 250px;
+    height: 150px;
  }
 
  .KartKnaps{
@@ -1448,5 +1450,9 @@
 
     #BildeSamling p{
         font-size: 20px;
+    }
+
+    .Kart{
+        height: 250px;
     }
 }
