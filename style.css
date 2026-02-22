@@ -1189,10 +1189,6 @@
         background-color: var(--NyanseBlå);
     }
 
-    #TEXTPC{
-        display:inline;
-    }
-
     #GridMed{
         grid-row:5;
         grid-column: 2;
@@ -1407,7 +1403,7 @@
     }
 
     .NyhetsCard{
-        width:25%;
+        width: 46%;
     }
 
     #Rating p{
@@ -1429,5 +1425,11 @@
 }
 
 @media (min-width:850px){
+     .NyhetsCard{
+        width:25%;
+    }
 
+    #TEXTPC{
+        display:inline;
+    }
 }

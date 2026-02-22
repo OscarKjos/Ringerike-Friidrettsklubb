@@ -392,6 +392,10 @@ body{
         display:none;
     }
 
+    .ONLYIPPC{
+        display:none;
+    }
+
 
 /* ================= Eksterne sider innad i programmet ================= */
     
@@ -406,21 +410,14 @@ body{
         color:var(--OverskriftBlå);
     }
 
+/* ===================== Responsiv Desktop (450px +) ===================== */
 
-/* ===================== Responsiv Desktop (850px +) ===================== */
-
-        @media (min-width:850px){
+        @media (min-width:450px){
             #Navbar{
-                width:100%;
+                width:97%;
             }
 
-            #ONLYPC{
-                display:flex;
-                text-decoration: none;
-                color:var(--White);
-            }
-
-            .ONLYPC{
+            #ONLYIPAD{
                 display:flex;
                 text-decoration: none;
                 color:var(--White);
@@ -448,6 +445,37 @@ body{
                 flex-direction: row;
                 gap:10px;
                 font-size: 18px;
+            }
+
+            .ONLYIPPC{
+                display:flex;
+            }
+        }
+
+/* ===================== Responsiv Desktop (Andre størrelser +) ===================== */
+        @media (max-width:750px){
+            #ONLYIPAD{
+                display:none;
+            }
+        }
+
+/* ===================== Responsiv Desktop (850px +) ===================== */
+
+        @media (min-width:850px){
+            #Navbar{
+                width:100%;
+            }
+
+            #ONLYPC{
+                display:flex;
+                text-decoration: none;
+                color:var(--White);
+            }
+
+            .ONLYPC{
+                display:flex;
+                text-decoration: none;
+                color:var(--White);
             }
 
             #FotBar{

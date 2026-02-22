@@ -106,9 +106,21 @@
             }
 
             #Card{
-                width:30%;
+                width:50%;
             }
         }
+    
+    @media(min-width:850px){
+            #Card{
+                width: 40%;
+            }
+        }
+
+    @media(min-width:1200px){
+            #Card{
+                width:30%;
+            }
+    }
     </style>
 </head>
 <body>
@@ -119,10 +131,10 @@
             <span id="NavTekst">
                 <p>Ringerike Friidrettsklubb</p>
                 <span id="FlexPC">
-                    <a id="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
-                    <a id="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
-                    <a id="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
-                    <a id="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
                     <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
                 </span>
             </span>
