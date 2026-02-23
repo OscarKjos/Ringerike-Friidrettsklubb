@@ -41,15 +41,22 @@
             width:100%;
             border-radius: 10px;
             height: 180px;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: var(--Skygge);
         }
 
         /*_______________Responsiv Desktop________________*/
 
             @media (min-width:450px){
                 #Card{
-                    width:55%;
+                    width:50%;
+                    padding:50px;
+                }
+
+                .Bilder{
+                    height: 300px;
+                    margin-top:15px;
                 }
             }
     </style>
@@ -63,7 +70,32 @@
 
     <div id="CardGrid">
         <div id="Card">
-            <p>Siden er under Konstruksjon. Venligst returner</p>
+            <p>Mangekamp er friidrettens mest allsidige gren. Her kombineres løp, hopp og kast i en spennende konkurranseform som utfordrer både styrke, utholdenhet, teknikk og mental fokus.</p>
+
+        <p>I Ringerike Friidrettsklubb gir vi utøvere muligheten til å utvikle seg bredt og variert. Mangekamp passer for dem som liker variasjon og ønsker å mestre flere øvelser – ikke bare én.</p>
+
+        <img class="Bilder" src="../Bilder/Mangekamp1.jpg">
+
+        <h2>Vårt tilbud</h2>
+
+        <p>Vi tilbyr strukturert og variert trening som dekker alle øvelsene innen mangekamp. Treningene tilpasses alder og nivå, med fokus på både teknisk utvikling og fysisk progresjon.</p>
+
+        <ul>
+            <li>Kombinasjon av løp, hopp og kast</li>
+            <li>Teknikktrening i flere øvelser</li>
+            <li>Utvikling av styrke, hurtighet og utholdenhet</li>
+            <li>Tilpassede treningsgrupper</li>
+            <li>Deltakelse i mangekamp-stevner</li>
+        </ul>
+
+        <img class="Bilder" src="../Bilder/Mangekamp2.jpg">
+
+        <h2>Hvorfor velge oss?</h2>
+
+        <p>Mangekamp gir en unik og helhetlig utvikling som idrettsutøver. Hos oss får du tett oppfølging av trenere som hjelper deg å finne balansen mellom de ulike øvelsene.</p>
+
+        <p>I Ringerike Friidrettsklubb bygger vi et miljø preget av samhold, innsats og mestring. Mangekamp handler ikke bare om poeng – det handler om allsidighet, utvikling og idrettsglede.</p>
+
         </div>
     </div>
 
@@ -73,9 +105,9 @@
                 <p>Ringerike Friidrettsklubb</p>
                 <span id="FlexPC">
                     <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
-                    <a id="NOIPAD" class="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
                     <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
                 </span>
             </span>

@@ -41,15 +41,22 @@
             width:100%;
             border-radius: 10px;
             height: 180px;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: var(--Skygge);
         }
 
         /*_______________Responsiv Desktop________________*/
 
             @media (min-width:450px){
                 #Card{
-                    width:55%;
+                    width:50%;
+                    padding:50px;
+                }
+
+                .Bilder{
+                    height: 300px;
+                    margin-top:15px;
                 }
             }
     </style>
@@ -63,7 +70,33 @@
 
     <div id="CardGrid">
         <div id="Card">
-            <p>Siden er under Konstruksjon. Venligst returner</p>
+            <p>Kast er en kraftfull og teknisk gren innen friidrett. Her kombineres styrke, koordinasjon og presisjon for å oppnå stadig bedre prestasjoner.</p>
+
+            <p>I Ringerike Friidrettsklubb tilbyr vi et trygt og utviklende treningsmiljø for barn, ungdom og voksne som ønsker å prøve seg innen kast – enten målet er mestring, konkurranse eller fysisk utvikling.</p>
+
+            <img class="Bilder" src="../Bilder/Kast1.jpg">
+
+            <h2>Vårt tilbud</h2>
+
+            <p>Vi tilbyr variert og strukturert kasttrening tilpasset alder og ferdighetsnivå. Treningene fokuserer på teknikk, styrke og skadeforebyggende arbeid.</p>
+
+            <ul>
+                <li>Kule</li>
+                <li>Diskos</li>
+                <li>Spyd</li>
+                <li>Slegge</li>
+                <li>Styrketrening og teknisk veiledning</li>
+                <li>Deltakelse i lokale og nasjonale stevner</li>
+            </ul>
+
+            <img class="Bilder" src="../Bilder/Kast2.jpg">
+
+            <h2>Hvorfor velge oss?</h2>
+
+            <p>Hos oss får utøverne tett oppfølging av engasjerte trenere og et miljø preget av fellesskap og respekt. Vi legger vekt på god teknisk opplæring og trygg progresjon.</p>
+
+            <p>Kast handler ikke bare om meter og resultater – det handler om mestring, utvikling og idrettsglede. I Ringerike Friidrettsklubb får alle muligheten til å utfordre seg selv og nå nye mål.</p>
+
         </div>
     </div>
 
@@ -73,9 +106,9 @@
                 <p>Ringerike Friidrettsklubb</p>
                 <span id="FlexPC">
                     <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
-                    <a id="NOIPAD" class="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
                     <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
                 </span>
             </span>

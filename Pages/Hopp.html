@@ -41,15 +41,22 @@
             width:100%;
             border-radius: 10px;
             height: 180px;
-            background-size: cover;
-            background-position: center;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: var(--Skygge);
         }
 
         /*_______________Responsiv Desktop________________*/
 
             @media (min-width:450px){
                 #Card{
-                    width:55%;
+                    width:50%;
+                    padding:50px;
+                }
+
+                .Bilder{
+                    height: 300px;
+                    margin-top:15px;
                 }
             }
     </style>
@@ -63,7 +70,31 @@
 
     <div id="CardGrid">
         <div id="Card">
-            <p>Siden er under Konstruksjon. Venligst returner</p>
+            <p>Hopp er en spennende og teknisk krevende del av friidretten. Her kombineres fart, styrke, spenst og presisjon for å oppnå stadig nye personlige rekorder.</p>
+            <p>I Ringerike Friidrettsklubb legger vi til rette for et trygt og motiverende treningsmiljø der utøvere i alle aldre kan utvikle ferdighetene sine – enten målet er konkurranse eller idrettsglede.</p>
+        <img class="Bilder" src="../Bilder/Utøvere/Lengdehopp.webp">
+
+            <h2>Vårt tilbud</h2>
+
+            <p>Vi tilbyr strukturert og variert hopptrening tilpasset alder og nivå. Treningene fokuserer både på teknikk, koordinasjon og eksplosiv styrke.</p>
+
+        <ul>
+            <li>Lengdehopp</li>
+            <li>Høydehopp</li>
+            <li>Tresteg</li>
+            <li>Stavsprang</li>
+            <li>Spenst- og hurtighetstrening</li>
+            <li>Deltakelse i lokale og nasjonale stevner</li>
+        </ul>
+
+        <img class="Bilder" src="../Bilder/Hopp.png">
+
+        <h2>Hvorfor velge oss?</h2>
+
+        <p>Hos oss får utøverne tett oppfølging av engasjerte trenere og et miljø preget av samhold og respekt. Vi er opptatt av å bygge mestringsfølelse og selvtillit – både på og utenfor banen.</p>
+
+        <p>Hopp handler ikke bare om centimeter og høyder, men om utvikling, fellesskap og idrettsglede. I Ringerike Friidrettsklubb får alle muligheten til å utfordre seg selv og nå nye mål.</p>
+
         </div>
     </div>
 
@@ -73,9 +104,9 @@
                 <p>Ringerike Friidrettsklubb</p>
                 <span id="FlexPC">
                     <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
-                    <a id="NOIPAD" class="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
-                    <a id="ONLYIPAD" class="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="../HTML/OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="../HTML/Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
                     <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
                 </span>
             </span>
