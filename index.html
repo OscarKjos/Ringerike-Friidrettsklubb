@@ -552,11 +552,16 @@
 
         const section = document.getElementById('ArrangementImport')
             section.innerHTML = ''
-        
+
         data.forEach(Arrangement => {
-            section.innerHTML += `
-                <div class="OverCard">
-                <div class="CardEvent">
+
+            const overCard = document.createElement("div");
+            overCard.className = "OverCard";
+
+            const card = document.createElement("div");
+            card.className = "CardEvent";
+
+            card.innerHTML += `
                         <div class="IconEvent">
                             <i class="fa-solid fa-people-group"></i>
                         </div>
@@ -572,12 +577,12 @@
                         </span>
                         <hr>
                     <p class="Besk"><b>Beskrivelse: </b>${Arrangement.beskrivelse}</p>
-                </div>
-                </div>
-            `
+            `;
+            overCard.appendChild(card);
+            section.appendChild(overCard);
 
-            const icon = section.querySelector(".IconEvent")
-                const gruppeicon = section.querySelectorAll(".GruppeIcon")
+                const icon = card.querySelector(".IconEvent")
+                const gruppeicon = card.querySelectorAll(".GruppeIcon")
 
                 if ((Arrangement.type).toLowerCase().includes("stevne") || (Arrangement.beskrivelse).toLowerCase().includes("stevne")){
                     icon.style.backgroundColor = "var(--NyanseGrøn)"
@@ -587,14 +592,12 @@
                         icon.style.color = "var(--NyanseGrøn)"
                     });
                 }
-        });
 
-        const Beskrivelse = section.querySelector(".Besk");
-
-                section.addEventListener("click", () => {
+            const Beskrivelse = card.querySelector(".Besk");
+                card.addEventListener("click", () => {
                     Beskrivelse.classList.toggle("BeskShow");
+            });
         });
-
         }
         FørsteArrangement()
     </script>

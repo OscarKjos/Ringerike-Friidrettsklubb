@@ -730,6 +730,8 @@
     padding-right:5px;
     line-height: 1.5;
     text-align: center;
+    color:#555;
+    font-size: 17px;
 
     display: -webkit-box;
     -webkit-line-clamp: 3; /* antall linjer */ 
@@ -998,6 +1000,8 @@
             justify-content: left;
             align-items: center;
             flex-wrap: wrap;
+            margin-left:22px;
+            font-size: 17px;
         }
 
         #DateFlex p{
@@ -1407,6 +1411,10 @@
     #SupaBaseImport{
         grid-row:10;
         grid-column: 1/-1;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:10px;
     }
 
     .NyhetsFont{
@@ -1533,10 +1541,11 @@
 
 @media (min-width:850px){
     .NyhetsCard{
-        width:25%;
+        width:27%;
     }
 
     .OverCard{
+        justify-content: space-evenly;
         width:25%;
     }
 
