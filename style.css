@@ -745,7 +745,7 @@
         }
 
         #ProduktGrid{
-            grid-row: 13;
+            grid-row: 12;
             display:flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -960,9 +960,78 @@
             margin:5px;
         }
 
+        .IconEvent{
+            position:absolute;
+            top:-5%;
+            right:-2%;
+            background-color: var(--NyanseGul);
+            color:white;
+            border-radius: 50%;
+            padding:5px;
+            height: 40px;
+            width:40px;
+            font-size: 20px;
+            
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .CardEvent{
+            background-color: white;
+            border-radius: 10px;
+            padding:20px;
+            text-align: center;
+            color:#555;
+            line-height: 1.5;
+            font-size: 17px;
+            box-shadow: 0px 0px 5px rgb(182, 180, 180);
+            position:relative;
+
+            margin:10px;
+            box-shadow: var(--Skygge);
+        }
+
+        #DateFlex{
+            display:flex;
+            column-gap:20px;
+            justify-content: left;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #DateFlex p{
+            margin:5px;
+        }
+
+        #DateFlex i{
+            color:var(--NyanseGul);
+            text-shadow: 0px 0px 2px rgb(238, 232, 232);
+        }
 
 
+        .Besk{
+            display: -webkit-box;
+            -webkit-line-clamp: 4;  /* antall linjer */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
+        .Besk.BeskShow{
+            display: -webkit-box;
+            -webkit-line-clamp: unset; /* antall linjer */
+            -webkit-box-orient: vertical;
+            overflow: visible;
+        }
+
+        #ArrangementImport{
+            display:flex;
+            flex-wrap: wrap;
+            gap:20px;
+            justify-content: center;
+            margin:3px;
+            grid-row:14;
+        }
 
 /*_______________Responsiv Desktop________________*/
 
@@ -981,6 +1050,23 @@
         align-items: center;
         flex-wrap: wrap;
         margin-bottom:40px;
+    }
+
+    .OverCard{
+            width:80%;
+            height: fit-content;
+            background-color: rgba(255, 255, 255, 0.469);
+            border-radius: 15px;
+            padding:20px;
+            margin:10px;
+            box-shadow: var(--Skygge);
+            padding-top:20px;
+
+            position: relative;
+    }
+
+    .CardEvent{
+        margin:0;
     }
 
     .Card{
@@ -1415,7 +1501,7 @@
     }
 
     .NyhetsCard{
-        width: 46%;
+        width: 45%;
     }
 
     #Rating p{
@@ -1434,10 +1520,23 @@
         width:96%;
     }
 
+    #ArrangementImport{
+        grid-row:11;
+        grid-column: 1/-1;
+    }
+
+    .OverCard{
+        width:39%;
+    }
+
 }
 
 @media (min-width:850px){
-     .NyhetsCard{
+    .NyhetsCard{
+        width:25%;
+    }
+
+    .OverCard{
         width:25%;
     }
 

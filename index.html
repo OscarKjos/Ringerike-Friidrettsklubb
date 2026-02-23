@@ -295,15 +295,6 @@
     </div>
     </div>
 
-    <section>
-        <div>
-            <div>
-
-            </div>
-        </div>
-    </section>
-
-
     <div id="BildeSamling" class="Popup">
         <img id="Bildejustering" src="Bilder/Utøvere3.jpg">
         <span>
@@ -314,7 +305,7 @@
     </div>
 
     <section id="SupaBaseImport" class="Popup">
-        <!-- (Dette er sånn strukturen ser ut. Elementene lages med js) 
+        <!-- (Slik ser HTML strukteren ut. Dataen blir hentet fra en database med js) 
 
         <div class="NyhetsCard">
             <h2 class="NyhetsFont">Nyheter</h2>
@@ -322,6 +313,30 @@
             <p class="Dato">22. januar. 2026</p>
             <h3 id="Overtab">Ny nettside for Ringerike Friidrettsklubb!</h3>
             <p class="MainTekst">Ringerike friidrettsklubb har fått en splitter ny nettside - utviklet av Oscar Kjos</p>
+        </div>
+
+        -->
+    </section>
+
+    <section id="ArrangementImport" class="Popup">
+         <!-- (Slik ser HTML strukteren ut. Dataen blir hentet fra en database med js)
+
+        <div class="OverCard">
+        <div class="CardEvent">
+            <div class="IconEvent">
+                <i class="fa-solid fa-people-group"></i>
+            </div>
+            <h4><b>Type:</b> Dugnad og Pizzakveld</h4>
+            <hr>
+            <span id="DateFlex">
+                <p><i class="fa-regular fa-calendar-days"></i> 02. juli 2025</p>
+                <p><i class="fa-regular fa-clock"></i> 10:00</p>
+                <p><i class="fa-solid fa-location-dot"></i> Klubbhuset</p>
+                <p><i class="fa-solid fa-people-group"></i> Alle</p>
+            </span>
+            <hr>
+            <p class="Besk"><b>Beskrivelse:</b> Vi samles for å rydde i og rundt klubbhuset før sommerferien. Etterpå blir det pizza og quiz. Ta med godt humør og arbeidshansker!</p>
+        </div>
         </div>
 
         -->
@@ -477,7 +492,7 @@
             limitNumb = 2;
         }
         else{
-            limitNumb = 4;
+            limitNumb = 3;
         }
 
         async function FørsteNyhet() {
@@ -491,6 +506,7 @@
             Import.innerHTML = ''
 
             data.forEach(nyhet => {
+
                 const div = document.createElement('div')
                 div.className = 'NyhetsCard'
 
@@ -522,6 +538,65 @@
         });
         }
         FørsteNyhet() /* Kjører funksjonen */
+
+
+
+        /*=============== Import av Arrangement ================*/
+
+        async function FørsteArrangement() {
+        const { data, error } = await supabase
+                .from('Arrangementer')
+                .select('type, dato, klokkeslett, sted, gruppe, beskrivelse')
+                .order('id', { ascending: false })
+                .limit(limitNumb)
+
+        const section = document.getElementById('ArrangementImport')
+            section.innerHTML = ''
+        
+        data.forEach(Arrangement => {
+            section.innerHTML += `
+                <div class="OverCard">
+                <div class="CardEvent">
+                        <div class="IconEvent">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+
+                        <h4>${Arrangement.type}</h4>
+                        <hr>
+
+                        <span id="DateFlex">
+                            <p><i class="fa-regular fa-calendar-days GruppeIcon"></i> ${Arrangement.dato}</p>
+                            <p><i class="fa-regular fa-clock GruppeIcon"></i> ${Arrangement.klokkeslett}</p>
+                            <p><i class="fa-solid fa-location-dot GruppeIcon"></i> ${Arrangement.sted}</p>
+                            <p><i class="fa-solid fa-people-group GruppeIcon"></i> ${Arrangement.gruppe}</p>
+                        </span>
+                        <hr>
+                    <p class="Besk"><b>Beskrivelse: </b>${Arrangement.beskrivelse}</p>
+                </div>
+                </div>
+            `
+
+            const icon = section.querySelector(".IconEvent")
+                const gruppeicon = section.querySelectorAll(".GruppeIcon")
+
+                if ((Arrangement.type).toLowerCase().includes("stevne") || (Arrangement.beskrivelse).toLowerCase().includes("stevne")){
+                    icon.style.backgroundColor = "var(--NyanseGrøn)"
+                    icon.innerHTML = `<i class="fa-solid fa-running"></i>`
+
+                    gruppeicon.forEach(icon => {
+                        icon.style.color = "var(--NyanseGrøn)"
+                    });
+                }
+        });
+
+        const Beskrivelse = section.querySelector(".Besk");
+
+                section.addEventListener("click", () => {
+                    Beskrivelse.classList.toggle("BeskShow");
+        });
+
+        }
+        FørsteArrangement()
     </script>
 </body>
 </html>
