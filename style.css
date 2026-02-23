@@ -1294,9 +1294,9 @@
     }
 
     #BildeFlex{
-        width:44%;
-        height: 200px;
-        font-size: 25px;
+        width:41%;
+        height: 150px;
+        font-size: 20px;
     }
 
     #Bilde3{
@@ -1397,8 +1397,8 @@
     }
 
     #BildeSamling p{
-        font-size: 17px;
-        width:85%;
+        font-size: 15px;
+        width:90%;
     }
 
     #KnappKlikk{
@@ -1426,7 +1426,7 @@
 
  #Rating{
     margin:10px;
-    font-size: 15px;
+    font-size: 12px;
  }
 
  #TittelSkrift{
@@ -1455,7 +1455,7 @@
     }
 
     #Rating p{
-        font-size: 15px;
+        font-size: 12px;
     }
 
     #ErstatoBilde{
@@ -1520,5 +1520,24 @@
         padding:30px;
         gap:30px;
         padding-right:30px;
+    }
+
+    #BildeFlex{
+        width:44%;
+        height: 200px;
+        font-size: 25px;
+    }
+
+    #Rating{
+        font-size: 15px;
+    }
+
+    #Rating p{
+        font-size: 15px;
+    }
+
+    #BildeSamling p{
+        font-size: 17px;
+        width:85%;
     }
 }
