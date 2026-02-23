@@ -63,31 +63,6 @@ knapp.addEventListener("click", () => {
 });
 });
 
-/*_________Valg av type Kart__________*/
-const Kart1 = document.getElementById("Kart1");
-const Kart2 = document.getElementById("Kart2");
-const BtnKart1 = document.getElementById("BtnKart1");
-const BtnKart2 = document.getElementById("BtnKart2");
-
-BtnKart1.addEventListener("click",() =>{
-    Kart1.style.display = "flex";
-    Kart2.style.display = "none";
-
-    BtnKart1.classList.add("active");
-    BtnKart2.classList.remove("active");
-});
-
-BtnKart2.addEventListener("click",() =>{
-    Kart2.style.display = "flex";
-    Kart1.style.display = "none";
-
-    BtnKart1.classList.remove("active");
-    BtnKart2.classList.add("active");
-});
-
-BtnKart2.classList.add("active");  /* Definerer første trykk/farge */
-
-
 /*_____Import av tall_____*/
 const totalt = localStorage.getItem("StevneResultat");
 const StevneResultat = document.getElementById("StevneResultat");

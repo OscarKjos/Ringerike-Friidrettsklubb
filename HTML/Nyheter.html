@@ -286,7 +286,7 @@
             const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
                 .from('Nyheter')
                 .select('tittel, dato, innhold, bilde')
-                .order('id', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
+                .order('dato', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
 
             if (error) {
                 console.error('Feil ved henting:', error)

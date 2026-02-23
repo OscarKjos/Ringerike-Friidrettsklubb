@@ -33,7 +33,7 @@
         }
 
         #KnappGrid{
-            grid-row: 4;
+            grid-row: 5;
             display:flex;
             justify-content: center;
             align-items: center;
@@ -56,14 +56,95 @@
             box-shadow: 0px 0px 5px gray;
         }
 
+        #KartGrid{
+            grid-row:4;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #KartFrame{
+            grid-row:15;
+            margin:10px;
+            margin-top:15px;
+            margin-bottom: 15px;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap:20px;
+
+            background-color: rgba(255, 255, 255, 0.758);
+            padding:10px;
+            border-radius: 10px;
+            width:80%;
+        }
+
+        .Kart{
+            width:100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        #Kart1{
+            display: none;
+        }
+
+        #Kart2{
+            display:flex;
+        }
+
+        .KartKnaps{
+            height: 30px;
+            width:45%;
+            border:none;
+            border-radius: 5px;
+            background-color: rgb(222, 230, 233);
+
+            display:flex;
+            gap:5px;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(13px,3.5vw,16px);
+            color:black;
+        }
+
+        #BtnKart1.active{
+            background-color: var(--NyanseBlå);
+            color:white;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        #BtnKart2.active{
+            background-color: var(--NyanseBlå);
+            color:white;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
         /*_______________Responsiv Desktop________________*/
 
             @media (min-width:450px){
                 #Card{
                     width:55%;
                 }
-            }
 
+                #KartFrame{
+                    margin-bottom:10px;
+                    width:55%;
+                    padding:30px;
+                }
+
+                .Kart{
+                    height: 300px;
+                }
+
+                .KartKnaps{
+                    font-size: 18px;
+                    height: 40px;
+                    width:45%;
+                    }
+            }
     </style>
 
 </head>
@@ -106,6 +187,15 @@
                 <p><b>Besøksadresse: </b>Friidrettsbanen, Hønefoss Idrettspark, Ringeriksgata 13, 3510 Hønefoss (april–oktober).</p>
                 <p><b>Klubbfarger:</b> Blå (#568ccb) og Gul (#fff53d)</p>
         </div>
+    </div>
+
+    <div id="KartGrid">
+    <div id="KartFrame" class="Popup">
+        <button class="KartKnaps" id="BtnKart1"><i class="fa-solid fa-map-pin"></i>Ringerikshallen</button>
+        <button class="KartKnaps" id="BtnKart2"><i class="fa-solid fa-map-location-dot"></i>Friidrettsstadion</button>
+        <iframe class="Kart" id="Kart1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.412881737848!2d10.252956837635516!3d60.18559111808681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641a9e2a81f20a7%3A0x74deb7adf2a56f39!2sRingerikshallen!5e0!3m2!1sno!2sno!4v1769107710037!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="Kart" id="Kart2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7214849826496!2d10.26182047698549!3d60.15820667502627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641071598a9e74d%3A0x898f93e3b9dc6f84!2sFriidrettsstadion%20i%20H%C3%B8nefoss%2C%20Ringerike%20Friidrettsklubb!5e0!3m2!1sno!2sno!4v1769108009784!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     </div>
 
     <div id="KnappGrid">
@@ -194,5 +284,31 @@
 
 
     <script src="../JavaScript/global.js"></script>
+    <script>
+        /*_________Valg av type Kart__________*/
+        const Kart1 = document.getElementById("Kart1");
+        const Kart2 = document.getElementById("Kart2");
+        const BtnKart1 = document.getElementById("BtnKart1");
+        const BtnKart2 = document.getElementById("BtnKart2");
+
+        BtnKart1.addEventListener("click",() =>{
+            Kart1.style.display = "flex";
+            Kart2.style.display = "none";
+
+            BtnKart1.classList.add("active");
+            BtnKart2.classList.remove("active");
+        });
+
+        BtnKart2.addEventListener("click",() =>{
+            Kart2.style.display = "flex";
+            Kart1.style.display = "none";
+
+            BtnKart1.classList.remove("active");
+            BtnKart2.classList.add("active");
+        });
+
+        BtnKart2.classList.add("active");  /* Definerer første trykk/farge */
+
+    </script>
 </body>
 </html>

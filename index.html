@@ -346,7 +346,7 @@
         <button class="ProduktKnapp" id="FlipStyle"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="ProduktKnapp" id="FlipStyle2"><i class="fa-solid fa-chevron-right"></i></button>
         
-        <div style="display:block;" class="Produkt1">
+        <div class="Produkt1">
             <img id="ProduktBilde" src="Bilder/Treningsklær/T-Skjorte_Kvad2.webp">
             <p><b>T-Skjorte - Ny Utgave</b></p>
             <p id="SmalTekst">Tilgjengelig - <b>200 kr</b></p>
@@ -355,34 +355,27 @@
             <img id="Icon" src="Bilder/Ikoner/NyhetsIkon.webp">
         </div>
 
-        <div style="display:block;" class="Produkt1">
+        <div class="Produkt1">
             <img id="ProduktBilde" src="Bilder/Treningsklær/Jakke_Kvad.webp">
             <p><b>Jakke - Ny Utgave</b></p>
             <p id="SmalTekst">Tilgjengelig - <b style="color:green;">250 kr</b></p>
             <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
         </div>
 
-        <div style="display:none;" class="Produkt2">
+        <div class="Produkt2">
             <img id="ProduktBilde" src="Bilder/Treningsklær/Singlet_Kvad.webp">
             <p><b>Singlet - Ny Utgave</b></p>
             <p id="SmalTekst">Tilgjengelig - <b style="color:green;">120 kr</b></p>
             <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
         </div>
 
-        <div style="display:none;" class="Produkt2">
+        <div class="Produkt2">
             <img id="ProduktBilde" src="Bilder/Treningsklær/Genser_Kvad.webp">
             <p><b>Genser - Ny Utgave</b></p>
             <p id="SmalTekst">Tilgjengelig - <b>320 kr</b></p>
             <a href="Pages/Treningsklær.html"><button class="UtvalgKnapp">Vårt utvalg <i class="fa-solid fa-layer-group"></i></button></a>
             <img id="Icon" src="Bilder/Ikoner/NyhetsIkon2.webp">
         </div>
-    </div>
-
-    <div id="KartFrame" class="Popup">
-        <button class="KartKnaps" id="BtnKart1"><i class="fa-solid fa-map-pin"></i>Ringerikshallen</button>
-        <button class="KartKnaps" id="BtnKart2"><i class="fa-solid fa-map-location-dot"></i>Friidrettsstadion</button>
-        <iframe class="Kart" id="Kart1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.412881737848!2d10.252956837635516!3d60.18559111808681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641a9e2a81f20a7%3A0x74deb7adf2a56f39!2sRingerikshallen!5e0!3m2!1sno!2sno!4v1769107710037!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <iframe class="Kart" id="Kart2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7214849826496!2d10.26182047698549!3d60.15820667502627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4641071598a9e74d%3A0x898f93e3b9dc6f84!2sFriidrettsstadion%20i%20H%C3%B8nefoss%2C%20Ringerike%20Friidrettsklubb!5e0!3m2!1sno!2sno!4v1769108009784!5m2!1sno!2sno" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div id="OSSP">
@@ -499,7 +492,7 @@
             const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
                 .from('Nyheter')
                 .select('tittel, dato, innhold, bilde')
-                .order('id', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
+                .order('dato', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
                 .limit(limitNumb)
 
             const Import = document.getElementById('SupaBaseImport')
