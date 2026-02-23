@@ -768,14 +768,6 @@
             touch-action: manipulation;
         }
 
-        .Produkt1{
-            width:20%;
-        }
-
-        .Produkt2{
-            width:20%;
-        }
-
         .UtvalgKnapp{
             width:100%;
             background-color: var(--NyanseGul);
@@ -1048,7 +1040,12 @@
         display:none;
     }
 
+    .Produkt1{
+        width:20%;
+    }
+
     .Produkt2{
+        width:20%;
         display:block;
     }
 
@@ -1369,7 +1366,7 @@
         grid-column: 1/-1;
         display:flex;
         justify-content: center;
-        align-items: center;
+        align-items: first baseline;
         gap:10px;
     }
 
@@ -1396,6 +1393,7 @@
 
     #BildeSamling h3{
         font-size: 23px;
+        margin-bottom: 0;
     }
 
     #BildeSamling p{
@@ -1418,7 +1416,7 @@
     flex-direction: row;
     grid-column: 1/-1;
     flex-wrap: wrap;
-    gap:30px;
+    gap:25px;
  }
 
  #OSSP{
@@ -1475,10 +1473,12 @@
     #ArrangementImport{
         grid-row:11;
         grid-column: 1/-1;
+        gap:5px;
+        margin-bottom: 20px;
     }
 
     .OverCard{
-        width:39%;
+        width:41%;
     }
 
 }
