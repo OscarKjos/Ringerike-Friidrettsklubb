@@ -8,13 +8,159 @@
     <title>Løping</title>
 
     <style>
+        body{
+            display:grid;
+            grid-template-rows: 70px auto auto auto auto;
+        }
 
+        #CardGrid{
+            grid-row: 3;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Card{
+            width:70%;
+            border-radius: 20px;
+            height: auto;
+            background-color: white;
+            padding:30px;
+        }
+
+        #Card p,li{
+            line-height: 1.6;
+        }
+
+        #Card h2{
+            color:#1a1a1a;
+            text-align: center;
+        }
+
+        .Bilder{
+            width:100%;
+            border-radius: 10px;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /*_______________Responsiv Desktop________________*/
+
+            @media (min-width:450px){
+                #Card{
+                    width:55%;
+                }
+            }
     </style>
 
 </head>
 <body>
-    <h2>Denne siden er forløpig under konstruksjon. <a href="../index.html">Venligst returner</a></h2>
+    <span id="Top">
+        <h1 id="MainSkrift">Friidrett - Løping</h1>
+        <p><b>Sist oppdatert:</b> 23. februar 2026</p>
+    </span>
 
-    <script src="JavaScript/global.js"></script>
+    <div id="CardGrid">
+        <div id="Card">
+            <p>Løping er en sentral del av friidrett og passer for alle – enten du vil konkurrere, holde deg i form eller bare kjenne gleden av å løpe.</p>
+            <p>I Ringerike Friidrettsklubb legger vi vekt på et trygt og inkluderende miljø der barn, unge og voksne kan utvikle seg i eget tempo.</p>
+            <img class="Bilder" src="../Bilder/Utøvere5.jpg">
+            <h2>Vårt Tilbud</h2>
+            <p>Vi tilbyr treningstilbud for alle nivåer – fra nybegynnere til erfarne løpere. Våre trenere gir veiledning i både teknikk, utholdenhet og styrke.</p>
+            <ul>
+                <li>Sprint, mellomdistanse og langdistanse</li>
+                <li>Tilpassede treningsgrupper etter alder og nivå</li>
+                <li>Deltakelse i lokale og nasjonale konkurranser</li>
+                <li>Sosialt fellesskap og felles treningssamlinger</li>
+            </ul>
+            <img class="Bilder" src="../Bilder/Løpebane.jpeg">
+            <h2>Hvorfor velge oss?</h2>
+            <p>Ringerike Friidrettsklubb er en viktig del av det lokale idrettsmiljøet. Vi ønsker å gi barn og ungdom en meningsfull fritid, samtidig som vi utvikler gode idrettslige verdier som fellesskap, innsats og glede.</p>
+            <p>Vi har moderne fasiliteter og et treningsmiljø preget av respekt og samhold. Her får alle mulighet til å vokse – både sportslig og personlig.</p>
+        </div>
+    </div>
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="../HTML/OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="../HTML/Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="../HTML/Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="../HTML/Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="../HTML/Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="../HTML/Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="../HTML/Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="../HTML/Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="../HTML/Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.com <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+
+    <script src="../JavaScript/global.js"></script>
 </body>
 </html>
