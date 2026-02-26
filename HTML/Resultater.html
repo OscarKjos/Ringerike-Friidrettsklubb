@@ -93,7 +93,62 @@
             padding-right:10px;
         }
 
+        #StatsGrid{
+            grid-row:4;
+        }
+
+        #StatsCard{
+            background-color: white;
+            height: auto;
+            margin:10px;
+            padding:20px;
+            border-radius: 10px;
+        }
+
+        #StatsCard h2{
+            color:#2a314f;
+            text-align: center;
+        }
+
+        #UtøverFlex{
+            display:flex;
+            justify-content: space-between;
+            background-color: #ecf0fd;
+            padding:5px;
+            border-radius: 10px;
+            padding-right:20px;
+        }
+
+        #NumbFlex{
+            margin-right:20px;
+            background-color: white;
+            padding:10px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        #Numbold{
+            font-size: 16px;
+            color:#3072e1;
+        }
+
         @media (min-width:450px){
+            body{
+                grid-template-columns: 2fr 1fr;
+            }
+
+            #StatsGrid{
+                grid-row: 3;
+                grid-column: 2;
+            }
+
+            #StatsCard{
+                margin:20px;
+                font-size: 15px;
+                width:80%;
+                margin-left:0;
+            }
+
             #Resultat{
                 margin:20px;
                 font-size: 15px;
@@ -187,6 +242,13 @@
         -->
         </tbody>
         </table>
+    </div>
+
+    <div id="StatsGrid">
+        <div id="StatsCard">
+            <h2>Statistikk - deltakelser</h2>
+            <p id="UtøverImport"></p>
+        </div>
     </div>
 
     <nav id="Navbar">
@@ -296,6 +358,8 @@
             const ResultatListe = document.getElementById("ResultatListe");
             ResultatListe.innerHTML = ''
 
+            const antallForekomster = {};
+
             data.forEach(resultat => {
                 const tr = document.createElement('tr')
                 tr.className = 'Tabellrad'
@@ -307,8 +371,26 @@
                 <td class="Distanse">${resultat.øvelse}</td>
                 <td>${resultat.resultat}</td>
             `
-        ResultatListe.appendChild(tr)
+
+            const navnliste = resultat.utøver.split(",");
+            
+            navnliste.forEach(navn => {
+                antallForekomster[navn] = (antallForekomster[navn] || 0) + 1;
+            });
+
+            ResultatListe.appendChild(tr)
             })
+            const UtøverImport = document.getElementById("UtøverImport");
+
+            UtøverImport.innerHTML = Object.entries(antallForekomster)
+            .sort((a, b) => b[1] - a[1])
+            .map(([navn, antall],index) => `
+            <div id="UtøverFlex">
+                <p><b id="NumbFlex">${index + 1}.</b> ${navn}:</p>
+                <p><b id="Numbold">${antall}</b> resultater</p>
+            </div>
+            `)
+            .join("<br>");
         
         
         /*____________Antall i Tabell_____________*/
