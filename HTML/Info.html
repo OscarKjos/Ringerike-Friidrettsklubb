@@ -61,7 +61,7 @@
         #InfoCard{
             background-color: rgba(255, 255, 255, 0.655);
             height: 420px;
-            width:100%;
+            width:80%;
             margin:0px;
             padding:20px;
             border-radius: 15px;
@@ -87,8 +87,8 @@
             grid-column: 1/-1;
             display:flex;
             background-color: white;
-            margin:20px;
-            border-radius: 20px;
+            margin:10px;
+            border-radius: 15px;
             padding:5px;
             padding-top:0px;
             margin-top:0;
@@ -141,7 +141,7 @@
         #GridBar{
             grid-row:3;
             grid-column: 1/-1;
-            margin:20px;
+            margin:10px;
             margin-top:5px;
             margin-bottom: 0px;
         }
@@ -149,7 +149,7 @@
         #JustBar{
             background-color: white;
             padding:10px;
-            border-radius: 20px;
+            border-radius: 15px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
 
@@ -165,6 +165,7 @@
             padding:5px;
             width:200px;
             font-size: 16px;
+            background-color: transparent;
         }
 
         #InFlex{
@@ -215,11 +216,15 @@
         #Totalt.ReturnerKnapp{
             background-color: rgba(128, 128, 128, 0.143);
             padding:7px;
-            width:60px;
+            width:100px;
             text-align: center;
             border-radius: 5px;
-
         }
+
+        #TopCard{
+            margin-top:20px;
+        }
+
 
         /*_______________Responsiv Desktop Ipad+________________*/
 
@@ -250,6 +255,7 @@
                 #InfoCard{
                     margin:20px;
                     box-shadow: var(--Skygge);
+                    width:100%;
                 }
 
                 #Opda{
@@ -259,8 +265,11 @@
                 #OverGrid{
                     padding:20px;
                     padding-top:10px;
+                    border-radius: 20px;
                     border-top-left-radius: 20px;
                     border-top-right-radius: 20px;
+                    margin:20px;
+                    margin-top:0;
                 }
 
                 #Top{
@@ -268,6 +277,7 @@
                 }
 
                 #GridBar{
+                    margin:20px;
                     margin-bottom: 10px;
                     margin-top:10px;
                 }
@@ -279,6 +289,10 @@
 
                 #DisplayRule{
                     display:flex;
+                }
+
+                #TopCard{
+                    margin-top:0px;
                 }
             }
 
@@ -337,7 +351,7 @@
     </div>
 
     <div id="CardGrid">
-        <div class="Card" data-id="Mail1">
+        <div class="Card" id="TopCard" data-id="Mail1">
             <div id="FlexRow">
                 <p><b>Første gang på stevne?</b></p>
                 <p id="Dato">26.02.26</p>
