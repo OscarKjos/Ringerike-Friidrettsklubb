@@ -90,7 +90,8 @@
             background-color: white;
             margin:20px;
             border-radius: 20px;
-            padding:20px;
+            padding:5px;
+            padding-top:30px;
             margin-top:0;
 
             display:grid;
@@ -160,6 +161,7 @@
             border-radius: 5px;
             padding:5px;
             width:200px;
+            font-size: 16px;
         }
 
         #InFlex{
@@ -213,6 +215,7 @@
                 #CardGrid{
                     display:flex;
                     grid-column: 2;
+                    padding-top:20px;
                 }
 
                 #Totalt{
@@ -225,6 +228,11 @@
 
                 #Opda{
                     display:flex;
+                }
+
+                #OverGrid{
+                    padding:20px;
+                    padding-top:10px;
                 }
             }
 
@@ -301,6 +309,26 @@
             </div>
             <p>Organisasjon</p>
             <p id="Innhold">Her finner du oversikt over styreleder og styremedlemmer i Ringerike Friidrettsklubb.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail4">
+            <div id="FlexRow">
+                <p><b>Foreldreinformasjon</b></p>
+                <p id="Dato">26.02.26</p>
+            </div>
+            <p>Vær en støttespiller</p>
+            <p id="Innhold">Friidrett er en individuell idrett, men fellesskapet rundt utøverne betyr enormt mye. Som forelder er du en viktig støttespiller – både for ditt eget barn og for miljøet i klubben.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail5">
+            <div id="FlexRow">
+                <p><b>Regler i friidrett</b></p>
+                <p id="Dato">26.02.26</p>
+            </div>
+            <p>Til utøver/forelder</p>
+            <p id="Innhold">Friidrett består av mange ulike øvelser med egne regler. Her finner du en enkel forklaring på de viktigste reglene i løp, hopp og kast.</p>
             <hr>
         </div>
     </div>
@@ -511,7 +539,116 @@
                 </ul>
 
                 <p>Styret har ansvar for den daglige driften og den langsiktige utviklingen av klubben, og arbeider for å skape et trygt, inkluderende og utviklende miljø for alle våre medlemmer.</p>
-            `
+            `,
+
+            Mail4:`
+                <h2>Foreldreinformasjon</h2>
+                <p>Friidrett er en individuell idrett, men fellesskapet rundt utøverne betyr enormt mye. Som forelder er du en viktig støttespiller – både for ditt eget barn og for miljøet i klubben.</p>
+
+                <h3>Rolle som forelder</h3>
+                <p>Det viktigste du kan gjøre er å:</p>
+                <ul>
+                    <li>Støtte og oppmuntre barnet ditt</li>
+                    <li>Fokusere på innsats og utvikling – ikke bare resultater</li>
+                    <li>Bidra til et positivt og inkluderende miljø</li>
+                </ul>
+                <p>Barn utvikler seg i ulikt tempo. I friidrett konkurrerer man først og fremst mot seg selv – å slå sin egen personlig rekord er ofte viktigere enn plassering.</p>
+
+                <h3>På trening</h3>
+                <ul>
+                    <li>Sørg for at barnet møter presis og med riktig utstyr</li>
+                    <li>Gi beskjed til trener ved fravær</li>
+                    <li>Respekter trenerens rolle – instruksjon under trening skal komme fra trenerne</li>
+                    <li>Det er viktig at barna får rom til å være selvstendige på trening. Foreldre skal ikke gå inn på indre bane eller gi tekniske beskjeder under øvelser</li>
+                </ul>
+
+                <h3>På stevner</h3>
+                    <p>På stevner er det ofte mye som skjer samtidig. Her er noen viktige punkter:</p>
+                    <ul>
+                        <li>Hjelp barnet med å være ute i god tid</li>
+                        <li>Sjekk tidsskjema og oppmøtetid</li>
+                        <li>Pass på at startnummer er festet riktig</li>
+                        <li>La trenerne ta seg av det sportslige</li>
+                        <li>Foreldre skal som hovedregel oppholde seg utenfor indre bane. Heiarop er velkommen – men vis hensyn til andre utøvere og funksjonærer</li>
+                    </ul>
+
+                <h3>Dugnader og frivillig arbeid</h3>
+                    <p>Klubben er avhengig av foreldreengasjement for å kunne drive aktivitet på en god måte. Dette kan være:</p>
+                <ul>
+                    <li>Hjelp under egne stevner</li>
+                    <li>Kiosk og arrangementer</li>
+                    <li>Transport og organisering</li>
+                </ul>
+                <p>Når alle bidrar litt, blir belastningen liten for hver enkelt.</p>
+                <p>Vi takker foreldrene for innsatsen!</p>
+            `,
+
+            Mail5:`
+                <h2>Regler i friidrett</h2>
+                <p>Friidrett kan virke komplisert i starten, men de fleste reglene er enkle når man først forstår dem. Reglene skal sikre rettferdig konkurranse og trygg gjennomføring.</p>
+                <h3>Løpsstart</h3>
+                <p>I sprintløp brukes startkommandoene:</p>
+                <ul>
+                    <li>«Gjør klar»</li>
+                    <li>«Innta plassene»</li>
+                    <li>«Klar»</li>
+                    <li>Startskudd</li>
+                </ul>
+                <p>Utøveren må være helt i ro når “klar” blir sagt. Bevegelse før skuddet kan føre til tjuvstart.</p>
+                <p>I lengere løp brukes startkommandoene:</p>
+                <ul>
+                    <li>«Gjør klar»</li>
+                    <li>«Innta plassene»</li>
+                    <li>Startskudd</li>
+                </ul>
+
+                <h3>Tjuvstart</h3>
+                <ul>
+                    <li>I yngre klasser får man vanligvis én advarsel.</li>
+                    <li>Fra 15 år og oppover blir man diskvalifisert ved tjuvstart.</li>
+                </ul>
+
+                <h3>Baneregler</h3>
+                <p>I løp opp til og med 400 meter må man holde seg i sin bane hele løpet. Å tråkke over streken kan føre til diskvalifikasjon.</p>
+                <p>I lengre løp kan man bryte inn i indre bane etter angitt markering.</p>
+
+                <hr>
+
+                <h3>Heat og finale</h3>
+                <p>I stevner med mange deltakere deles man inn i <strong>heat</strong> (puljer).<br>
+                I større mesterskap går de beste videre til <strong>finale</strong> basert på tid eller plassering.</p>
+
+                <h3>Lengdehopp</h3>
+                <ul>
+                    <li>Satse innenfor gyldig satsområde (satssone eller planke)</li>
+                    <li>Hopper man over streken er hoppet dødt</li>
+                    <li>Målingen gjøres fra satssted til bakerste merke i sanden</li>
+                    <li>Man får vanligvis 3 forsøk – noen ganger 6 i større konkurranser</li>
+                </ul>
+
+
+                <h3>Høydehopp</h3>
+                <ul>
+                    <li>Man velger selv hvilken høyde man starter på</li>
+                    <li>Tre forsøk per høyde</li>
+                    <li>Tre riv på samme høyde betyr at man er ute</li>
+                    <li>Man kan stå over høyder, men må klare minst én høyde for å få resultat</li>
+                </ul>
+
+                <h3>Kule og kastøvelser</h3>
+                <ul>
+                    <li>Man må starte og avslutte kastet innenfor ringen</li>
+                    <li>Det er ikke lov å tråkke på kanten</li>
+                    <li>Man skal gå ut bakerst av ringen etter kastet</li>
+                    <li>Kula må lande innenfor kastsektoren</li>
+                    <li>Døde kast blir ikke målt</li>
+                </ul>
+
+                <h3>Resultater og personlig rekord</h3>
+                    <p>I friidrett handler mye om utvikling.
+                    En <strong>personlig rekord (pers)</strong> betyr at du har oppnådd ditt beste resultat noensinne i øvelsen.<br><br>
+                    Det er viktig å huske på at det er helt normalt å ha både gode og mindre gode dager.</p>
+            `,
         }
 
         const Card = document.querySelectorAll(".Card");
