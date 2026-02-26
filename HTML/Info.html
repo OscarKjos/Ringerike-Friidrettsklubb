@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Om Oss</title>
+
+    <style>
+        body{
+            display:grid;
+            grid-template-columns: 1fr 2fr 3fr;
+            grid-template-rows: 70px auto auto auto auto;
+        }
+
+        #CardGrid{
+            grid-column: 2;
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-y: scroll;
+            height: 480px;
+        }
+
+        .Card{
+            width:80%;
+            height: auto;
+            background-color: white;
+            padding:0px;
+            cursor: pointer;
+        }
+
+        .Card:hover{
+            scale: 1.05;
+            background-color: rgba(128, 128, 128, 0.054);
+            border-radius: 20px;
+            padding:10px;
+        }
+
+        .Card p,li{
+            line-height: 1.6;
+            margin:2px;
+        }
+
+        #Bilde{
+            width:100%;
+            border-radius: 20px;
+        }
+
+        #InfoGrid{
+            grid-column: 3;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #InfoCard{
+            background-color: rgba(255, 255, 255, 0.655);
+            height: 420px;
+            width:100%;
+            margin:0px;
+            padding:20px;
+            border-radius: 15px;
+            overflow-y: scroll;
+            box-shadow: var(--Skygge);
+            line-height: 1.6;
+            padding-top:0;
+        }
+
+        #First{
+            text-align: center;
+            color:rgba(128, 128, 128, 0.444);
+            font-weight: lighter;
+        }
+
+        #NavGrid{
+            grid-column: 1;
+            padding-right:20px;
+            border-right:solid 0.5px rgba(128, 128, 128, 0.336);
+        }
+
+        #OverGrid{
+            grid-row: 3;
+            grid-column: 1/-1;
+            display:flex;
+            background-color: white;
+            margin:20px;
+            border-radius: 20px;
+            padding:20px;
+            margin-top:0;
+
+            display:grid;
+            grid-template-columns: 1fr 2fr 3fr;
+        }
+
+        #SmalNav{
+            display:flex;
+            flex-direction: column;
+            gap:10px;
+        }
+
+        #SmalNav a{
+            text-decoration: none;
+            margin-left:10px;
+            color:black;
+            padding:10px;
+        }
+
+        #SmalNav a:hover{
+            background-color: rgba(128, 128, 128, 0.116);
+            border-radius: 10px;
+        }
+
+        #SmalNav i{
+            color:var(--NyanseBlå);
+            margin-right:10px;
+        }
+
+        #Innhold{
+            color:gray;
+            font-size: 14px;
+        }
+
+        #FlexRow{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #Dato{
+            color:gray;
+            font-size: 14px;
+        }
+
+        #GridBar{
+            grid-row:2;
+            grid-column: 1/-1;
+            margin:20px;
+            margin-top:10px;
+            margin-bottom: 10px;
+        }
+
+        #JustBar{
+            background-color: white;
+            padding:5px;
+            border-radius: 20px;
+
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #Søkbar{
+            height: 30px;
+            border:rgba(128, 128, 128, 0.29) solid 1px;
+            border-radius: 5px;
+            padding:5px;
+            width:200px;
+        }
+
+        #InFlex{
+            display:flex;
+            align-items: center;
+            gap:20px;
+        }
+
+        #Opda{
+            color:gray;
+            margin-right:15px;
+        }
+
+        #NavGrid{
+            display:none;
+        }
+
+        #InfoGrid{
+            display:none;
+            grid-column: 1/-1;
+        }
+
+        #CardGrid{
+            grid-column: 1/-1;
+        }
+
+        #Opda{
+            display:none;
+        }
+
+        #Totalt{
+            font-size: 13px;
+        }
+
+        /*_______________Responsiv Desktop Ipad+________________*/
+
+            @media (min-width:450px){
+                .Card{
+                    width:80%;
+                }
+
+                #NavGrid{
+                    display:flex;
+                }
+
+                #InfoGrid{
+                    display:flex;
+                    grid-column: 3;
+                }
+
+                #CardGrid{
+                    display:flex;
+                    grid-column: 2;
+                }
+
+                #Totalt{
+                    font-size: 16px;
+                }
+
+                #InfoCard{
+                    margin:20px;
+                }
+
+                #Opda{
+                    display:flex;
+                }
+            }
+
+        /*_______________Responsiv Desktop PC/Laptop________________*/
+
+            @media (min-width:850px){
+                #NavGrid{
+                    display:flex;
+                }
+
+                #InfoGrid{
+                    display:flex;
+                }
+
+                #CardGrid{
+                    display:flex;
+                    grid-column: 2;
+                }
+            }
+    </style>
+
+</head>
+<body>
+    <div id="GridBar">
+        <div id="JustBar">
+            <div id="InFlex">
+                <p>Info</p>
+                <input id="Søkbar" type="search" placeholder="Søk">
+                <p id="Totalt">Viser totalt <i id="InfoAntall">0</i> meldinger</p>
+            </div>
+            
+            <p id="Opda">Sist Oppdatert: 26.02.26</p>
+        </div>
+    </div>
+
+<section id="OverGrid">
+    <div id="NavGrid">
+        <div id="SmalNav">
+            <h3>Navigasjonsmeny</h3>
+            <a href="Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
+            <a href="Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+            <a href="Treningsopplegg.html"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+            <h4>Oppdateringer:</h4>
+            <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+            <a href="Arangement.html"><i class="fas fa-calendar-days"></i>Arangementer</a>
+        </div>
+    </div>
+
+    <div id="CardGrid">
+        <div class="Card" data-id="Mail1">
+            <div id="FlexRow">
+                <p><b>Første gang på stevne?</b></p>
+                <p id="Dato">26.02.26</p>
+            </div>
+            <p>Til nye utøvere</p>
+            <p id="Innhold">De første gangene på friidrettsstevne er det en del nytt. Her er noen tips.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail2">
+            <div id="FlexRow">
+                <p><b>Medlemsavgift</b></p>
+                <p id="Dato">26.02.26</p>
+            </div>
+            <p>Viktig informasjon</p>
+            <p id="Innhold">Oversikt over medlemskontingent, treningsavgift og betalingsfrister for 2026-sesongen.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail3">
+            <div id="FlexRow">
+                <p><b>Styremedlemmer 2026</b></p>
+                <p id="Dato">26.02.26</p>
+            </div>
+            <p>Organisasjon</p>
+            <p id="Innhold">Her finner du oversikt over styreleder og styremedlemmer i Ringerike Friidrettsklubb.</p>
+            <hr>
+        </div>
+    </div>
+
+    <div id="InfoGrid">
+        <div id="InfoCard">
+            <h1 id="First">Ingen informasjon valgt</h1>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <nav id="Navbar">
+            <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
+            <span id="NavTekst">
+                <p>Ringerike Friidrettsklubb</p>
+                <span id="FlexPC">
+                    <a class="ONLYPC" href="../index.html"><p><i class="fas fa-house"></i>Hjem</p></a>
+                    <a id="NOIPAD" class="ONLYPC" href="OmOss.html"><p><i class="fas fa-user-group"></i>Om oss</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="Nyheter.html"><p><i class="fas fa-newspaper"></i>Nyheter</p></a>
+                    <a id="ONLYIPAD" class="ONLYPC" href="Resultater.html"><p><i class="fas fa-person-running"></i>Resultater</p></a>
+                    <button id="NavClick"><i class="fa-solid fa-bars"></i></button>
+                </span>
+            </span>
+
+            <button class="Shadowlay"></button>
+            <div class="Overlay">
+                <span id="FlexNav">
+                    <h2>Navbar</h2  >
+                    <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
+                </span>
+                    <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
+                    <a href="OmOss.html"><i class="fas fa-user-group"></i>Om Oss</a>
+
+                    <a href="Trenere.html" id="UnderNav"><i class="fas fa-plus"></i> Trenere</a>
+                    <a href="Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
+
+                    <a href="Info.html"><i class="fas fa-file-lines"></i>Info</a>
+                    <a href="Treningstider.html" id="UnderNav"><i class="fas fa-clock"></i>Treningstider</a>
+                    <a href="Treningsanlegg.html" id="UnderNav"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
+                    <a href="Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+
+                    <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                    <a href="Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
+                    <a href="Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
+                    <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
+
+                    <p class="TekstConf">© 2026 RFIK</p>
+            </div>
+    </nav>
+
+    <footer id="FotBar">
+        <div>
+            <h3 id="OverFot">Kontakt Oss</h3>
+            <p id="Kontakt"><mark id="Marked">E-post:</mark> ringerike.friidrett@gmail.com <br>
+            <mark id="Marked">Telefon:</mark> 93073654
+            <mark id="Marked">Adresse:</mark> Ringeriksgata 13, Hønefoss</p>
+
+            <span id="ONLYPC" class="FlexO">
+                <h3 id="OverFot">Sosiale Medier</h3>
+                <span id="NyttigLenke">
+                    <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+                </span>
+            </span>
+        </div>
+
+        <form action="https://formspree.io/f/xbdddpra" method="POST">
+            <h3 id="OverFot"><u>Meld deg på Nyhetsbrev</u></h3>
+            <p>Ta kontakt og hold deg oppdatert med våre siste nyheter og arrangementer!</p>
+            <div id="Nyhetsbrev">
+                <input name="name" placeholder="Fullt navn" required></input>
+                <input type="email" name="email" placeholder="Skriv inn e-post" required>
+                <textarea id="OnlyPhone" name="message" placeholder="Din melding"></textarea>
+
+                <button id="Submit" type="submit">Abonner</button>
+            </div>
+        <!-- your other form fields go here -->
+        </form>
+
+        <div>
+            <span id="SosialeMedier">
+                <a href="https://www.instagram.com/ringerike.friidrett/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/friidrettsskolenRingerike/?locale=nb_NO"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.ringblad.no/ringerike-friidrettsklubb/"><i class="fa-regular fa-newspaper"></i></a>
+            </span>
+        </div>
+    </footer>
+        <div id="CopyFot">
+            <p id="Copyright">© 2026 Ringerike Friidrettsklubb. <br> Alle rettigheter reservert.</p>
+        </div>
+
+
+    <script src="../JavaScript/global.js"></script>
+    <script>
+        const data = {
+            Mail1: `
+            <h2>Første gang på stevne?</h2>
+            <p>De første gangene på friidrettsstevne er det en del nytt. Her er noen tips. Det er lurt at en voksen som kanskje skal være med deg også leser dette, og tar det med som en liten huskelapp på de første stevnene.</p>
+            
+            <h3>Påmelding</h3>
+            <p>Det er viktig å melde seg på i god tid før fristen går ut. Påmelding gjøres som vanlig av hver enkelt i <a href="https://isonen.no/?offset=0&sfName=Norges+Friidrettsforbund">Isonen</a> Om du ikke husker brukernavn/passord eller ikke har brukt Isonen tidligere, følger du anvisningene på siden for å registrere ny bruker.</p>
+            <p>Om du lurer på noe, kontakt din oppmann/oppkvinne.</p>
+            <p>Hvis du melder deg på når fristen er utløpt, må du selv betale etteranmeldingsgebyret som normalt er 100-125 kr pr øvelse.</p>
+            
+            <h3>Tidsskjema</h3>
+            <p>Dette finner du på stevnets hjemmeside, som du finner via arrangørklubbens hjemmeside. Tidsskjemaet er som regel klart 3-4 dager før stevnet.</p>
+            
+            <h3>Oppmøte</h3>
+            <p>Normalt er det avkrysning for oppmøte på lister senest en time før øvelsen starter. Du trenger også tid til å ta på startnummer, varme opp og tøye ut! I noen stevner er det ikke avkrysning for hopp- og kastøvelser, da holder det å møte opp til oppropet før start.</p>
+            
+            <h3>Opprop</h3>
+            <p>Foregår der hvor øvelsen finner sted, gjerne 10-15 min før øvelsesstart. Da blir alle ropt opp i den rekkefølgen dere skal starte i. Du må svare ved oppropet! Oppvarming til øvelsen gjør du før oppropet.</p>
+            
+            <h3>Premier</h3>
+            <p>Det er ofte deltagerpremier til alle i klasse 10-12 år. Ellers til de tre beste, og noen ganger 1/3 premiering. På mindre stevner er det som regel ikke premiering.</p>
+            
+            <h3>Heat</h3>
+            <p>Ofte er det mange med og dere blir delt inn i flere puljer (heat). Man prøver gjerne å få til at du løper sammen med de som du er omtrent like god som. Når du er helt ny og ikke har noen ”personlig rekkord” starter du med andre som er helt nye, og slipper å løpe med de aller beste med en gang.</p>
+            
+            <h3>Startblokker</h3>
+            <p>Dette trenger du ikke å bruke du ikke har trent på det – mange i de yngste årsklassene starter med stående start. Når start-dommeren (han eller hun med pistolen) skal starte dere skjer dette:</p>
+            <ul>
+                <li>Dommeren blåser i fløyta og roper: ”GJØR KLAR!” Da tar du raskt av deg oppvarmingstøyet (mange liker å ta av dette litt før) og stiller deg BAK startblokka eller 2 m bak streken</li>
+                <li>Dommeren sier: ”INNTA PLASSENE” Da stiller du deg ved streken eller setter deg i blokkene. Husk at du skal ikke berøre streken. Du må da være helt stille og nesten ikke røre deg når du først er ordentlig på plass.</li>
+                <li>Dommeren sier ”KLAR!” Da løfter du deg opp i blokka – eller bøyer deg litt forover ved streken hvis du står (her må du også være rolig i kroppen)</li>
+                <li>Dommeren SKYTER og du løper! Husk å løpe helt inn til mål, ikke slapp av før du er over målstreken!</li>
+            </ul>
+
+            <h3>Tjuvstart</h3>
+            <p>Hvis dommeren skyter en gang til etter startskuddet er det tjuvstart og du går rolig tilbake til start. Du kan bare tjuvstarte 1 gang. Han kan også blåse hardt i fløyta i stedet for å skyte en gang til. I klassene fra 15 år og oppover blir man diskvalifisert hvis man tjuvstarter, selv om det er første tjuvstart.</p>
+            
+            <h3>Lengde</h3>
+            <p>Her er det bare å ta løpefart og satse på ett bein inne imellom to hvite striper borte ved sandgropen. Dette heter satssone og den er 50cm for årsklassene til og med 13 år. Du skal satse innenfor den siste stripen, hvis ikke blir hoppet regnet som dødt – og ikke målt. Du får alle gyldige hopp målt fra der hvor du satser med foten inne i feltet til bakerste punkt i sanden. Husk å bøye deg forover når du lander, og ikke sett ned hånden bak deg i sanden.</p>
+            <p>For klassene fra 14 år og oppover er det planken som gjelder.</p>
+            <p>Dommeren som står ved lengdegropen er ofte veldig flink til å forklare hva som skal skje! Du får treningshopp, og 3-6 forsøk i selve konkurransen.</p>
+
+            <h3>Høyde</h3>
+            <p>Her snakker dommeren med deg om hvilken høyde du vil begynne å hoppe på, og så begynner konkurransen på den laveste høyden noen har valgt. (for eks. 90 cm). Du får tre forsøk på å hoppe over denne høyden. Klarer du det, går du videre til neste høyde (95 cm) og får tre forsøk her også. Det er først når du har revet tre ganger på en høyde at du er ute av konkurransen.</p>
+            <p>Her får du også lov å ta treningshopp før dere begynner.</p>
+
+            <h3>Kule</h3>
+            <p>Her skal du ta sats inne i en ring, og det er veldig viktig at du går inn- og ut av ringen bakerst. Det er som regel en rød strek som viser deg grensen. Foran ligger kastfeltet hvor kula lander. Når du har støtt kula ut i kastfeltet passer du på å ikke tråkke over ringen og ut i feltet, da blir støtet regnet som dødt og ikke målt.</p>
+            <p>Du får prøvestøt (prøvekast) og 3-6 forsøk i selve konkurransen.</p>
+
+            <h3>Trenere/ledere:</h3>
+            <p>Vi er som oftest til stede på indre bane, og alltid på de prioriterte stevnene vi gir beskjed om. Vi prøver å hjelpe til ved start, innstilling av startblokker, gir tips og hjelp i kast- og hopp-øvelsene. Du må ikke være redd for å spørre oss eller dommerne som er ute på banen.</p>
+
+            <h3>Foreldre/tilskuere</h3>
+            <p>På innendørsstevnene må som regel foreldrene være på tribunen. Dette er ikke så strengt på utendørs-stevner, men man skal aldri heie på utøverne fra indre bane, og man må alltid være veldig forsiktig så man ikke går i veien for utøvere som er i banen eller i hopp-tilløpene. Snakk med oss så veileder vi!</p>
+            
+            <br>
+
+            <p>Tonen og atmosfæren er god på friidrettsstevner – og det er ikke så ”skummelt” som man kanskje tror! Det viktigste er å ha det gøy, og å gjøre sitt beste. Å slå ”persen” er en herlig følelse, hvilket nummer du blir er mindre viktig.</p>
+            <p>Vi gleder oss til å se deg!</p>
+            `,
+
+            Mail2:`
+                <h2>Medlemsskap I Ringerike Friidrettsklubb</h2>
+                <p>Innmelding i Ringerike Friidrettsklubb må skje ifall man ønsker å trene med fast mandager eller onsdager og før man kan delta på stevneeller løp.</p>
+                <p><b>Medlemskontingenten gir følgende fordeler og inkluderer:</b></p>
+                <ul>
+                    <li>Gratis deltakelse på alle prioriterte stevner og løp i Norge.</li>
+                    <li>Deltakerpremier på alle NFIF godkjente friidrettssstevner opp til 12 år</li>
+                    <li>Gratis start og deltakelse på utvalgte lokale løp og prioriterte gateløp</li>
+                    <li>Fellesstrening minst 2 ganger uken (rekrutter en gang per uke i vinterperioden, men to ganger per uke utendørs), tilgang til utstyr og fasiliteter for egentrening</li>
+                    <li>Felles treningsøkter og halltid i Bærum Idrettspark i vinterhalvåret</li>
+                    <li>Gratis spesialtrening, kurs, utfordringer, spennende opplevelser og styrketrening</li>
+                    <li>Mulighet for godt betalt sommerjobb for de som er fylt 15 år.</li>
+                </ul>
+                <p>Du blir en del av et fellesskap der dugnadsinnsats må påberegnes 4 ganger per år i sosiale omgivelser (12 timer). Er du en som liker å ta initiativ til arrangement og aktiviteter så har du en organisasjon som vil støtte opp om deg.</p>
+                <ul>
+                    <li>Når man er innmeldt, skal kontingent betales for hvert påbegynt år. Faktura for medlemskap sendes ut i januar. Faktura for treningsavgift sendes ut to ganger årlig etter hvert endte halvår.</li>
+                    <li>Utmelding må skje via Min idrett eller skriftlig på epost ringerike.friidrett@gmail.com</li>
+                </ul>
+                <p>Medlemskontingent er i 2024 er 200 kr for alle, i tillegg kommer treningsavgift/aktivitetsavgift for de som trener fast eller deltar på stevner der klubben dekker startgebyrer.</p>
+            
+                <p><b>OBS: Ved manglende oppmøte på start etter egenpåmelding vil påmeldingsgebyr bli etterfakturert medlemmet.</b></p>
+                <p>Eneste unntak for etterfaktuering er uoppfordret fremvisning av legeerklæring senest en uke etter stevnet. Årsaken er at man betaler per påmeldte deltaker, ikke per startende deltaker. Derfro husk å se om dere kan avmelde dere hvs dere oppdager at dere ikke kan delta av ulike årsaker.</p>
+
+                <p>Klubben dekker forsikring og lisens frem til fyllte 13 år. For utøvere som har fyllt 13 år så må alle medlemmer som trener og konkurrerer <a href="https://isonen.no/event/cmguk74k401p0c201ui486cwi/"> bestille lisens her før sesongoppstart </a> <br> – dette dekker de fleste skader som kan oppstå under trening og konkurranse.</p>
+
+                <p>Nye medlemmer som starter 2. halvår betaler da fullt medlemskontingent, samt halv aktivitetsavgift året ut.</p>
+                
+                <p><b>Det gis søskenmoderasjon på treningsavgift</b></p>
+                <ul>
+                    <li>Ett søsken gir 25 % rabatt</li>
+                    <li>To søsken gir 35 % rabatt</li>
+                    <li>3+ søsken gir 50% rabatt</li>
+                </ul>
+
+            `,
+
+            Mail3:`
+                <h2>Styre av Ringerike Friidrettkslubb - 2026</h2>
+                <h4>Styrets leder:</h4>
+                <p>Oliver Kjos (f.2004)</p>
+                <h4>Styremedlemmer:</h4>
+                <ul>
+                    <li>Heidi Numme Melbye (f. 1975)</li>
+                    <li>Taran Irene Sortdal (f. 1983)</li>
+                    <li>Jon Vestli (f. 1973)</li>
+                    <li>Stephan Knestang (f. 1977)</li>
+                    <li>Jon Martin Vaskinn (f. 1978)</li>
+                </ul>
+
+                <p>Styret har ansvar for den daglige driften og den langsiktige utviklingen av klubben, og arbeider for å skape et trygt, inkluderende og utviklende miljø for alle våre medlemmer.</p>
+            `
+        }
+
+        const Card = document.querySelectorAll(".Card");
+        const InfoCard = document.getElementById("InfoCard");
+        const CardGrid = document.getElementById("CardGrid");
+        const InfoGrid = document.getElementById("InfoGrid");
+
+        Card.forEach(card => {
+            card.addEventListener("click", () => {
+                const id = card.dataset.id;
+                const content = data[id];
+                InfoCard.innerHTML = content;
+
+                if (window.innerWidth < 450) {
+                    InfoGrid.style.display = "flex"
+                    CardGrid.style.display = "none"
+                } else {
+                    
+                }
+            });
+        });
+
+        /*======== Antall Infovalg =======*/
+
+        const antall = Card.length
+        const InfoAntall = document.getElementById("InfoAntall");
+
+        InfoAntall.textContent = antall
+
+    </script>
+</body>
+</html>
