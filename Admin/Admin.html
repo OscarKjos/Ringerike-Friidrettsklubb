@@ -389,6 +389,13 @@
             justify-content: center;
         }
 
+        #Overflow{
+            display: -webkit-box;
+            -webkit-line-clamp: 1;  /* antall linjer */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body>
@@ -470,69 +477,7 @@
             <i class="fas fa-trash"></i>
         </div>
 
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
-
-        <div class="Nyhet">
-            <p><b>Nyhet!</b></p>
-            <hr>
-            <p id="TekstGo">Ringerike Friidrettsklubb feirer ...</p>
-            <hr>
-            <i class="fas fa-trash"></i>
-        </div>
+        
     </div>
     </div>
 
@@ -541,6 +486,57 @@
     <hr>
     <a href="NyhetsOpda.html"><button id="More"><i class="fas fa-plus"></i>Legg til Nyhet !</button></a>
     </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+        async function hentNyheter() {           
+            const { data, error } = await supabase
+                .from('Nyheter')
+                .select('id, tittel')
+                .order('dato', { ascending: false })
+
+                const Database = document.getElementById('Database')
+                Database.innerHTML = ''
+
+                data.forEach(nyhet => {
+                const div = document.createElement('div')
+                div.className = 'Nyhet'
+
+                div.innerHTML = `
+                    <p id="Overflow">${nyhet.tittel}</p>
+                    <hr>
+                    <button class="Trash">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `
+                const knapp = div.querySelector(".Trash");
+                 knapp.addEventListener('click', async () => {
+                    const bekreft = confirm("Er du sikker på at du vil slette denne nyheten? Nyheten vil bli slettet for godt!")
+                    if (!bekreft) return
+
+                    const { error } = await supabase
+                        .from('Nyheter')
+                        .delete()
+                        .eq('id', nyhet.id)
+
+                    if (error) {
+                        alert("Noe gikk galt!")
+                    console.error(error)
+                    } else {
+                        hentNyheter() // oppdater listen
+                    }
+                });
+
+                Database.appendChild(div);
+                });     
+        }
+        hentNyheter()
+    </script>
 
     <script>
         const NavBar = document.getElementById("NavBardo");
@@ -555,7 +551,6 @@
         Close.addEventListener("click", () => {
             ShadowLay.classList.remove("open");
         });
-
     </script>
 
 </body>
