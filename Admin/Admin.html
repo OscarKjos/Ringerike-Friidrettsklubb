@@ -14,6 +14,7 @@
             height: 100vh;
             margin:0;
             background-color: #eef1f777;
+            font-family: 'Gill Sans MT', "Gill Sans", 'Open Sans', "Segoe UI", Arial, sans-serif;
         }
 
         #Navado{
@@ -202,6 +203,11 @@
 
         .Nyhet i{
             color:#a85b61;
+            font-size: 16px;
+        }
+
+        .Nyhet p{
+            font-size: 13px;
         }
 
         #TekstGo{
@@ -236,6 +242,7 @@
             opacity: 0;
             pointer-events: none;
             transition:0.5s ease;
+            z-index: 1000;
         }
 
         #ShadowLay.open{
@@ -396,6 +403,146 @@
             overflow: hidden;
         }
 
+        #Overlay{
+            position:fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.177);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.5s ease;
+        }
+
+        #Overlay.show{
+            opacity: 1;
+            pointer-events: fill;
+        }
+
+        #NewsCard{
+            position:fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            height: 80%;
+            width:80%;
+            background: linear-gradient(white,rgba(255, 255, 255, 0.346));
+            padding:20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 1px gray;
+        }
+
+        #Flexi{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            width:100%;
+            color:gray;
+            background-color: #e5e8f2;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-sizing: border-box;
+            padding:0px;
+            padding-left:20px;
+        }
+
+        #Remove{
+            width:30px;
+            height: 30px;
+            font-size: 25px;
+            border:none;
+            color:#92a3bf;
+            background-color: transparent;
+            background-color: white;
+            border-radius: 50%;
+            margin-right:15px;
+        }
+
+        .Innhold{
+            height: 200px;
+            overflow: scroll;
+        }
+
+        #Trash{
+            width:100%;
+            background-color: #d1575b;
+            color:white;
+            border:none;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        #Flexo{
+            background-color: white;
+            padding:20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .ONLYPC{
+            display:none
+        }
+
+        @media (min-width:450px){
+                body{
+                    grid-template-columns: 60px 55% 1fr;
+                }
+
+                .Nyhet{
+                    width:40vw;
+                }
+
+                #DatabaseWrapper{
+                    margin-left:30px;
+                }
+
+                #NewsCard{
+                    width:30%;
+                    right:0%;
+                    transform:translate(40%,-50%);
+                    box-shadow: none;
+                }
+
+                #Overlay{
+                    background-color: transparent;
+                    inset:unset;
+                }
+
+                #LapGrid{
+                    grid-column: 3;
+                    grid-row: 1/4;
+                    margin:20px;
+                }
+
+                #LapCard{
+                    background-color: rgba(255, 255, 255, 0.655);
+                    height: 600px;
+                    width:90%;
+                    margin:0px;
+                    padding:20px;
+                    border-radius: 15px;
+                    overflow-y: scroll;
+                    line-height: 1.6;
+                    padding-top:0;
+                    box-shadow: 0px 0px 5px rgb(192, 209, 207);
+                }
+
+                #LapCard h1{
+                    text-align: center;
+                    color:rgba(128, 128, 128, 0.444);
+                    font-weight: lighter;
+                }
+
+                .ONLYPC{
+                    display:flex
+                }
+
+                #More{
+                    margin-left:30px;
+                }
+
+            }
+
     </style>
 </head>
 <body>
@@ -469,6 +616,8 @@
     </div>
 
     <div id="Database">
+        <!-- (Sånn ser strukturen ut - Hentes fra database med js)
+
         <div class="Nyhet">
             <p><b>Nyhet!</b></p>
             <hr>
@@ -477,10 +626,25 @@
             <i class="fas fa-trash"></i>
         </div>
 
+        -->
         
     </div>
     </div>
 
+    <div id="Overlay">
+        <div id="NewsCard">
+            <div id="Flexi">
+                <h3>Administrer Nyhet</h3>
+                <button id="Remove"><i class="fa-solid fa-close"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="LapGrid" class="ONLYPC">
+        <div id="LapCard">
+            <h1>Ingen nyhet valgt</h1>
+        </div>
+    </div>
 
     <div id="NewThing">
     <hr>
@@ -488,55 +652,106 @@
     </div>
 
     <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-        const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
-        const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
-        const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = 'https://xyfexcvmnhjepfpqgwlm.supabase.co'
+const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
+const supabase = createClient(supabaseUrl, supabaseKey)
 
-        async function hentNyheter() {           
-            const { data, error } = await supabase
-                .from('Nyheter')
-                .select('id, tittel')
-                .order('dato', { ascending: false })
+const Database = document.getElementById('Database')
+const overlay = document.getElementById("Overlay")
+const removeBtn = document.getElementById("Remove")
 
-                const Database = document.getElementById('Database')
-                Database.innerHTML = ''
+// Lukke overlay
+removeBtn.addEventListener("click", () => {
+    overlay.classList.remove("show")
+})
 
-                data.forEach(nyhet => {
-                const div = document.createElement('div')
-                div.className = 'Nyhet'
+async function hentNyheter() {
 
-                div.innerHTML = `
-                    <p id="Overflow">${nyhet.tittel}</p>
-                    <hr>
-                    <button class="Trash">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                `
-                const knapp = div.querySelector(".Trash");
-                 knapp.addEventListener('click', async () => {
-                    const bekreft = confirm("Er du sikker på at du vil slette denne nyheten? Nyheten vil bli slettet for godt!")
-                    if (!bekreft) return
+    const { data, error } = await supabase
+        .from('Nyheter')
+        .select('id, tittel, innhold') // hent innhold også hvis du vil vise det i overlay
+        .order('dato', { ascending: false })
 
-                    const { error } = await supabase
-                        .from('Nyheter')
-                        .delete()
-                        .eq('id', nyhet.id)
+    if (error) {
+        console.error(error)
+        return
+    }
 
-                    if (error) {
-                        alert("Noe gikk galt!")
+    Database.innerHTML = ''
+
+    data.forEach(nyhet => {
+        const div = document.createElement('div')
+        div.className = 'Nyhet'
+
+        div.innerHTML = `
+            <p id="Overflow">${nyhet.tittel}</p>
+            <hr>
+            <button class="Open">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        `
+
+        const openBtn = div.querySelector(".Open")
+        openBtn.addEventListener('click', () => {
+            // Fyll overlay med info om nyheten
+            overlay.innerHTML = `
+                <div id="NewsCard">
+                    <div id="Flexi">
+                        <h3>Administrer Nyhet</h3>
+                        <button id="Remove"><i class="fa-solid fa-close"></i></button>
+                    </div>
+
+                    <div id="Flexo">
+                        <h4>Tittel:</h4>
+                        <p>${nyhet.tittel}</p>
+                        <hr>
+                        <h4>Innhold:</h4>
+                        <p class="Innhold">${nyhet.innhold}</p>
+                        <button id="Trash">
+                            <i class="fas fa-trash"></i> Slett
+                        </button>
+                    </div>
+                </div>
+            `
+            overlay.classList.add("show")
+
+            // Koble "lukk" knapp på nytt
+            const removeBtnOverlay = document.getElementById("Remove")
+            removeBtnOverlay.addEventListener("click", () => {
+                overlay.classList.remove("show")
+            })
+
+            // Koble trash-knapp
+            const trashBtn = document.getElementById("Trash")
+            trashBtn.addEventListener('click', async () => {
+                const bekreft = confirm("Er du sikker på at du vil slette denne nyheten?")
+                if (!bekreft) return
+
+                const { error } = await supabase
+                    .from('Nyheter')
+                    .delete()
+                    .eq('id', nyhet.id)
+
+                if (error) {
+                    alert("Noe gikk galt!")
                     console.error(error)
-                    } else {
-                        hentNyheter() // oppdater listen
-                    }
-                });
+                } else {
+                    overlay.classList.remove("show")
+                    hentNyheter()
+                }
+            })
+        })
 
-                Database.appendChild(div);
-                });     
-        }
-        hentNyheter()
-    </script>
+        Database.appendChild(div)
+    })
+}
+
+hentNyheter()
+</script>
+
+
 
     <script>
         const NavBar = document.getElementById("NavBardo");
