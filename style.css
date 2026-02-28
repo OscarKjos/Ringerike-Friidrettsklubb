@@ -674,6 +674,7 @@
     text-align: center;
     color:#555;
     font-size: 17px;
+    white-space: pre-line;
 
     display: -webkit-box;
     -webkit-line-clamp: 3; /* antall linjer */ 
@@ -963,6 +964,7 @@
             -webkit-line-clamp: 4;  /* antall linjer */
             -webkit-box-orient: vertical;
             overflow: hidden;
+            white-space: pre-line;
         }
 
         .Besk.BeskShow{
