@@ -1,7 +1,7 @@
 {
   "name": "RFIK",
   "short_name": "RFIK",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
   "theme_color": "rgb(68, 97, 190)",
   "icons": [
