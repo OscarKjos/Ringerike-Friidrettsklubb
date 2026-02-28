@@ -94,7 +94,7 @@
         }
 
         #StatsGrid{
-            grid-row:4;
+            grid-row:5;
         }
 
         #StatsCard{
@@ -342,21 +342,19 @@
         const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
         const supabase = createClient(supabaseUrl, supabaseKey)
 
-
-        async function hentNyheter() {              /* Async gjør at vi kan bruke koden "await" */
+        async function hentResultat() {              /* Async gjør at vi kan bruke koden "await" */
             const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
                 .from('Resultater')
                 .select('stevne, dato, utøver, øvelse, resultat')
                 .order('dato', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
                 
-
             if (error) {
                 console.error('Feil ved henting:', error)
                 return
             }
 
             const ResultatListe = document.getElementById("ResultatListe");
-            ResultatListe.innerHTML = ''
+            ResultatListe.innerHTML = ``
 
             const antallForekomster = {};
 
@@ -445,7 +443,7 @@
         aktiversok()
 
         }
-        hentNyheter() /* Kjører funksjonen */
+        hentResultat() /* Kjører funksjonen */
         
     </script>
 

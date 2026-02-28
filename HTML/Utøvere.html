@@ -144,6 +144,40 @@
             left:50%;
         }
 
+        #KnappGrid{
+            grid-row: 9;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin:10px;
+            gap:0px;
+        }
+
+        #Knappo{
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.703);
+            width:90vw;
+            color:black;
+            pointer-events: fill;
+            border:solid white 1px;
+        }
+
+        #Knappo:hover{
+            transform: scale(1.03);
+            background-color:white;
+            box-shadow: 0px 0px 5px gray;
+        }
+
+        #InfoStats{
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;       
+            margin-bottom: 10px;  
+            text-align: center;
+            font-family: sans-serif;
+        }
+
 
     /*_______________Responsiv Desktop________________*/
 
@@ -232,6 +266,11 @@
 
     <div class="CardGrid" id="Grid3">
         <!--Her legges resten av utøverne-->
+    </div>
+
+    <div id="KnappGrid">
+        <p id="InfoStats">Viser totalt <b id="Numbo">0</b> utøvere</p>
+        <button id="Knappo"><h3>Last inn mer <i class="fa-solid fa-rotate"></i></h3></button>
     </div>
 
     <nav id="Navbar">
@@ -324,6 +363,24 @@
         const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
         const supabase = createClient(supabaseUrl, supabaseKey)
 
+        let from = 12
+        const limit = 6
+        let pluss = 0
+
+        const Knappo = document.getElementById("Knappo");
+        Knappo.addEventListener("click", () => {
+            pluss = from + limit -1
+            hentUtøvere("Grid3", from, pluss)
+            from += limit
+        });
+
+        function oppdaterUtøverAntall() {
+            const UtøverAntallo = document.querySelectorAll(".Card").length;
+            localStorage.setItem("Utøvere", UtøverAntallo)
+            const Numbo = document.getElementById("Numbo");
+            Numbo.textContent = UtøverAntallo
+        }
+
         async function hentUtøvere(gridId, fra, til) {              
             const { data, error } = await supabase 
                 .from('Utøvere')
@@ -331,8 +388,11 @@
                 .order('id', { ascending: true })
                 .range(fra, til)
 
+            if(data.length < limit){
+                Knappo.style.display = "none"
+            }
+
             const container = document.getElementById(gridId)
-            container.innerHTML = ''
 
             data.forEach(utøver => {
                 const Fødselsdato = utøver.Alder  /*Henter fødselsdato fra select*/
@@ -373,12 +433,10 @@
                 container.appendChild(Card);
             })
 
-            const UtøverAntallo = document.querySelectorAll(".Card").length;
-            localStorage.setItem("Utøvere", UtøverAntallo)
+            oppdaterUtøverAntall();
         }
         hentUtøvere("Grid1", 0, 5)
         hentUtøvere("Grid2", 6, 11)
-        hentUtøvere("Grid3", 12, 1000)
     </script>
 </body>
 </html>

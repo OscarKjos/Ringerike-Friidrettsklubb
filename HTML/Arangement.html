@@ -95,6 +95,31 @@
             overflow: visible;
         }
 
+        #KnappGrid{
+            grid-row: 5;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin:20px;
+            gap:20px;
+        }
+
+        #Knappo{
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.703);
+            width:90vw;
+            color:black;
+            pointer-events: fill;
+            border:solid white 1px;
+        }
+
+        #Knappo:hover{
+            transform: scale(1.03);
+            background-color:white;
+            box-shadow: 0px 0px 5px gray;
+        }
+
         /*_______________Responsiv Desktop________________*/
 
         @media (min-width:450px){
@@ -134,6 +159,10 @@
 
         -->
     </main>
+
+    <div id="KnappGrid">
+        <button id="Knappo"><h3>Last inn mer <i class="fa-solid fa-rotate"></i></h3></button>
+    </div>
 
     <nav id="Navbar">
             <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
@@ -226,14 +255,27 @@
         const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
         const supabase = createClient(supabaseUrl, supabaseKey)
 
+        let from = 0
+        const limit = 3
+
+        const Knappo = document.getElementById("Knappo");
+        Knappo.addEventListener("click", () => {
+            from += limit
+            Arrangementer()
+        });
+
         async function Arrangementer() {              
             const { data, error } = await supabase
                 .from('Arrangementer')
                 .select('type, dato, klokkeslett, sted, gruppe, beskrivelse')
                 .order('dato', { ascending: false })
+                .range(from,from+limit-1)
+
+            if (data.length < limit) {
+                Knappo.style.display = "none"
+            }
         
             const container = document.getElementById('GridBy')
-            container.innerHTML = ''
 
             data.forEach(Arrangement => {
                 const div = document.createElement('div')
