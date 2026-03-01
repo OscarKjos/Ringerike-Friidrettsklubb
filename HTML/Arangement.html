@@ -279,8 +279,17 @@
         const supabaseKey = 'sb_publishable_j-Np3P2UQ_rCkblvxpmC4w_l5FQ7HN3'
         const supabase = createClient(supabaseUrl, supabaseKey)
 
+        let xscreen;
+
+        if(innerWidth < 850){
+            xscreen = 2
+        }
+        else{
+            xscreen = 3
+        }
+
         let from = 0
-        const limit = 3
+        const limit = xscreen
 
         const Knappo = document.getElementById("Knappo");
         Knappo.addEventListener("click", () => {
