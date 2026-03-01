@@ -106,6 +106,7 @@
             grid-column: 1;
             padding-right:20px;
             border-right:solid 0.5px rgba(128, 128, 128, 0.336);
+            display:none;
         }
 
         #OverGrid{
@@ -117,6 +118,7 @@
             border-radius: 15px;
             padding:5px;
             padding-top:0px;
+            margin-bottom: 10px;
             margin-top:0;
             border-top-left-radius: 0px;
             border-top-right-radius: 0px;
@@ -131,14 +133,18 @@
             gap:10px;
         }
 
-        #SmalNav a{
+        #SmalNav button{
             text-decoration: none;
             margin-left:0px;
             color:black;
             padding:10px;
+            background-color: transparent;
+            border:none;
+            text-align: left;
+            font-size: 14px;
         }
 
-        #SmalNav a:hover{
+        #SmalNav button:hover{
             background-color: rgba(128, 128, 128, 0.116);
             border-radius: 10px;
         }
@@ -207,10 +213,6 @@
         #Opda{
             color:gray;
             margin-right:15px;
-        }
-
-        #NavGrid{
-            display:none;
         }
 
         #Opda{
@@ -425,6 +427,49 @@
             z-index: 4;
         }
 
+        #GridWid{
+            grid-row:5;
+            grid-column:1/-1;
+            margin:20px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        #FlexNav{
+            background-color: white;
+            width:100%;
+            padding:10px;
+            box-sizing: border-box;
+            
+            background-color: white;
+            border-radius: 15px;
+            display:flex;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap:20px;
+            row-gap: 0px;
+            width:100%;
+        }
+
+        #FlexNav button{
+            text-decoration: none;
+            margin-left:0px;
+            color:black;
+            padding:10px;
+            background-color: transparent;
+            border:none;
+        }
+
+        #FlexNav button:hover{
+            background-color: rgba(128, 128, 128, 0.116);
+            border-radius: 10px;
+        }
+
+        #FlexNav i{
+            color:var(--NyanseBlå);
+            margin-right:10px;
+        }
+
 
         /*_______________Responsiv Desktop Ipad+________________*/
 
@@ -441,17 +486,17 @@
                 }
 
                 #NavGrid{
-                    display:flex;
+                    display:none;
                 }
 
                 #InfoGrid{
                     display:flex;
-                    grid-column: 3;
+                    grid-column: 2;
                 }
 
                 #CardGrid{
                     display:flex;
-                    grid-column: 2;
+                    grid-column: 1;
                     padding-top:20px;
                     overflow-y: scroll;
                     height: 480px;
@@ -481,6 +526,9 @@
                     border-top-right-radius: 20px;
                     margin:20px;
                     margin-top:0;
+                    margin-bottom:10px;
+                    
+                    grid-template-columns: 1fr 1fr;
                 }
 
                 #Top{
@@ -524,6 +572,7 @@
 
                 #InfoGrid{
                     display:flex;
+                    grid-column: 3;
                 }
 
                 #CardGrid{
@@ -531,8 +580,16 @@
                     grid-column: 2;
                 }
 
-                #SmalNav a{
+                #SmalNav button{
                     margin-left:10px;
+                }
+
+                #OverGrid{
+                    grid-template-columns: 1fr 2fr 3fr;
+                }
+
+                #GridWid{
+                    display:none
                 }
             }
     </style>
@@ -560,12 +617,14 @@
     <div id="NavGrid">
         <div id="SmalNav">
             <h3>Navigasjonsmeny</h3>
-            <a href="Treningstider.html"><i class="fas fa-clock"></i>Treningstider</a>
-            <a href="Treningsanlegg.html"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
-            <a href="Treningsopplegg.html"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
+            <button class="Treningstider"><i class="fas fa-clock"></i>Treningstider</button>
+            <button class="Treningsanlegg"><i class="fas fa-location-dot"></i>Treningsanlegg</button>
+            <button class="Treningsopplegg"><i class="fas fa-clipboard-list"></i> Treningsopplegg</button>
+            <button class="Grasrotgiver"><i class="fas fa-clipboard-list"></i> Grasrotgiver</button>
+            
             <h4>Oppdateringer:</h4>
-            <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
-            <a href="Arangement.html"><i class="fas fa-calendar-days"></i>Arangementer</a>
+            <a href="Nyheter.html"><button><i class="fas fa-newspaper"></i>Nyheter</button></a>
+            <a href="Arangement.html"><button><i class="fas fa-calendar-days"></i>Arangementer</button></a>
         </div>
     </div>
 
@@ -668,8 +727,15 @@
     </div>
 </section>
 
-
-
+    <div id="GridWid">
+        <div id="FlexNav">
+            <button class="Treningstider"><i class="fas fa-clock"></i>Treningstider</button>
+            <button class="Treningsanlegg"><i class="fas fa-location-dot"></i>Treningsanlegg</button>
+            <button class="Treningsopplegg"><i class="fas fa-clipboard-list"></i> Treningsopplegg</button>
+            <button class="Grasrotgiver"><i class="fas fa-medal"></i>Grasrotgiver</button>
+            <button class="Medlemsavgift" id="ONLYIPAD"><i class="fas fa-calendar-days"></i>Medlemsavgift</button>
+        </div>
+    </div>
 
     <nav id="Navbar">
             <a href="../index.html"><img id="Logo" src="../Bilder/Logo_Sponsor/Logo.png"></a>
@@ -1219,6 +1285,87 @@
                     });
                 }
             });
+        });
+
+        /*======== Navigasjonsmeny =======*/
+
+        const Treningstider = document.querySelectorAll(".Treningstider");
+        const Treningsanlegg = document.querySelectorAll(".Treningsanlegg");
+        const Treningsopplegg = document.querySelectorAll(".Treningsopplegg");
+        const Grasrotgiver = document.querySelectorAll(".Grasrotgiver");
+        const Medlemsavgift = document.querySelectorAll(".Medlemsavgift");
+
+        function handleClick() {
+            InfoCard.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gir myk scrolling
+            });
+
+            window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gir myk scrolling
+            });
+        }
+
+        function mobil(){
+             if (window.innerWidth < 450) {
+                    InfoGrid.style.display = "flex"
+                    CardGrid.style.display = "none"
+
+                    const returnertekst = document.getElementById("Totalt");
+                    returnertekst.textContent = "Returner";
+                    returnertekst.classList.add("ReturnerKnapp")
+
+                    returnertekst.addEventListener("click", () =>{
+                    window.location.href = "Info.html";
+                    });
+                }
+        }
+
+        Treningstider.forEach((element) => {
+        element.addEventListener("click", () => {
+            InfoCard.innerHTML = data["Mail9"];
+            handleClick()
+            mobil()
+        });
+        });
+
+        Treningsanlegg.forEach((element) => {
+        element.addEventListener("click", () => {
+            InfoCard.innerHTML = data["Mail7"];
+            handleClick()
+            mobil()
+        });
+        });
+
+        Treningsopplegg.forEach((element) => {
+        element.addEventListener("click", () => {
+            InfoCard.innerHTML = data["Mail8"];
+            handleClick()
+            mobil()
+        });
+        });
+
+        Medlemsavgift.forEach((element) => {
+        element.addEventListener("click", () => {
+            InfoCard.innerHTML = data["Mail2"];
+            handleClick()
+            mobil()
+        });
+        });
+
+        Grasrotgiver.forEach((element) => {
+        element.addEventListener("click", () => {
+            InfoCard.innerHTML = data["Mail6"];
+            handleClick()
+            mobil()
+
+            if ( window.innerWidth < 450) {
+                    InfoCard.classList.add("width");
+                } else {
+                    InfoCard.classList.remove("width");
+            }
+        });
         });
 
         /*======== Antall Infovalg =======*/
