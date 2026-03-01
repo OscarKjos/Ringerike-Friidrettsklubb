@@ -430,12 +430,12 @@
         #GridWid{
             grid-row:5;
             grid-column:1/-1;
-            margin:20px;
+            margin:10px;
             margin-top: 0px;
             margin-bottom: 0px;
         }
 
-        #FlexNav{
+        #FlexLink{
             background-color: white;
             width:100%;
             padding:10px;
@@ -451,7 +451,7 @@
             width:100%;
         }
 
-        #FlexNav button{
+        #FlexLink button{
             text-decoration: none;
             margin-left:0px;
             color:black;
@@ -461,12 +461,12 @@
             font-size: 14px;
         }
 
-        #FlexNav button:hover{
+        #FlexLink button:hover{
             background-color: rgba(128, 128, 128, 0.116);
             border-radius: 10px;
         }
 
-        #FlexNav i{
+        #FlexLink i{
             color:var(--NyanseBlå);
             margin-right:10px;
             font-size: 15px;
@@ -563,6 +563,12 @@
                 #Pic1{
                     background-position:center 40%;
                 }
+
+                #GridWid{
+                    margin:20px;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
             }
 
         /*_______________Responsiv Desktop PC/Laptop________________*/
@@ -591,7 +597,7 @@
                 }
 
                 #GridWid{
-                    display:none
+                    display:none;
                 }
             }
     </style>
@@ -730,7 +736,7 @@
 </section>
 
     <div id="GridWid">
-        <div id="FlexNav">
+        <div id="FlexLink">
             <button class="Treningstider"><i class="fas fa-clock"></i>Treningstider</button>
             <button class="Treningsanlegg"><i class="fas fa-location-dot"></i>Treningsanlegg</button>
             <button class="Treningsopplegg"><i class="fas fa-clipboard-list"></i> Treningsopplegg</button>
@@ -755,7 +761,7 @@
             <button class="Shadowlay"></button>
             <div class="Overlay">
                 <span id="FlexNav">
-                    <h2>Navbar</h2  >
+                    <h2>Navbar</h2>
                     <button id="NavRemove"><i class="fa-solid fa-x"></i></button>
                 </span>
                     <a href="../index.html"><i class="fas fa-house"></i>Hjem</a>
@@ -765,7 +771,7 @@
                     <a href="Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
 
                     <a href="Info.html"><i class="fas fa-file-lines"></i>Info</a>
-                   
+                    
                     <a href="Nyheter.html" id="UnderNav"><i class="fas fa-newspaper"></i>Nyheter</a>
                     <a href="Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
                     <a href="Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
