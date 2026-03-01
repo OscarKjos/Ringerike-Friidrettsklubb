@@ -23,5 +23,3 @@ Shadowlay.addEventListener("click", () => {
     Shadowlay.classList.remove("show");
     TekstConf.classList.remove("CopyShow");
 });
-
-

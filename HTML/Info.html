@@ -43,8 +43,9 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            overflow-y: scroll;
-            height: 480px;
+            overflow-y: visible;
+            height: auto;
+            grid-column: 1/-1;
         }
 
         .Card{
@@ -79,16 +80,18 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            display:none;
+            grid-column: 1/-1;
         }
 
         #InfoCard{
             background-color: rgba(255, 255, 255, 0.655);
-            height: 600px;
+            height: fit-content;
             width:80%;
             margin:0px;
             padding:20px;
             border-radius: 15px;
-            overflow-y: scroll;
+            overflow-y:hidden;
             line-height: 1.6;
             padding-top:0;
         }
@@ -210,15 +213,6 @@
             display:none;
         }
 
-        #InfoGrid{
-            display:none;
-            grid-column: 1/-1;
-        }
-
-        #CardGrid{
-            grid-column: 1/-1;
-        }
-
         #Opda{
             display:none;
         }
@@ -276,6 +270,161 @@
             width:100%;
         }
 
+        .Picture{
+            width:100%;
+            border-radius: 10px;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #Pic1{
+            background-image: url(../Bilder/Løpebane2.jpeg);
+            background-position:center 25%;
+        }
+
+        #Pic2{
+            background-image: url(../Bilder/Kastrom.PNG);
+        }
+
+        #Pic3{
+            background-image: url(../Bilder/Styrkerom1.PNG);
+        }
+
+        #Pic4{
+            background-image: url(../Bilder/Vekter.PNG);
+            background-position:center 30%;
+        }
+
+        #Mellomrom{
+            width:80%;
+            border:solid var(--NyanseBlå) 1.5px;
+            border-radius: 10px;
+            opacity: 50%;
+            margin:20px;
+        }
+
+        .Strek{
+            width:100%;
+            border-radius: 10px;
+            opacity: 50%;
+        }
+
+        #BlåStrek{
+            border:solid var(--NyanseBlå) 1.5px;
+        }
+
+        #GrønStrek{
+            border:solid green 1.5px;
+        }
+
+        #GulStrek{
+            border:solid var(--NyanseGul) 1.5px;
+            opacity:90%;
+        }
+
+        #BlåMark{
+            padding:2px;
+            border-radius: 5px;
+            background-color: var(--NyanseBlå);
+            color:white;
+        }
+
+        #GreenMark{
+            padding:2px;
+            border-radius: 5px;
+            background-color: var(--NyanseGrøn);
+            color:white;
+        }
+
+
+        #FlexGrid{
+            overflow-x:scroll;
+            height: fit-content;
+            width:100%;
+
+            background-color: white;
+            margin-top:10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        #Tabell{
+            background-color: white;
+            border-collapse: collapse;
+            border-radius:10px;
+            overflow:hidden;
+            table-layout: fixed;
+            width: 280%;
+            height: 80%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        #Tabell th{
+            background-color: white;
+            border: 1px solid rgba(21, 21, 21, 0.598);
+            border-left: none;
+            border-top:none;
+            padding: 10px;
+            background-color: rgba(97, 97, 171, 0.227);
+        }
+
+        #Tabell td{
+            background-color: white;
+            border: 1px solid rgba(21, 21, 21, 0.598);
+            border-left: none;
+            border-top:none;
+            padding: 10px;
+        }
+
+        #Cardio{
+            grid-row:3;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Card p,li{
+            line-height: 1.6;
+        }
+
+        .Marko{
+            color:white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #Blue{
+            background-color: rgb(45, 143, 185);
+        }
+
+        #Yellow{
+            background-color: var(--NyanseGul);
+        }
+
+        #Purple{
+            background-color:rgb(167, 41, 167);
+        }
+
+        #Green{
+            background-color: rgb(35, 149, 35);
+        }
+
+        .sticky-col {
+            position: sticky;
+            left: -7%;
+            padding-left:0;
+            margin-left:0;
+            width:100px;
+            background-color: black;
+        }
+
+        #Tabell th.sticky-col {
+            background-color:#dbdbec;
+            z-index: 4;
+        }
+
 
         /*_______________Responsiv Desktop Ipad+________________*/
 
@@ -304,6 +453,8 @@
                     display:flex;
                     grid-column: 2;
                     padding-top:20px;
+                    overflow-y: scroll;
+                    height: 480px;
                 }
 
                 #Totalt{
@@ -315,6 +466,7 @@
                     box-shadow: var(--Skygge);
                     width:100%;
                     height: 420px;
+                    overflow-y: scroll;
                 }
 
                 #Opda{
@@ -352,6 +504,14 @@
 
                 #TopCard{
                     margin-top:0px;
+                }
+
+                .Picture{
+                    height: 300px;
+                }
+
+                #Pic1{
+                    background-position:center 40%;
                 }
             }
 
@@ -469,6 +629,36 @@
             <p id="Innhold">Grasrotandelen gir deg som spiller hos Norsk Tipping mulighet til å bestemme hvem som skal motta noe av overskuddet til Norsk Tipping</p>
             <hr>
         </div>
+
+        <div class="Card" data-id="Mail7">
+            <div id="FlexRow">
+                <p><b>Treningsanlegg</b></p>
+                <p id="Dato">01.03.26</p>
+            </div>
+            <p>Klubbens treningsfasiliteter</p>
+            <p id="Innhold">Klubben disponerer gode treningsfasiliteter som legger til rette for utvikling på alle nivåer. </p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail8">
+            <div id="FlexRow">
+                <p><b>Treningsopplegg</b></p>
+                <p id="Dato">01.03.26</p>
+            </div>
+            <p>Strukturert og variert trening</p>
+            <p id="Innhold">Klubben tilbyr et gjennomtenkt og strukturert treningsopplegg tilpasset ulike aldersgrupper og nivåer.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail9">
+            <div id="FlexRow">
+                <p><b>Treningstider</b></p>
+                <p id="Dato">01.03.26</p>
+            </div>
+            <p>Faste og oversiktlige treninger</p>
+            <p id="Innhold">Klubben har faste treningstider gjennom hele uken, tilpasset ulike aldersgrupper og nivåer.</p>
+            <hr>
+        </div>
     </div>
 
     <div id="InfoGrid">
@@ -507,11 +697,8 @@
                     <a href="Utøvere.html" id="UnderNav"><i class="fas fa-plus"></i> Utøvere</a>
 
                     <a href="Info.html"><i class="fas fa-file-lines"></i>Info</a>
-                    <a href="Treningstider.html" id="UnderNav"><i class="fas fa-clock"></i>Treningstider</a>
-                    <a href="Treningsanlegg.html" id="UnderNav"><i class="fas fa-location-dot"></i>Treningsanlegg</a>
-                    <a href="Treningsopplegg.html" id="UnderNav"><i class="fas fa-clipboard-list"></i> Treningsopplegg</a>
-
-                    <a href="Nyheter.html"><i class="fas fa-newspaper"></i>Nyheter</a>
+                   
+                    <a href="Nyheter.html" id="UnderNav"><i class="fas fa-newspaper"></i>Nyheter</a>
                     <a href="Arangement.html" id="UnderNav"><i class="fas fa-calendar-days"></i>Arangementer</a>
                     <a href="Resultater.html" id="UnderNav"><i class="fas fa-person-running"></i>Resultater</a>
                     <a href="../Admin/login.html"><i class="fas fa-lock"></i>Logg inn</a>
@@ -797,6 +984,197 @@
                 <h2>Bli Grasrotgiver og støtt klubben</h2>
                 <p id="GrasTekst">Grasrotandelen gir deg som spiller hos Norsk Tipping mulighet til å bestemme hvem som skal motta noe av overskuddet til Norsk Tipping. Hver gang du spiller går inntil 7 prosent av din spillinnsats til den grasrotmottakeren du velger - uten at det går utover din innsats, premie eller vinnersjanse.</p>
              </div>
+            `,
+
+            Mail7:`
+            <h1>Treningsanlegg og Fasiliteter</h1>
+            <p>Ringerike Friidrettsklubb tilbyr gode og allsidige treningsfasiliteter for utøvere i alle aldre og på alle nivåer. Vi har både utendørs- og innendørsanlegg som gjør det mulig å drive helårsaktivitet innen friidrett, uavhengig av vær og årstid.</p>
+            <h2>Sjongslund Løpebane</h2>
+            <p>Når værforholdene tillater det, trener vi på friidrettsbanen på Sjongslund. Banen brukes hovedsakelig i sommerhalvåret, sen vår og tidlig høst. Her gjennomfører vi løpeøkter, teknisk trening og fellesøkter i autentiske friidrettsrammer. Anlegget gir gode muligheter for både sprint, mellom- og langdistansetrening.</p>
+            <h3>Utstyr i Sjongslund</h3>
+            <ul>
+                <li>Hekker og Spyd</li>
+                <li>Kuler og Diskos</li>
+                <li>Slegge og Liten ball</li>
+                <li>Utstyr til hopp og kast</li>
+            </ul>
+            <p>I Ringerikshallen har vi også tilgang til følgende fasiliteter og utstyr.</p>
+            <div class="Picture" id="Pic1"></div>
+
+            <hr id="Mellomrom">
+
+            <h2>Kastrom – Ringerikshallen</h2>
+            <p>Klubben har eget kastrom i Ringerikshallen. Dette rommet brukes til teknisk trening innen kastøvelser og gir trygge og kontrollerte forhold for helårstrening. Kastrommet er et viktig tilbud for utøvere som driver med kastgrener, spesielt i vinterhalvåret.</p>
+            <div class="Picture" id="Pic2"></div>
+
+            <hr id="Mellomrom">
+
+            <h2>Styrkerom – Ringerikshallen</h2>
+            <p>I Ringerikshallen har vi også et eget styrkerom og treningsrom. Her gjennomfører vi felles styrketrening, skadeforebyggende økter og alternative økter som intervalltrening på tredemølle i vinterhalvåret. Rommet er godt utstyrt og tilpasset friidrettens behov, både for løp, hopp og kast.</p>
+                <h3>Utstyr & Aparater</h3>
+                <ul>
+                    <li>2 automatiserte tredemøller</li>
+                    <li>2 selvdrevende tredemøller</li>
+                    <li>1 romaskin</li>
+                    <li>Nedtrekksapparat</li>
+                    <li>Stativ og utstyr til benkpress og vektløfting</li>
+                    <li>Manualer og Kettlebells</li>
+                    <li>Medisinballer</li>
+                    <li>Treningsmatter</li>
+                    <li>Beinpressapparat</li>
+                    <li>Kasser til spenst og plyometrisk trening</li>
+                    <li>Beinsvingapparat</li>
+                </ul>
+                <p>Vi har også mye annet relevant styrke- og treningsutstyr</p>
+            <div class="Picture" id="Pic3"></div>
+
+            <hr id="Mellomrom">
+
+            <h2>Innendørs idrettsbane – Ringerikshallen</h2>
+            <p>Ringerike Friidrettsklubb har tilgang til innendørs idrettsbane i Ringerikshallen med 60 meters løpestrake. Dette gir oss svært gode treningsforhold vinterstid og gjør det mulig å opprettholde kvalitet i løpstreningen gjennom hele året.</p>
+            <div class="Picture" id="Pic4"></div>
+            `,
+
+            Mail8:`
+            <h1>Treningsopplegg</h1>
+            <p>Vi i Ringerike Friidrettsklubb ønsker å gjøre det enkelt for nye medlemmer å komme i gang. Derfor har vi beskrevet våre treningsopplegg, slik at utøvere og foresatte får et godt innblikk i hva de kan forvente av treningsmiljøet hos oss.</p>
+            
+            <h2>Rekrutter (6-11år)</h2>
+            <hr class="Strek" id="BlåStrek">
+
+            <p> Rekruttgruppen har<mark id="BlåMark">hovedfokus på lek</mark>, mestring og idrettsglede. Treningene består av varierte aktiviteter med enkle <mark id="BlåMark">stafetter, leker og øvelser</mark> som gir barna mulighet til å gjøre mye forskjellig fra gang til gang.</p>
+            <p>Selv om fokuset i stor grad er lek og moro, får rekruttene også prøve seg på de ulike grenene innen friidrett. De <mark id="BlåMark">hopper, kaster og løper</mark> gjennom enkle og tilpassede øvelser som utvikler koordinasjon, balanse og grunnleggende ferdigheter. Målet er å skape treningsglede i et trygt og inkluderende miljø.</p>
+
+            <h2>Breddegruppa</h2>
+            <hr class="Strek" id="GrønStrek">
+            <p>Breddegruppen har et <mark id="GreenMark">variert og allsidig treningsopplegg</mark> der utøverne får erfaring med flere av friidrettens øvelser. Treningene kan blant annet inneholde høydehopp, lengdehopp, hekkeløp, spydkast, sprint, intervalltrening og utholdenhet.</p>
+            <ul>
+                <li>Breddegruppen trener på mandager og onsdager.</li>
+            </ul>
+            <p>En typisk treningsøkt starter med <mark id="GreenMark">oppvarming</mark> i form av rolig jogg på cirka 2–3 km for å forberede kroppen på videre belastning.</p>
+            <p>Deretter gjennomføres <mark id="GreenMark">stigningsdrag og drilløvelser</mark>. Stigningsdragene utføres med gradvis økende fart og bidrar til å forberede kroppen på høyere intensitet og redusere skaderisiko. Drilløvelsene har som mål å forbedre løpsteknikk, koordinasjon og effektiv bevegelse.</p>
+            <p><b>Eksempel på drilløvelser:</b></p>
+                <ul> 
+                    <li>Tripplings</li>
+                    <li>Opptrekk</li>
+                    <li>Høye kneløft</li>
+                    <li>Spronglauf</li>
+                    <li>A-skip og B-skip.</li>
+                </ul>
+            <p>Hoveddelen av treningen varierer fra økt til økt, men inneholder som regel en kombinasjon av høydehopp, hekkedriller, løpsintervaller, hekkeløp og spydkast.</p>
+                
+            <h2>Ungdomsgruppen</h2>
+            <hr class="Strek" id="GulStrek">
+            <p>Ungdomsgruppen trener flere ganger i uken og har <mark id="Marked">hovedfokus på løping</mark> og intervalltrening. Gruppen trener på mandager, tirsdager, onsdager og lørdager.</p>
+            <p><b>Mandag – utholdenhet</b></p>
+            <ul>
+                <li>Oppvarming med rolig jogg (2-3 km)</li>
+                <li>Stingingsdrag, drilløvelser, beinsving og dynamisk tøying</li>
+                <li>Lange intervaller med korte pauser for å utvikle utholdenhet</li>
+            </ul>
+            <p>Eksempler på intervalløkter:</p>
+            <ul>
+                <li>6–8 × 1000 meter med 1 minutts pause (10 km-tempo)</li>
+                <li>30 sekunder løp * 30 med 30 sekunder pause (800 m-tempo)</li>
+            </ul>
+            <p>Om vinteren gjennomføres intervallene <mark id="Marked">på tredemølle</mark>, mens de om sommeren løpes <mark id="Marked">utendørs</mark> i Lunden ved Sjongslund. Økten avsluttes med lett styrke, uttøying og nedjogg.</p>
+            <p><b>Tirsdag – styrke</b></p>
+            <p>På tirsdager gjennomføres en kort og intensiv styrkeøkt med fokus på <mark id="Marked">kroppsstyrke, med eller uten vekter</mark>. Treningen inkluderer blant annet medisinballøvelser som kast i bakken og kast i vegg, samt øvelser med egen kroppsvekt som push-ups, sit-ups, russian twist og utfall.</p>
+
+            <p><b>Onsdag – hurtighet</b></p>
+            <p>Onsdager har <mark id="Marked">fokus på hurtighet</mark>. Etter en tilsvarende oppvarming som på mandagene gjennomføres kortere intervaller med lengre pauser, for eksempel 12 × 200 meter med 3 minutters pause. Økten avsluttes også her med styrke, uttøying og nedjogg.</p>
+
+            <p><b>Lørdag – bakkeintervaller</b></p>
+            <p>Bakkeintervaller for å utvikle styrke, utholdenhet og løpsteknikk</p>
+            `,
+
+            Mail9:`
+            <h1>Treningstider</h1>
+            <div id="Card">
+            <p>Vi i friidrettsklubben benytter <mark id="Marked">Spond</mark> som vårt hovedverktøy for organisering og kommunikasjon. I Spond finner du oppdatert informasjon om treninger, endringer i timeplanen, beskjeder fra trenere og påmelding til aktiviteter. Dette gjør det enkelt for både utøvere og foresatte å holde oversikt og være oppdatert.</p>
+            <p>Nedenfor finner du en oversikt og nærmere beskrivelse av når de ulike treningene holdes, tilpasset de forskjellige gruppene i klubben.</p>
+            <p><b>PS:</b> Vær oppmerksom på at treningstidene kan variere eller utgå. Eventuelle endringer vil alltid bli varslet i Spond.</p>
+            <h3>Treningsgrupper</h3>
+        <ul>
+            <li><p><b>Rekrutter:</b> Trening avholdes bare mandager.</p></li>
+            <li><p><b>Breddegruppa:</b> Fellestrening avholdes mandager og onsdager. Medlemmer i breddegruppa er også hjertelig velkommen på tirsdags- og lørdagstreninger dersom dette er ønskelig.</p></li>
+            <li><p><b>Ungdomsgruppen:</b> Organisert trening avholdes mandager, tirsdager, onsdager og lørdager.</p></li>
+        </ul>
+        <p>Nedenfor finner du en tabell med full oversikt over treningstidene. ( Scroll mot høyre 👉 )</p>
+        </div>
+        
+        <hr>
+
+        <div id="Card">
+            <h3>Hvordan trener vi?</h3>
+            <ul>
+                <li><b>Mandag:</b> Fellestrening for alle grupper.</li>
+                <li><b>Tirsdag:</b> Basistrening og styrketrening, med ekstra fokus på løpsteknikk, core og ulike drilløvelser.</li>
+                <li><b>Onsdag:</b> Fellestrening for alle grupper.</li>
+                <li><b>Lørdag:</b> Bakkeintervaller med fokus på utholdenhet og styrke</li>
+            </ul>
+        </div>
+
+        <hr>
+
+    <section id="FlexGrid">
+    <table id="Tabell">
+        <tr>
+            <th class="sticky-col">Type:</th>
+            <th>Mandag</th>
+            <th>Tirsdag</th>
+            <th>Onsdag</th>
+            <th>Torsdag</th>
+            <th>Fredag</th>
+            <th>Lørdag</th>
+            <th>Søndag</th>
+        </tr>
+
+        <tr>
+            <td class="sticky-col"><mark class="Marko" id="Blue">Rekrutter</mark></td>
+            <td>18:00 - 19:30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="sticky-col"><mark class="Marko" id="Green">Breddegruppa</mark></td>
+            <td>18:00 - 19:30</td>
+            <td></td>
+            <td>18:30 - 20:00</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="sticky-col"><mark class="Marko" id="Purple">Kastgruppen</mark></td>
+            <td>18:00 - 19:30</td>
+            <td></td>
+            <td>18:30 - 20:00</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="sticky-col"><mark class="Marko" id="Yellow">Ungdomsgruppen</mark></td>
+            <td>18:00 - 19:30</td>
+            <td>17:00 - 18:30</td>
+            <td>18:30 - 20:00</td>
+            <td></td>
+            <td></td>
+            <td>11:00 - 12:30</td>
+            <td></td>
+        </tr>
+    </table>
+    </section>
             `
         }
 
@@ -810,6 +1188,16 @@
                 const id = card.dataset.id;
                 const content = data[id];
                 InfoCard.innerHTML = content;
+
+                InfoCard.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gir myk scrolling
+                });
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth" // Gir myk scrolling
+                });
 
                 if (id === "Mail6" && window.innerWidth < 450) {
                     InfoCard.classList.add("width");
