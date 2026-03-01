@@ -253,17 +253,27 @@
         }
 
         #GrasGrid{
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            margin:20px;
+            width:100%;
+            margin-top:20px;
         }
 
         #GrasCard{
-            margin:30px;
-            padding:20px;
+            margin-top:20px;
+            padding:10px;
             border-radius: 10px;
             background-color: #f7f5fa;
+            margin:10px;
+        }
+
+        #GrasGrid iframe {
+            width: 100%;
+            max-width: 100%;
+            border: none;
+        }
+
+        #InfoCard.width{
+            padding:0px;
+            width:100%;
         }
 
 
@@ -272,6 +282,13 @@
             @media (min-width:450px){
                 .Card{
                     width:80%;
+                }
+
+                #GrasCard{
+                    margin:10px;
+                    padding:20px;
+                    border-radius: 10px;
+                    background-color: #f7f5fa;
                 }
 
                 #NavGrid{
@@ -773,7 +790,7 @@
 
             Mail6:`
             <div id="GrasGrid">
-                <iframe title="Grasrotandelen" frameborder="0" height="600px" scrolling="yes" src="https://www.norsk-tipping.no/grasrotandelen/statistikk/iframe/985500436" width="100%" style="border-radius: 5px;"></iframe>
+                <iframe title="Grasrotandelen" frameborder="0" height="600px" scrolling="yes" src="https://www.norsk-tipping.no/grasrotandelen/statistikk/iframe/985500436" width:"100%" style="border-radius: 5px;"></iframe>
              </div>
 
              <div id="GrasCard">
@@ -793,6 +810,13 @@
                 const id = card.dataset.id;
                 const content = data[id];
                 InfoCard.innerHTML = content;
+
+                if (id === "Mail6" && window.innerWidth < 450) {
+                    InfoCard.classList.add("width");
+                } else {
+                    InfoCard.classList.remove("width");
+                }
+
 
                 if (window.innerWidth < 450) {
                     InfoGrid.style.display = "flex"
