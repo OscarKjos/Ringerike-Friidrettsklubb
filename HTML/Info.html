@@ -252,6 +252,20 @@
             margin-top:20px;
         }
 
+        #GrasGrid{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            margin:20px;
+        }
+
+        #GrasCard{
+            margin:30px;
+            padding:20px;
+            border-radius: 10px;
+            background-color: #f7f5fa;
+        }
+
 
         /*_______________Responsiv Desktop Ipad+________________*/
 
@@ -426,6 +440,16 @@
             </div>
             <p>Til utøver/forelder</p>
             <p id="Innhold">Friidrett består av mange ulike øvelser med egne regler. Her finner du en enkel forklaring på de viktigste reglene i løp, hopp og kast.</p>
+            <hr>
+        </div>
+
+        <div class="Card" data-id="Mail6">
+            <div id="FlexRow">
+                <p><b>Bli Grasrotgiver</b></p>
+                <p id="Dato">01.03.26</p>
+            </div>
+            <p>Støtt klubben i ditt hjerte</p>
+            <p id="Innhold">Grasrotandelen gir deg som spiller hos Norsk Tipping mulighet til å bestemme hvem som skal motta noe av overskuddet til Norsk Tipping</p>
             <hr>
         </div>
     </div>
@@ -746,6 +770,17 @@
                     En <strong>personlig rekord (pers)</strong> betyr at du har oppnådd ditt beste resultat noensinne i øvelsen.<br><br>
                     Det er viktig å huske på at det er helt normalt å ha både gode og mindre gode dager.</p>
             `,
+
+            Mail6:`
+            <div id="GrasGrid">
+                <iframe title="Grasrotandelen" frameborder="0" height="600px" scrolling="yes" src="https://www.norsk-tipping.no/grasrotandelen/statistikk/iframe/985500436" width="100%" style="border-radius: 5px;"></iframe>
+             </div>
+
+             <div id="GrasCard">
+                <h2>Bli Grasrotgiver og støtt klubben</h2>
+                <p id="GrasTekst">Grasrotandelen gir deg som spiller hos Norsk Tipping mulighet til å bestemme hvem som skal motta noe av overskuddet til Norsk Tipping. Hver gang du spiller går inntil 7 prosent av din spillinnsats til den grasrotmottakeren du velger - uten at det går utover din innsats, premie eller vinnersjanse.</p>
+             </div>
+            `
         }
 
         const Card = document.querySelectorAll(".Card");

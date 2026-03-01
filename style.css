@@ -1476,7 +1476,7 @@
     #ArrangementImport{
         grid-row:11;
         grid-column: 1/-1;
-        gap:5px;
+        gap:0px;
         margin-bottom: 20px;
     }
 
@@ -1490,12 +1490,12 @@
 
 @media (min-width:850px){
     .NyhetsCard{
-        width:27%;
+        width:30%;
     }
 
     .OverCard{
         justify-content: space-evenly;
-        width:25%;
+        width:28%;
     }
 
     #TEXTPC{
