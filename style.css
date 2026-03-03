@@ -132,13 +132,15 @@
     align-items: center;
     justify-content: left;
     gap:15px;
-
 }
 
 .Boks p{
     margin:5px;
     font-weight: 600;
     font-size: clamp(15px,4.5vw,20px);
+    display:flex;
+    align-items: center;
+    height: 35px;
 }
 
 #SkriftoFlex{
@@ -303,6 +305,7 @@
     background-color: rgba(245, 245, 245, 0.7);
     padding:10px;
     border-radius: 20px;
+    font-size: 18px;
 }
 
 #MotiTekst{
@@ -452,11 +455,6 @@
 #FlipStyle2{
     right:0;
     top:40%;
-}
-
-#Liten{
-    gap:0;
-    font-size: 14px;
 }
 
 #GrenWeb{
@@ -1063,15 +1061,6 @@
         height: 70px;
         display:flex;
         align-items: center;
-    }
-    
-
-    #Liten{
-        gap:0px;
-    }
-
-    #Liten p{
-        font-size: 14px;
     }
 
     #GridHead{
