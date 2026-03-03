@@ -123,11 +123,9 @@
 .Boks{
     width:100%;
     background-color:white;
-    height: 40%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: var(--Skygge);
-
     display:flex;
     align-items: center;
     justify-content: left;
