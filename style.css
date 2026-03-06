@@ -909,6 +909,7 @@
 
         #SupaBaseImport{
             margin:8px;
+            margin-bottom: 0;
         }
 
         .IconEvent{
@@ -1074,6 +1075,7 @@
             width:80%;
             color:#8288b3;
             margin-top:0;
+            font-size: 17px;
         }
 
         #Ikon{
@@ -1103,6 +1105,7 @@
             padding:10px;
             background-color: var(--NyanseGul);
             color:white;
+            font-size: 16px;
         }
 
         #Overflexo{
