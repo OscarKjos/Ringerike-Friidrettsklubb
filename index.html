@@ -237,7 +237,7 @@
     </section>
 
     <div id="Parento" class="Popup">
-        <img id="Bilde" class="Nyhetsbilde" src="Bilder/ForsideBildeNyhet.png">
+        <img id="Bilde" class="Nyhetsbilde" src="Bilder/NyForside.jpg">
         <img id="ErstatoBilde" class="ONLYIPPC" src="Bilder/UtøverBilde.png">
 
         <div id="Childo">
@@ -312,6 +312,34 @@
 
         -->
     </section>
+
+    <div id="PlaceGrid">
+        <img id="Bildeo" src="Bilder/Trenermøte.webp">
+        <div id="TabFlex">
+            <h2 id="TabSkrift"><img id="Ikon" src="Bilder/Ikoner/NyhetIkon.webp">Aktuelle Nyheter</h2>
+            <hr id="Mellomrom">
+            
+        </div>
+        <div id="IntaFlex">
+        <div id="IntaCard">
+            <div id="Overflexo">
+                <i class="fa-solid fa-newspaper"></i>
+                <p>Nyheter</p>
+            </div>
+            <a href="HTML/Nyheter.html"><button>Besøk nå <i class="fa-solid fa-chevron-right"></i></button></a>
+        </div>
+        </div>
+    </div>
+
+    <div id="IntaFlex">
+        <div id="IntaCard">
+            <div id="Overflexo">
+                <i class="fa-solid fa-calendar-days"></i>
+                <p>Arrangementer</p>
+            </div>
+            <a href="HTML/Arangement.html"><button>Besøk nå <i class="fa-solid fa-chevron-right"></i></button></a>
+        </div>
+    </div>
 
     <section id="ArrangementImport" class="Popup">
          <!-- (Slik ser HTML strukteren ut. Dataen blir hentet fra en database med js)
@@ -495,6 +523,9 @@
 
             data.forEach(nyhet => {
 
+                const contain = document.createElement('div')
+                contain.className = 'OverNews'
+
                 const div = document.createElement('div')
                 div.className = 'NyhetsCard'
 
@@ -503,7 +534,10 @@
 
                 div.innerHTML = `
                     <h3>${nyhet.tittel}</h3>
-                    <p class="Dato">${datoNorsk}</p>
+                    <div class="FlexDate">
+                        <p class="Dato">${datoNorsk}</p>
+                        <a href="HTML/Nyheter.html"><button id="Besøk">Besøk Nå <i class="fa-solid fa-chevron-right"></i></button></a>
+                    </div>
                     <p class="MainTekst">${nyhet.innhold}</p>
                 `
                 // Bilde
@@ -519,10 +553,15 @@
 
             div.addEventListener("click", () => {
                 Info.classList.toggle("TextShow");
+                const NyhetsCard = document.querySelectorAll(".NyhetsCard");
+                NyhetsCard.forEach(klikk => {
+                    klikk.style.height = "auto";
+                });
             });
 
             // Legger alt inn i div
-                Import.appendChild(div);
+                contain.appendChild(div);
+                Import.appendChild(contain);
         });
         }
         FørsteNyhet() /* Kjører funksjonen */
@@ -584,6 +623,11 @@
             const Beskrivelse = card.querySelector(".Besk");
                 card.addEventListener("click", () => {
                     Beskrivelse.classList.toggle("BeskShow");
+                
+                const CardEvent = document.querySelectorAll(".CardEvent");
+                CardEvent.forEach(klikk => {
+                    klikk.style.height = "auto";
+                });
             });
         });
         }
