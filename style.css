@@ -443,17 +443,20 @@
     border:none;
     font-size: 25px;
     background-color: rgb(241, 239, 239);
-    color:black;
+    color:rgba(0, 0, 0, 0.793);
+    z-index: 200;
+    width:30px;
+    height:30px;
     touch-action: manipulation;
 }
 
 #FlipStyle{
-    left:0;
+    left:1%;
     top:40%;
 }
 
 #FlipStyle2{
-    right:0;
+    right:1%;
     top:40%;
 }
 
@@ -762,10 +765,10 @@
             border:none;
             font-size: 25px;
             background-color: rgb(241, 239, 239);
-            color:black;
+            color:rgba(0, 0, 0, 0.793);
             z-index: 200;
-            width:30px;
-            height:35px;
+            width:35px;
+            height:40px;
 
             display:flex;
             justify-content: center;
