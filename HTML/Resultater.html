@@ -366,8 +366,9 @@
             const { data, error } = await supabase  /* "Await" setter funksjonen på vent til den er ferdig*/
                 .from('Resultater')
                 .select('stevne, dato, utøver, øvelse, resultat')
+                .ilike('klubb_id', '%RFIK%')
                 .order('dato', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
-                
+                    
             if (error) {
                 console.error('Feil ved henting:', error)
                 return

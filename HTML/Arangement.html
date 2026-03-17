@@ -299,6 +299,7 @@
                 .from('Arrangementer')
                 .select('type, dato, klokkeslett, sted, gruppe, beskrivelse')
                 .order('dato', { ascending: false })
+                .ilike('klubb_id', '%RFIK%')
                 .range(from,from+limit-1)
 
             if (data.length < limit) {

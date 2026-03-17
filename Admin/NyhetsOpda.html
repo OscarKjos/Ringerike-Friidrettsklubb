@@ -115,6 +115,16 @@
     </div>
     </div>
 
+    <script>
+        const form = document.getElementById("nyhetsSkjema");
+        const Submit = document.getElementById("Submit");
+
+        form.addEventListener("submit", () => {
+            Submit.disabled = true;
+            Submit.innerText = "Sender...";
+        });
+    </script>
+
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
@@ -161,11 +171,13 @@
     // Lagre nyhet (med eller uten bilde)
     const { error } = await supabase
         .from('Nyheter')
-        .insert([{ tittel, innhold, bilde: bildeUrl }])
+        .insert([{ tittel, innhold, bilde: bildeUrl, klubb_id:"RFIK"}])
 
     if (error) {
+        Submit.innerText = "Noe gikk galt";
         alert('Feil: ' + error.message)
     } else {
+        Submit.innerText = "Lagret ✓";
         alert('Nyheten ble lagt til!')
         window.location.href = 'Admin.html'
     }

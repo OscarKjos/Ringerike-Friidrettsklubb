@@ -181,6 +181,15 @@
     </div>
     </div>
 
+     <script>
+        const form = document.getElementById("nyhetsSkjema");
+        const Submit = document.getElementById("Submit");
+
+        form.addEventListener("submit", () => {
+            Submit.disabled = true;
+            Submit.innerText = "Sender...";
+        });
+    </script>
     <script type="module">
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
@@ -199,11 +208,13 @@
 
             const { error } = await supabase
                 .from('Resultater')
-                .insert([{ stevne:Stevne, dato:Dato, utøver:Utøver, øvelse:Øvelse, resultat:Resultat }])
+                .insert([{ stevne:Stevne, dato:Dato, utøver:Utøver, øvelse:Øvelse, resultat:Resultat, klubb_id:"RFIK"}])
 
             if (error) {
+                Submit.innerText = "Noe gikk galt";
                 alert('Feil: ' + error.message)
             } else {
+                Submit.innerText = "Lagret ✓";
                 alert('Resultatet ble lagt til!')
                 window.location.href = 'Admin.html'
             }

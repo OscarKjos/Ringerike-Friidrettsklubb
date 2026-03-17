@@ -406,6 +406,7 @@
                 .from('Utøvere')
                 .select('Navn, Gruppe, Kategori, Alder')
                 .order('id', { ascending: true })
+                .ilike('klubb_id', '%RFIK%')
                 .range(fra, til)
 
             if(data.length < limit){

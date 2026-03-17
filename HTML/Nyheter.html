@@ -356,6 +356,7 @@
                 .from('Nyheter')
                 .select('tittel, dato, innhold, bilde')
                 .order('dato', { ascending: false })  /* Bestemmer i hvilken rekkefølge elementene vises */
+                .ilike('klubb_id', '%RFIK%')
                 .range(from,from+limit-1)
 
             if(data.length < limit){

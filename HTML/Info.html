@@ -1387,6 +1387,26 @@
 
         InfoAntall.textContent = antall
 
+
+        /*======== Søkemeny =======*/
+        const Søkbar = document.getElementById("Søkbar");
+        const Cardo  = document.querySelectorAll(".Card");
+
+        Søkbar.addEventListener("input", () => {
+            const søk = Søkbar.value.toLowerCase();
+
+            Cardo.forEach((element) => {
+
+                const text = element.textContent.toLowerCase();
+
+            if(text.includes(søk)){
+                element.style.display = "block"
+            }
+            else{
+                element.style.display = "none"
+            }
+        });
+        });
     </script>
 </body>
 </html>
